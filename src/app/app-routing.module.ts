@@ -11,18 +11,23 @@ import { ProyectoSaveComponent } from './Component/proyecto-save/proyecto-save.c
 import { RegisterComponent } from './Component/register/register.component';
 import { SeguimientoProyectoComponent } from './Component/seguimiento-proyecto/seguimiento-proyecto.component';
 
+
+import { AuthGuard } from './guard/auth.guard';
+
+ 
+
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'home',component:HomeComponent},
-  {path: 'participacion', component:ParticipacionComponent},
-  {path: 'seguimiento-proyecto', component:SeguimientoProyectoComponent},
-  {path: 'direccion', component:DireccionProyectoComponent},
-  {path: 'proyecto-save', component:ProyectoSaveComponent},
-  {path:'acta',component:ActaComponent},
-  {path:'misproyectos',component:MisProyectosComponent},
-  {path:'proyectos',component:ProyectosComponent},
+  {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
+  {path: 'participacion', component:ParticipacionComponent,canActivate:[AuthGuard]},
+  {path: 'seguimiento-proyecto', component:SeguimientoProyectoComponent,canActivate:[AuthGuard]},
+  {path: 'direccion', component:DireccionProyectoComponent,canActivate:[AuthGuard]},
+  {path: 'proyecto-save', component:ProyectoSaveComponent,canActivate:[AuthGuard]},
+  {path:'acta',component:ActaComponent,canActivate:[AuthGuard]},
+  {path:'misproyectos',component:MisProyectosComponent,canActivate:[AuthGuard]},
+  {path:'proyectos',component:ProyectosComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

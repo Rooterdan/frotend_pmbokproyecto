@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/domain/user';
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
+    
   }
   
 
@@ -35,8 +37,11 @@ export class LoginComponent implements OnInit {
         console.log('****************');
         console.log(ok);
         this.messages[0]="Usuario encontrado";
+      
         if (ok.password ===this.usuarios.password){
           this.messages[0]="Cargando pantalla ...";
+          localStorage.setItem("usuario",JSON.stringify(this.usuarios));
+          this.router.navigate(['/home']);
 
         }else{
           this.messages[0]="Error en constraseña";
