@@ -10,23 +10,47 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  public email:string = "";
-  public password:string = "";
+  public email: string = "";
+  public password: string = "";
 
-  public msg:string="";
-  public showMsg:boolean=false;
+  public msg: string = "";
+  public showMsg: boolean = false;
   public messages: String[] = [];
-  public usuario!: Usuario;
+  public usuarios: Usuario= new Usuario("","","","","") ;
 
-  constructor(public usuarioService:UsuarioService,
-    public router:Router) { }
+  constructor(
+    public usuarioService: UsuarioService,
+    public router: Router) { }
 
   ngOnInit(): void {
   }
+  
 
-  public login():void{
-    if((this.email == "admin1@admin.com" && this.password == "password") || (this.email=="admin2@admin.com" && this.password=="admin2")){
-        this.router.navigate(['/home'])
-    }
+
+  public ingresar(): void {
+    this.usuarios;
+    console.log(this.usuarios); 
+    this.usuarioService.findById(this.usuarios.email).subscribe(
+      ok=>{
+        console.log('****************');
+        console.log(ok);
+        this.messages[0]="Usuario encontrado";
+        if (ok.password ===this.usuarios.password){
+          this.messages[0]="Cargando pantalla ...";
+
+        }else{
+          this.messages[0]="Error en constraseña";
+        }
+        
+        this.showMsg=true;
+        
+      },
+      err=>{
+        console.log(err.error.error);
+        
+        this.showMsg=true;
+        this.messages=err.error.error;
+        }
+    );
   }
 }

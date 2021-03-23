@@ -8,7 +8,7 @@ import { Proyecto } from '../domain/proyectos';
   providedIn: 'root'
 })
 export class ProyectosService {
-  private url:string=environment.apiUrl+'api/proyecto/'
+  private url:string=environment.apiUrl+'proyecto/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -25,7 +25,8 @@ export class ProyectosService {
 
   public findAll():Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findAll');
+    console.log(this.url+'findByAll')
+    return this.httpClient.get(this.url+'findByAll');
   }
 
   public findById(idproyecto:number):Observable<any>{

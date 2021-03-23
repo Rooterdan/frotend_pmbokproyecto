@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActaComponent } from './Component/acta/acta.component';
 import { DireccionProyectoComponent } from './Component/direccion-proyecto/direccion-proyecto.component';
 import { HomeComponent } from './Component/home/home.component';
+import { MisProyectosComponent } from './Component/home/mis-proyectos/mis-proyectos.component';
+import { ProyectosComponent } from './Component/home/proyectos/proyectos.component';
 import { LoginComponent } from './Component/login/login.component';
 import { ParticipacionComponent } from './Component/participacion/participacion.component';
 import { ProyectoSaveComponent } from './Component/proyecto-save/proyecto-save.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path: 'direccion', component:DireccionProyectoComponent},
   {path: 'proyecto-save', component:ProyectoSaveComponent},
   {path:'acta',component:ActaComponent},
+  {path:'misproyectos',component:MisProyectosComponent},
+  {path:'proyectos',component:ProyectosComponent},
 ];
 
 @NgModule({

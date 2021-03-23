@@ -1,0 +1,47 @@
+<head>
+    
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<div class="espacio">
+    <table class="table">
+        <!--
+        <div *ngIf="showMsg">
+            <p *ngFor="let msg of messages">
+                {{msg}}
+            </p>
+
+        </div>-->
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">estado</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let proyecto of proyectos">
+            <td th scope="row">{{proyecto.nombre}}</td>
+            <td th scope="row">{{proyecto.descripcion}}</td>
+            <td th scope="row">{{proyecto.admin}}</td>
+            <td>
+
+                <button (click)="delete(proyecto.idproyecto)" type="button" class="btn btn-danger btn-number"
+                    data-type="minus">
+                    delete
+                </button>
+
+                <button (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)" type="button" class="btn btn-warning"
+                    data-type="minus">
+                    Cambiar estado
+                </button>
+            </td>
+
+        </tr>
+
+
+    </table>
+</div>

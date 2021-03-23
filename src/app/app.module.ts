@@ -17,6 +17,15 @@ import { ActaComponent } from './Component/acta/acta.component';
 import { DireccionProyectoComponent } from './Component/direccion-proyecto/direccion-proyecto.component';
 import { SeguimientoProyectoComponent } from './Component/seguimiento-proyecto/seguimiento-proyecto.component';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
+import { MaterilaModule } from "./material.modules";
+import { ProyectosComponent } from './Component/home/proyectos/proyectos.component';
+import { MisProyectosComponent } from './Component/home/mis-proyectos/mis-proyectos.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +37,24 @@ import { SeguimientoProyectoComponent } from './Component/seguimiento-proyecto/s
     ProyectoSaveComponent,
     ActaComponent,
     DireccionProyectoComponent,
-    SeguimientoProyectoComponent
+    SeguimientoProyectoComponent,
+    ProyectosComponent,
+    MisProyectosComponent,
+    //MatTableModule
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    //---------------------
+    FormsModule,
+    //Agnular Material
+    MaterilaModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    BrowserAnimationsModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
