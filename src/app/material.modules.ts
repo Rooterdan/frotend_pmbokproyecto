@@ -11,7 +11,7 @@ import { MatTabsModule } from '@angular/material/tabs';
         //Agnular Material
         MatFormFieldModule,
         MatIconModule,
-        MatCardModule,
+        //MatCardModule,
         //MatTabsModule,
         MatTableModule
          

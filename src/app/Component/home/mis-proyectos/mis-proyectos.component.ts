@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/domain/proyectos';
 import { ProyectosService } from 'src/app/service/proyectos.service';
 
@@ -11,7 +12,8 @@ export class MisProyectosComponent implements OnInit {
   public showMsg: boolean = false;
   public messages: string[] = [""];
   constructor(
-    public proyectoServices: ProyectosService
+    public proyectoServices: ProyectosService,
+    public router: Router
   ) { }
 
   public proyectos !: Proyecto[];
@@ -30,6 +32,8 @@ export class MisProyectosComponent implements OnInit {
         console.log("Error en FINDALL");
       });
   }
+ 
+
 
   public delete(id: number): void {
     window.location.reload();
@@ -52,8 +56,11 @@ export class MisProyectosComponent implements OnInit {
 
 
   public entrarProyecto(nombre: string, idproyecto: number): void {
-
-    window.location.reload();
+    
+    localStorage.setItem("nombreProyecto",nombre);
+    localStorage.setItem("idproyecto",idproyecto.toString());
+    this.router.navigate(['/seguimiento-proyecto']);
+    //window.location.reload();
   }
 
 

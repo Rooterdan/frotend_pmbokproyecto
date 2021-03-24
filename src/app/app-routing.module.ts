@@ -13,6 +13,11 @@ import { SeguimientoProyectoComponent } from './Component/seguimiento-proyecto/s
 
 
 import { AuthGuard } from './guard/auth.guard';
+import { ActasComponent } from './pmbokStep/actas/actas.component';
+import { EntradasComponent } from './pmbokStep/actas/entradas/entradas.component';
+import { CasoNegocioComponent } from './pmbokStep/actas/caso-negocio/caso-negocio.component';
+import { HerramientasActaComponent } from './pmbokStep/actas/herramientas-acta/herramientas-acta.component';
+import { PlanGestioBeneficio } from './domain/plangestionbeneficio';
 
  
 
@@ -28,6 +33,18 @@ const routes: Routes = [
   {path:'acta',component:ActaComponent,canActivate:[AuthGuard]},
   {path:'misproyectos',component:MisProyectosComponent,canActivate:[AuthGuard]},
   {path:'proyectos',component:ProyectosComponent,canActivate:[AuthGuard]},
+  /**
+   * actas de inicion
+   */
+   {path:'Actas',component:ActasComponent,canActivate:[AuthGuard]},
+   {path:'actas/entradas',component:EntradasComponent,canActivate:[AuthGuard]},
+   {path:'actas/entradas/caso-negocio',component:CasoNegocioComponent,canActivate:[AuthGuard]},
+   {path:'actas/entradas/plan-gestion-beneficio',component:PlanGestioBeneficio,canActivate:[AuthGuard]},
+   {path:'actas/herramientas',component:HerramientasActaComponent,canActivate:[AuthGuard]},
+
+  /**
+   * Fin actas de inicion
+   */
 ];
 
 @NgModule({

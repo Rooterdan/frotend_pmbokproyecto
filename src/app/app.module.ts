@@ -24,7 +24,13 @@ import { ProyectosComponent } from './Component/home/proyectos/proyectos.compone
 import { MisProyectosComponent } from './Component/home/mis-proyectos/mis-proyectos.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActasComponent } from './pmbokStep/actas/actas.component';
+import { EntradasComponent } from './pmbokStep/actas/entradas/entradas.component';
+import { CasoNegocioComponent } from './pmbokStep/actas/caso-negocio/caso-negocio.component';
+import { PlanGestionBeneficiosComponent } from './pmbokStep/actas/plan-gestion-beneficios/plan-gestion-beneficios.component';
+import { HerramientasActaComponent } from './pmbokStep/actas/herramientas-acta/herramientas-acta.component';
 //import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SeguimientoProyectoComponent,
     ProyectosComponent,
     MisProyectosComponent,
-    //MatTableModule
+    ActasComponent,
+    EntradasComponent,
+    CasoNegocioComponent,
+    PlanGestionBeneficiosComponent,
+    HerramientasActaComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +63,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterilaModule,
     MatFormFieldModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    //MatTableModule
+    MatCardModule
     
     
   ],

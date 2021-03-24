@@ -40,7 +40,8 @@ export class LoginComponent implements OnInit {
       
         if (ok.password ===this.usuarios.password){
           this.messages[0]="Cargando pantalla ...";
-          localStorage.setItem("usuario",JSON.stringify(this.usuarios));
+          localStorage.setItem("usuario",this.usuarios.email);
+          localStorage.setItem("pass",this.usuarios.password);
           this.router.navigate(['/home']);
 
         }else{

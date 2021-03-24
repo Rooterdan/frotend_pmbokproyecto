@@ -1,10 +1,14 @@
 <head>
-    
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 </head>
+
+<button (click)="buscarProyectos()" type="button" class="btn btn-warning" data-type="minus">
+    Actualizar
+</button>
 <div class="espacio">
     <table class="table">
         <!--
@@ -31,12 +35,12 @@
 
                 <button (click)="delete(proyecto.idproyecto)" type="button" class="btn btn-danger btn-number"
                     data-type="minus">
-                    delete
+                    eliminar proyecto
                 </button>
 
-                <button (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)" type="button" class="btn btn-warning"
-                    data-type="minus">
-                    Cambiar estado
+                <button (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)" type="button"
+                    class="btn btn-warning" data-type="minus">
+                    Ver Proyecto
                 </button>
             </td>
 
