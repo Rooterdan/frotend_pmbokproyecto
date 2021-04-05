@@ -8,7 +8,7 @@ import { Reunion } from '../domain/reunion';
   providedIn: 'root'
 })
 export class ReunionService {
-  private url:string=environment.apiUrl+'api/reunion/'
+  private url:string=environment.apiUrl+'Reunion/'
   
 
   constructor(public httpClient:HttpClient) { }

@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 
 export class ActasService {
 
-  private url:string=environment.apiUrl+'api/actas/'
+  private url:string=environment.apiUrl+'acta/'
   
 
   constructor(public httpClient:HttpClient) { }

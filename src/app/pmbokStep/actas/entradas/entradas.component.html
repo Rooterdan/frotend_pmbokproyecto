@@ -4,15 +4,27 @@
             <mat-card-title>Acuerdos Para El acta del proyecto</mat-card-title>
             <mat-card-content>
                 <mat-form-field appearance="outline">
-                    <textarea matInput placeholder="entradas...."></textarea>
+
+
+
+
+                    <div *ngIf="acuerdosEnable; else NotAcuerdos">
+                        <textarea [(ngModel)]="entradaActa.acuerdos" matInput placeholder="entradas...."></textarea>
+                    </div>
+
+                    <ng-template #NotAcuerdos>
+                        <textarea disabled matInput placeholder="entradas....">{{entradaActa.acuerdos}}</textarea>
+                    </ng-template>
+
+
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
             </mat-card-content>
-    
+
             <mat-card-actions>
                 <button mat-button>BORRAR</button>
-                <button mat-button>GUARDAR</button>
+                <button (click)="guardarAcuerdos()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
@@ -25,15 +37,26 @@
             <mat-card-title>Factores Ambientales para El acta del proyecto </mat-card-title>
             <mat-card-content>
                 <mat-form-field appearance="outline">
-                    <textarea matInput placeholder="Factores...."></textarea>
+                    <div *ngIf="factoresEnable; else Notfactores">
+                        <textarea [(ngModel)]="entradaActa.factores" matInput placeholder="Factores...."></textarea>
+                    </div>
+
+                    <ng-template #Notfactores>
+                        <textarea disabled matInput placeholder="entradas....">{{entradaActa.factores}}</textarea>
+                    </ng-template>
+
+
+
+
+
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
             </mat-card-content>
-    
+
             <mat-card-actions>
                 <button mat-button>BORRAR</button>
-                <button mat-button>GUARDAR</button>
+                <button (click)="guardarFactores()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
@@ -46,15 +69,40 @@
             <mat-card-title>Procesos Activos Para El acta del proyecto</mat-card-title>
             <mat-card-content>
                 <mat-form-field appearance="outline">
-                    <textarea matInput placeholder="Procesos...."></textarea>
+
+                    <div *ngIf="activosEnable; else Notactivosprocesos">
+                        <textarea [(ngModel)]="entradaActa.activosprocesos" matInput
+                            placeholder="Procesos...."></textarea>
+                    </div>
+
+                    <ng-template #Notactivosprocesos>
+                        <textarea disabled matInput
+                            placeholder="entradas....">{{entradaActa.activosprocesos}}</textarea>
+                    </ng-template>
+
+
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                     <mat-hint>Hint</mat-hint>
                 </mat-form-field>
             </mat-card-content>
-    
+
             <mat-card-actions>
                 <button mat-button>BORRAR</button>
-                <button mat-button>GUARDAR</button>
+                <button (click)="guardarActivos()" mat-button>GUARDAR</button>
+            </mat-card-actions>
+        </p>
+    </mat-card>
+</div>
+
+<div class="centrado">
+    <mat-card>
+        <p>
+            <mat-card-title>Guardar informacion del acta</mat-card-title>
+            <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
+
+            <mat-card-actions>
+                
+                <button (click)="guardarActa()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>

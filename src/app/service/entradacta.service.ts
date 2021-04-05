@@ -9,43 +9,47 @@ import { EntradaActa } from '../domain/entradacta';
 })
 export class EntradactaService {
 
-  private url:string=environment.apiUrl+'api/entradactas/'
-  
-
-  constructor(public httpClient:HttpClient) { }
-
-/*
-  createTokenHeader():HttpHeaders{
-    let token=localStorage.getItem('token');
-    //console.log(token)
-    let headers=new HttpHeaders({'Authorization':token});
-    return headers;
-  }
-*/
+  private url: string = environment.apiUrl + 'EntradasActa/'
 
 
-  public findAll():Observable<any>{
+  constructor(public httpClient: HttpClient) { }
+
+  /*
+    createTokenHeader():HttpHeaders{
+      let token=localStorage.getItem('token');
+      //console.log(token)
+      let headers=new HttpHeaders({'Authorization':token});
+      return headers;
+    }
+  */
+
+
+  public findAll(): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findAll');
+    return this.httpClient.get(this.url + 'findAll');
   }
 
-  public findById(identrada:number):Observable<any>{
+  public findById(identrada: number): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+identrada);
+    return this.httpClient.get(this.url + 'findById/' + identrada);
   }
 
-  public save(entradacta:EntradaActa):Observable<any>{
+  public save(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',entradacta);
+    console.log(entradacta.acuerdos);
+    console.log(entradacta.factores);
+    console.log(entradacta.activosprocesos);
+    console.log(entradacta.identrada);
+    return this.httpClient.post(this.url + 'save', entradacta);
   }
 
-  public update(entradacta:EntradaActa):Observable<any>{
+  public update(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',entradacta);
+    return this.httpClient.put(this.url + 'update', entradacta);
   }
 
-  public delete(identrada:number):Observable<any>{
-   // let header=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+identrada);
+  public delete(identrada: number): Observable<any> {
+    // let header=this.createTokenHeader();
+    return this.httpClient.delete(this.url + 'delete/' + identrada);
   }
 }
