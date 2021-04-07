@@ -2,10 +2,10 @@ export class Reunion{
 
     constructor(
         public idreuniones:number,
-        public nombreReunion:string,
-        public descripcion:string,
-        public ProyectoId:number,
-        public FaseProyectoId:number,
+        public nombrereunion:string,
+        public descripcionreunion:string,
+        public idproyecto:number,
+        public idfase:number,
     ){
 
     }

@@ -8,7 +8,7 @@ import { HerramientasActa } from '../domain/herramientasactas';
   providedIn: 'root'
 })
 export class HerramientasactaService {
-  private url:string=environment.apiUrl+'api/herramientasactas/'
+  private url:string=environment.apiUrl+'herramientasActa/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -30,7 +30,7 @@ export class HerramientasactaService {
 
   public findById(idherramienta:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+idherramienta);
+    return this.httpClient.get(this.url+'finById/'+idherramienta);
   }
 
   public save(herramientasactas:HerramientasActa):Observable<any>{

@@ -31,7 +31,7 @@ export class EntradactaService {
 
   public findById(identrada: number): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url + 'findById/' + identrada);
+    return this.httpClient.get(this.url + 'finById/' + identrada);
   }
 
   public save(entradacta: EntradaActa): Observable<any> {

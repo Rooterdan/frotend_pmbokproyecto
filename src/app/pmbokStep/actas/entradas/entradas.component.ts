@@ -83,22 +83,30 @@ export class EntradasComponent implements OnInit {
     console.log('0');
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
+
     if (idProyecto > 0) {
 
-      console.log('1');
+      console.log('->1');
       this.crearReunion(idProyecto);
-      this.crearActa();
+       this.crearActa();
       console.log('2');
 
       x = localStorage.getItem("idactas");
       var idActa = Number(x);
-      this.entradaActa.idactas = idActa;
-
+      this.entradaActa.idActa = idActa;
+      /*public identrada:number,
+        public acuerdos:string,
+        public factores:string,
+        public activosprocesos:string,
+        public idActa:number*/
+      this.entradaActa.identrada=0;
       this.entradactaService.save(this.entradaActa).subscribe(
         ok => {
           console.log('3');
           console.log(ok);
-          this.messages[0] = "El Product Se grabo Correctamente";
+          window.alert("Nueva acta guardada ");
+          window.location.reload();
+
         },
         err => {
           console.log(err.error.error);
@@ -111,7 +119,7 @@ export class EntradasComponent implements OnInit {
   }
 
   /*
-  nO DEVUVLE IDREUNIONES
+    nO DEVUVLE IDREUNIONES
   */
   public crearReunion(ProyectoId: number) {
     /*
@@ -122,15 +130,15 @@ export class EntradasComponent implements OnInit {
       public FaseProyectoId:number,
     */
     console.log('crearReunion');
-    this.reunion = new Reunion(0, this.nombreReunion, this.descripcion, ProyectoId, 1);
+    this.reunion = new Reunion(0,"Reunion Generica", "Sin descripción", ProyectoId, 1);
 
     this.reunionService.save(this.reunion).subscribe(
       data => {
         console.log(data);
 
         this.messages[0] = "El Product Se grabo Correctamente";
-        console.log(data);
-        console.log(data.idreuniones);
+        console.log('data: '+data);
+        console.log('data Reuniones : '+data.idreuniones);
         localStorage.setItem("idreunion", data.idreuniones);
       },
 
@@ -151,8 +159,9 @@ export class EntradasComponent implements OnInit {
     var idReunion = Number(x);
 
 
-    localStorage.getItem
+    console.log("numero de la reunion  "+idReunion );
     this.acta = new Actas(0, idReunion);
+    console.log('mandando nueva acta ');
     this.actaService.save(this.acta).subscribe(
       data => {
         console.log(data);

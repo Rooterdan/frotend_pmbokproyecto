@@ -9,7 +9,7 @@ import { CasoNegocio } from '../domain/casonegocio';
 })
 export class CasonegocioService {
 
-  private url:string=environment.apiUrl+'api/casonegocio/'
+  private url:string=environment.apiUrl+'CasoNegocio/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -31,7 +31,7 @@ export class CasonegocioService {
 
   public findById(id_caso_negocio:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+id_caso_negocio);
+    return this.httpClient.get(this.url+'finById/'+id_caso_negocio);
   }
 
   public save(casonegocio:CasoNegocio):Observable<any>{

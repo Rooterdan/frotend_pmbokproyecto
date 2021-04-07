@@ -9,7 +9,7 @@ import { PlanGestioBeneficio } from '../domain/plangestionbeneficio';
 })
 export class PlangestionbeneficioService {
 
-  private url:string=environment.apiUrl+'api/plangestionbeneficio/'
+  private url:string=environment.apiUrl+'PlanGestionBeneficios/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -31,7 +31,7 @@ export class PlangestionbeneficioService {
 
   public findById(id_plan_gb:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+id_plan_gb);
+    return this.httpClient.get(this.url+'finById/'+id_plan_gb);
   }
 
   public save(plangestionbeneficio:PlanGestioBeneficio):Observable<any>{

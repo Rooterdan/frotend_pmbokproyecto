@@ -31,6 +31,11 @@ import { PlanGestionBeneficiosComponent } from './pmbokStep/actas/plan-gestion-b
 import { HerramientasActaComponent } from './pmbokStep/actas/herramientas-acta/herramientas-acta.component';
 //import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { EntradaComponent } from './presentacion/actas/entrada/entrada.component';
+import { HerramientasComponent } from './presentacion/actas/herramientas/herramientas.component';
+import { CasoNegociosComponent } from './presentacion/actas/caso-negocios/caso-negocios.component';
+import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vista.component';
+import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,11 @@ import {MatCardModule} from '@angular/material/card';
     CasoNegocioComponent,
     PlanGestionBeneficiosComponent,
     HerramientasActaComponent,
+    EntradaComponent,
+    HerramientasComponent,
+    CasoNegociosComponent,
+    ActasVistaComponent,
+    PlanGestionComponent,
     
   ],
   imports: [
