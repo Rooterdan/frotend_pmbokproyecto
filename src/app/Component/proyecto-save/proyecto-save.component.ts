@@ -31,7 +31,14 @@ export class ProyectoSaveComponent implements OnInit {
       ok => {
         this.notificacion[0] = ok;
         this.proyecto = new Proyecto();
+        setTimeout(
+          ()=> {
+            console.log('Recargando');
+          }
+        );
+        window.location.reload();
         this.router.navigate(['/home']);
+        
 
       }, err => {
         console.log(err.error.error);

@@ -11,5 +11,4 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

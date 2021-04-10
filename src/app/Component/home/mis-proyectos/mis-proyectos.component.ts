@@ -24,15 +24,17 @@ export class MisProyectosComponent implements OnInit {
 
   public buscarProyectos(): void {
 
-    this.proyectoServices.findAll().subscribe(
+    this.proyectoServices.findByEmail(
+      localStorage.getItem("usuario") || ''
+    ).subscribe(
       data => {
         this.proyectos = data;
       },
       error => {
-        console.log("Error en FINDALL");
+        console.log("Error en "+ error);
       });
   }
- 
+
 
 
   public delete(id: number): void {
@@ -56,9 +58,9 @@ export class MisProyectosComponent implements OnInit {
 
 
   public entrarProyecto(nombre: string, idproyecto: number): void {
-    
-    localStorage.setItem("nombreProyecto",nombre);
-    localStorage.setItem("idproyecto",idproyecto.toString());
+
+    localStorage.setItem("nombreProyecto", nombre);
+    localStorage.setItem("idproyecto", idproyecto.toString());
     this.router.navigate(['/seguimiento-proyecto']);
     //window.location.reload();
   }
