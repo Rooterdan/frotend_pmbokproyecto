@@ -23,8 +23,8 @@ export class CasoNegociosComponent implements OnInit {
     para hacer un FindByAI
     */
 
-    var idEntradaActa = 3;
-    this.casoNegocioService.findById(idEntradaActa).subscribe(
+    var idEntradaActa =  JSON.parse(localStorage.getItem('idproyecto ') || '');
+    this.casoNegocioService.findherramientaDelActa(idEntradaActa).subscribe(
       data => {
         console.log('---------------------------- '+data.metas);
         this.datosCasoNegocio = data;

@@ -24,8 +24,8 @@ export class PlanGestionComponent implements OnInit {
     para hacer un FindByAI
     */
 
-    var idPlan = 1;
-    this.planService.findById(idPlan).subscribe(
+    var idPlan =  JSON.parse(localStorage.getItem('idproyecto ') || '');
+    this.planService.findplanGestionDelActa(idPlan).subscribe(
       data => {
         console.log(data);
         this.datosPlan = data;

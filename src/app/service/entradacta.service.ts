@@ -33,6 +33,10 @@ export class EntradactaService {
     //let header=this.createTokenHeader();
     return this.httpClient.get(this.url + 'finById/' + identrada);
   }
+  public findEntradaDelActa(idProyecto:number):Observable<any>{
+    //let header=this.createTokenHeader();
+    return this.httpClient.get(this.url+'entradaDelActa/'+idProyecto);
+  }
 
   public save(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();

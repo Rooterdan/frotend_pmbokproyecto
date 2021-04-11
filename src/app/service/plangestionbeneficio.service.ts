@@ -34,6 +34,10 @@ export class PlangestionbeneficioService {
     return this.httpClient.get(this.url+'finById/'+id_plan_gb);
   }
 
+  public findplanGestionDelActa(idProyecto:number):Observable<any>{
+    //let header=this.createTokenHeader();
+    return this.httpClient.get(this.url+'planGestionDelActa/'+idProyecto);
+  }
   public save(plangestionbeneficio:PlanGestioBeneficio):Observable<any>{
     //let header=this.createTokenHeader();
     return this.httpClient.post(this.url+'save',plangestionbeneficio);

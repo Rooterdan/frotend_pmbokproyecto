@@ -33,6 +33,10 @@ export class CasonegocioService {
     //let header=this.createTokenHeader();
     return this.httpClient.get(this.url+'finById/'+id_caso_negocio);
   }
+  public findherramientaDelActa(idProyecto:number):Observable<any>{
+    //let header=this.createTokenHeader();
+    return this.httpClient.get(this.url+'herramientaDelActa/'+idProyecto);
+  }
 
   public save(casonegocio:CasoNegocio):Observable<any>{
     //let header=this.createTokenHeader();

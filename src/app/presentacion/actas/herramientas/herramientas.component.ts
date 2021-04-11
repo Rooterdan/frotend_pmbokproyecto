@@ -19,13 +19,10 @@ export class HerramientasComponent implements OnInit {
   }
 
   public buscarherramientasPorActa() {
-    /*
-    Se debe tener previamente cargado el ID del acta
-    para hacer un FindByAI
-    */
+  
 
-    var idEntrada = 1;
-    this.herramientasService.findById(idEntrada).subscribe(
+    var idEntrada =  JSON.parse(localStorage.getItem('idproyecto ') || '');
+    this.herramientasService.findherramientaDelActa(idEntrada).subscribe(
       data => {
         console.log(data);
         this.datosHerramientas = data;

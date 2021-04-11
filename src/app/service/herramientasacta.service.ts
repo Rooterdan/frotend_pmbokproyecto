@@ -33,6 +33,12 @@ export class HerramientasactaService {
     return this.httpClient.get(this.url+'finById/'+idherramienta);
   }
 
+  public findherramientaDelActa(idProyecto:number):Observable<any>{
+    //let header=this.createTokenHeader();
+    return this.httpClient.get(this.url+'herramientaDelActa/'+idProyecto);
+  }
+
+
   public save(herramientasactas:HerramientasActa):Observable<any>{
     //let header=this.createTokenHeader();
     return this.httpClient.post(this.url+'save',herramientasactas);

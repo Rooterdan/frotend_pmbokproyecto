@@ -18,13 +18,10 @@ export class EntradaComponent implements OnInit {
   }
 
   public buscarEntradaPorActa() {
-    /*
-    Se debe tener previamente cargado el ID del acta
-    para hacer un FindByAI
-    */
+    //revisar bien la variable
+    var idActa = JSON.parse(localStorage.getItem('idproyecto ') || '');
 
-    var idActa = 15;
-    this.entradaService.findById(idActa).subscribe(
+    this.entradaService.findEntradaDelActa(idActa).subscribe(
       data => {
         console.log(data);
         this.datosEntrada = data;
