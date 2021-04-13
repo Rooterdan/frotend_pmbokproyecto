@@ -40,6 +40,7 @@ export class PlangestionbeneficioService {
   }
   public save(plangestionbeneficio:PlanGestioBeneficio):Observable<any>{
     //let header=this.createTokenHeader();
+    console.log('.........',plangestionbeneficio);
     return this.httpClient.post(this.url+'save',plangestionbeneficio);
   }
 

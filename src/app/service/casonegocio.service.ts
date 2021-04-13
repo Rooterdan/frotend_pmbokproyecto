@@ -35,7 +35,8 @@ export class CasonegocioService {
   }
   public findherramientaDelActa(idProyecto:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'herramientaDelActa/'+idProyecto);
+    console.log("se fue con el id",idProyecto)
+    return this.httpClient.get(this.url+'casoNegocioDelActa/'+idProyecto);
   }
 
   public save(casonegocio:CasoNegocio):Observable<any>{

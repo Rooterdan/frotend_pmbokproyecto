@@ -40,10 +40,12 @@ export class EntradactaService {
 
   public save(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
+    console.log('-------------------');
     console.log(entradacta.acuerdos);
     console.log(entradacta.factores);
     console.log(entradacta.activosprocesos);
     console.log(entradacta.identrada);
+    console.log('-------------------');
     return this.httpClient.post(this.url + 'save', entradacta);
   }
 

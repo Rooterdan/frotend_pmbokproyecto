@@ -20,12 +20,13 @@ export class HerramientasComponent implements OnInit {
 
   public buscarherramientasPorActa() {
   
-
-    var idEntrada =  JSON.parse(localStorage.getItem('idproyecto ') || '');
-    this.herramientasService.findherramientaDelActa(idEntrada).subscribe(
+    console.log('->>>>> buscarherramientasPorActa');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
+    console.log('->>>>>',idproyecto);
+    this.herramientasService.findherramientaDelActa(idproyecto).subscribe(
       data => {
         console.log(data);
-        this.datosHerramientas = data;
+        this.datosHerramientas = data[0];
       },
 
       err => {

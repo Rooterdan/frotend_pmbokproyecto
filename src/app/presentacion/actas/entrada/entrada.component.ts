@@ -19,12 +19,19 @@ export class EntradaComponent implements OnInit {
 
   public buscarEntradaPorActa() {
     //revisar bien la variable
-    var idActa = JSON.parse(localStorage.getItem('idproyecto ') || '');
 
-    this.entradaService.findEntradaDelActa(idActa).subscribe(
+
+    console.log('->>>>> buscarEntradaPorActa');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
+    console.log('->>>>>',idproyecto);
+
+    this.entradaService.findEntradaDelActa(idproyecto).subscribe(
       data => {
+        console.log('data'); 
         console.log(data);
-        this.datosEntrada = data;
+        console.log(data[0]);
+        console.log('data');
+        this.datosEntrada = data[0];
       },
 
       err => {

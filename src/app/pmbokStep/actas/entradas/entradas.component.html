@@ -5,9 +5,6 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
 
-
-
-
                     <div *ngIf="acuerdosEnable; else NotAcuerdos">
                         <textarea [(ngModel)]="entradaActa.acuerdos" matInput placeholder="entradas...."></textarea>
                     </div>
@@ -23,7 +20,7 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <button mat-button>BORRAR</button>
+
                 <button (click)="guardarAcuerdos()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
@@ -55,7 +52,7 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <button mat-button>BORRAR</button>
+
                 <button (click)="guardarFactores()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
@@ -87,7 +84,7 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <button mat-button>BORRAR</button>
+
                 <button (click)="guardarActivos()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
@@ -101,7 +98,7 @@
             <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
 
             <mat-card-actions>
-                
+
                 <button (click)="guardarActa()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>

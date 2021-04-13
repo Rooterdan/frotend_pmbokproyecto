@@ -22,12 +22,16 @@ export class CasoNegociosComponent implements OnInit {
     Se debe tener previamente cargado el ID del acta
     para hacer un FindByAI
     */
-
-    var idEntradaActa =  JSON.parse(localStorage.getItem('idproyecto ') || '');
-    this.casoNegocioService.findherramientaDelActa(idEntradaActa).subscribe(
+    console.log('->>>>>buscarCasoDeNegocioPorEntrada');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
+    console.log('->>>>>',idproyecto);
+    this.casoNegocioService.findherramientaDelActa(idproyecto).subscribe(
       data => {
-        console.log('---------------------------- '+data.metas);
-        this.datosCasoNegocio = data;
+        console.log('data'); 
+        console.log(data);
+        console.log(data[0]);
+        console.log('data');
+        this.datosCasoNegocio = data[0];
       },
 
       err => {
