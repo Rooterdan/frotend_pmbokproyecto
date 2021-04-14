@@ -58,6 +58,10 @@ export class MisProyectosComponent implements OnInit {
 
 
   public entrarProyecto(nombre: string, idproyecto: number): void {
+    localStorage.removeItem('idactas');
+    localStorage.removeItem('idreunion');
+    localStorage.removeItem('entradaActaId');
+    
 
     localStorage.setItem("nombreProyecto", nombre);
     localStorage.setItem("idproyecto", idproyecto.toString());

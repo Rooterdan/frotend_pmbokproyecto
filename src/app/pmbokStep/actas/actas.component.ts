@@ -18,8 +18,23 @@ export class ActasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.disableOpciones();
   }
 
+  public disableOpciones() {
+    if (
+      localStorage.getItem('idactas') == null &&
+      localStorage.getItem('idreunion') == null &&
+      localStorage.getItem('entradaActaId') == null 
+    ) {
+      return true
+
+    }else{
+      return false;
+    }
+
+
+  }
   public entradaM(): void {
     this.falseTotal();
     this.entrada = true;

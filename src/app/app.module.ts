@@ -36,6 +36,9 @@ import { HerramientasComponent } from './presentacion/actas/herramientas/herrami
 import { CasoNegociosComponent } from './presentacion/actas/caso-negocios/caso-negocios.component';
 import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vista.component';
 import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -75,7 +78,9 @@ import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-ges
     MatTabsModule,
     BrowserAnimationsModule,
     //MatTableModule
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatGridListModule
     
     
   ],

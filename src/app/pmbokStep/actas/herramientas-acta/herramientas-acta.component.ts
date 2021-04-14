@@ -18,6 +18,8 @@ export class HerramientasActaComponent implements OnInit {
 
   public messages: string[] = [""];
 
+  public cargaEnable:boolean=true;
+  
   constructor(
     public herrmientasServices: HerramientasactaService,
     public entradactaService: EntradactaService
@@ -25,6 +27,12 @@ export class HerramientasActaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cargaEnable=true;
+    setTimeout(() => {
+      console.log('cargando');
+     
+      this.cargaEnable=false;
+    }, 2000);
     this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0);
   }
   public guardarHerramientas() {

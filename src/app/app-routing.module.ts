@@ -43,11 +43,11 @@ const routes: Routes = [
   /**
    * actas de inicion
    */
-  { path: 'Actas', component: ActasComponent, canActivate: [AuthGuard] },
-  { path: 'actas/entradas', component: EntradasComponent, canActivate: [AuthGuard] },
-  { path: 'actas/entradas/caso-negocio', component: CasoNegocioComponent, canActivate: [AuthGuard] },
-  { path: 'actas/entradas/plan-gestion-beneficio', component: PlanGestioBeneficio, canActivate: [AuthGuard] },
-  { path: 'actas/herramientas', component: HerramientasActaComponent, canActivate: [AuthGuard] },
+  { path: 'Actas', component: ActasComponent},
+  { path: 'actas/entradas', component: EntradasComponent},
+  { path: 'actas/entradas/caso-negocio', component: CasoNegocioComponent },
+  { path: 'actas/entradas/plan-gestion-beneficio', component: PlanGestioBeneficio },
+  { path: 'actas/herramientas', component: HerramientasActaComponent},
   /**
    * Vistas de presentacion de Informacion de las Actas
    */

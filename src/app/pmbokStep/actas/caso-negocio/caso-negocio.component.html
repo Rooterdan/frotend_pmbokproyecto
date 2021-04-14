@@ -1,4 +1,130 @@
-<div class="centrado">
+<div *ngIf="cargaEnable; else DataEntrada">
+    <mat-spinner color="warn"></mat-spinner>
+
+
+</div>
+
+<ng-template #DataEntrada>
+
+    <mat-grid-list cols="2" rowHeight="2:2">
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Metas El acta del proyecto</mat-card-title>
+                    <mat-card-content>
+
+
+                        <div *ngIf="metas; else Notmetas">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.metas" matInput placeholder="metas...."></textarea>
+                        </div>
+
+                        <ng-template #Notmetas>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="metas....">{{casoMegocio.metas}}</textarea>
+                        </ng-template>
+
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarmetas()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Objetivos para El acta del proyecto </mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="objetivos; else Notobjetivos">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.objetivos" matInput placeholder="objetivos...."></textarea>
+                        </div>
+
+                        <ng-template #Notobjetivos>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="objetivos....">{{casoMegocio.objetivos}}</textarea>
+                        </ng-template>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarobjetivos()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Objetivos para El acta del proyecto </mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="objetivos; else Notobjetivos">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.objetivos" matInput placeholder="objetivos...."></textarea>
+                        </div>
+
+                        <ng-template #Notobjetivos>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="objetivos....">{{casoMegocio.objetivos}}</textarea>
+                        </ng-template>
+
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarobjetivos()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Oportunidades para El acta del proyecto</mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="oportunidades; else Notoportunidades">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.oportunidades" matInput placeholder="oportunidades...."></textarea>
+                        </div>
+
+                        <ng-template #Notoportunidades>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="oportunidades....">{{casoMegocio.oportunidades}}</textarea>
+                        </ng-template>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardaroportunidades()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Guardar informacion del acta</mat-card-title>
+                    <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarCasoNegocio()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+
+
+
+
+    </mat-grid-list>
+</ng-template>
+<!--<div class="centrado">
     <mat-card>
         <p>
             <mat-card-title>Metas El acta del proyecto</mat-card-title>
@@ -6,11 +132,11 @@
                 <mat-form-field appearance="outline">
 
                     <div *ngIf="metas; else Notmetas">
-                        <textarea [(ngModel)]="casoMegocio.metas" matInput placeholder="metas...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.metas" matInput placeholder="metas...."></textarea>
                     </div>
 
                     <ng-template #Notmetas>
-                        <textarea disabled matInput placeholder="metas....">{{casoMegocio.metas}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="metas....">{{casoMegocio.metas}}</textarea>
                     </ng-template>
 
 
@@ -19,7 +145,7 @@
 
             <mat-card-actions>
 
-                <button  (click)="guardarmetas()" mat-button>GUARDAR</button>
+                <button (click)="guardarmetas()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
@@ -33,11 +159,11 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="objetivos; else Notobjetivos">
-                        <textarea [(ngModel)]="casoMegocio.objetivos" matInput placeholder="objetivos...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.objetivos" matInput placeholder="objetivos...."></textarea>
                     </div>
 
                     <ng-template #Notobjetivos>
-                        <textarea disabled matInput placeholder="objetivos....">{{casoMegocio.objetivos}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="objetivos....">{{casoMegocio.objetivos}}</textarea>
                     </ng-template>
 
                 </mat-form-field>
@@ -45,7 +171,7 @@
 
             <mat-card-actions>
 
-                <button  (click)="guardarobjetivos()" mat-button>GUARDAR</button>
+                <button (click)="guardarobjetivos()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
@@ -59,18 +185,18 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="incidentes; else Notincidentess">
-                        <textarea [(ngModel)]="casoMegocio.incidentes" matInput placeholder="incidentes...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.incidentes" matInput placeholder="incidentes...."></textarea>
                     </div>
 
                     <ng-template #Notincidentess>
-                        <textarea disabled matInput placeholder="incidentes....">{{casoMegocio.incidentes}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="incidentes....">{{casoMegocio.incidentes}}</textarea>
                     </ng-template>
                 </mat-form-field>
             </mat-card-content>
 
             <mat-card-actions>
 
-                <button  (click)="guardarincidentes()" mat-button>GUARDAR</button>
+                <button (click)="guardarincidentes()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
@@ -84,23 +210,24 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="oportunidades; else Notoportunidades">
-                        <textarea [(ngModel)]="casoMegocio.oportunidades" matInput placeholder="oportunidades...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.oportunidades" matInput placeholder="oportunidades...."></textarea>
                     </div>
 
                     <ng-template #Notoportunidades>
-                        <textarea disabled matInput placeholder="oportunidades....">{{casoMegocio.oportunidades}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="oportunidades....">{{casoMegocio.oportunidades}}</textarea>
                     </ng-template>
                 </mat-form-field>
             </mat-card-content>
 
             <mat-card-actions>
 
-                <button  (click)="guardaroportunidades()" mat-button>GUARDAR</button>
+                <button (click)="guardaroportunidades()" mat-button>GUARDAR</button>
             </mat-card-actions>
         </p>
     </mat-card>
 
-</div>
+</div>  
+
 <div class="centrado">
     <mat-card>
         <p>
@@ -113,4 +240,4 @@
             </mat-card-actions>
         </p>
     </mat-card>
-</div>
+</div>-->

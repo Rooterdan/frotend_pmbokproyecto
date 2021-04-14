@@ -19,12 +19,23 @@ export class PlanGestionBeneficiosComponent implements OnInit {
   public servicios: boolean = true;
   public resultado: boolean = true;
   public messages: string[] = [""];
+
+  public cargaEnable:boolean=true;
+
+
   constructor(
     public planesService: PlangestionbeneficioService,
     public entradactaService: EntradactaService
   ) { }
 
   ngOnInit(): void {
+    this.cargaEnable=true;
+    setTimeout(() => {
+      console.log('cargando');
+     
+      this.cargaEnable=false;
+    }, 2000);
+    
     this.planObje = new PlanGestioBeneficio(0, 0, "", "", "", "","");
 
   }

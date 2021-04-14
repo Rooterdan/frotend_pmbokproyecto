@@ -4,8 +4,9 @@ import { MatIconModule } from "@angular/material/icon"; // <----- Here
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
-
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
     imports: [
         //Agnular Material
@@ -13,7 +14,10 @@ import { MatTabsModule } from '@angular/material/tabs';
         MatIconModule,
         //MatCardModule,
         //MatTabsModule,
-        MatTableModule
+        MatTableModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatGridListModule
          
         
     ],

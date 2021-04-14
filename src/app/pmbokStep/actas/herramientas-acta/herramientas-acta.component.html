@@ -1,3 +1,124 @@
+<div *ngIf="cargaEnable; else DataEntrada">
+    <mat-spinner color="warn"></mat-spinner>
+
+
+</div>
+<ng-template #DataEntrada>
+
+    <mat-grid-list cols="2" rowHeight="2:2">
+
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Juicio De Expertos El acta del proyecto</mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="juicioexpertos; else Notjuicioexpertos">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos" matInput placeholder="juicioexpertos...."></textarea>
+                        </div>
+
+                        <ng-template #Notjuicioexpertos>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="juicioexpertos....">{{herramientasObje.juicioexpertos}}</textarea>
+                        </ng-template>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarjuicioexpertos()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Recopilacion de Datos para El acta del proyecto </mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="recopilaciondatos; else Notrecopilaciondatos">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="recopilaciondatos...."></textarea>
+                        </div>
+
+                        <ng-template #Notrecopilaciondatos>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="recopilaciondatos....">{{herramientasObje.recopilaciondatos}}</textarea>
+                        </ng-template>
+
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarrecopilaciondatos()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Habilidades del grupo Para El acta del proyecto</mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="habilidades; else Nothabilidades">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.habilidades" matInput placeholder="habilidades...."></textarea>
+                        </div>
+
+                        <ng-template #Nothabilidades>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="habilidades....">{{herramientasObje.habilidades}}</textarea>
+                        </ng-template>
+
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarhabilidades()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Herramientas de Reuniones implementadas para El acta del proyecto</mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="herramientareuniones; else Notherramientareuniones">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="herramientareuniones...."></textarea>
+                        </div>
+
+                        <ng-template #Notherramientareuniones>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="herramientareuniones....">{{herramientasObje.herramientareuniones}}</textarea>
+                        </ng-template>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarherramientareuniones()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Guardar informacion del acta</mat-card-title>
+                    <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarHerramientas()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ng-template>
+
+
+<!-- 
 <div class="centrado">
     <mat-card>
         <p>
@@ -5,11 +126,11 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="juicioexpertos; else Notjuicioexpertos">
-                        <textarea [(ngModel)]="herramientasObje.juicioexpertos" matInput placeholder="juicioexpertos...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos" matInput placeholder="juicioexpertos...."></textarea>
                     </div>
 
                     <ng-template #Notjuicioexpertos>
-                        <textarea disabled matInput placeholder="juicioexpertos....">{{herramientasObje.juicioexpertos}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="juicioexpertos....">{{herramientasObje.juicioexpertos}}</textarea>
                     </ng-template>
                 </mat-form-field>
             </mat-card-content>
@@ -30,11 +151,11 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="recopilaciondatos; else Notrecopilaciondatos">
-                        <textarea [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="recopilaciondatos...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="recopilaciondatos...."></textarea>
                     </div>
 
                     <ng-template #Notrecopilaciondatos>
-                        <textarea disabled matInput placeholder="recopilaciondatos....">{{herramientasObje.recopilaciondatos}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="recopilaciondatos....">{{herramientasObje.recopilaciondatos}}</textarea>
                     </ng-template>
 
                 </mat-form-field>
@@ -56,11 +177,11 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="habilidades; else Nothabilidades">
-                        <textarea [(ngModel)]="herramientasObje.habilidades" matInput placeholder="habilidades...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.habilidades" matInput placeholder="habilidades...."></textarea>
                     </div>
 
                     <ng-template #Nothabilidades>
-                        <textarea disabled matInput placeholder="habilidades....">{{herramientasObje.habilidades}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="habilidades....">{{herramientasObje.habilidades}}</textarea>
                     </ng-template>
 
                 </mat-form-field>
@@ -82,11 +203,11 @@
             <mat-card-content>
                 <mat-form-field appearance="outline">
                     <div *ngIf="herramientareuniones; else Notherramientareuniones">
-                        <textarea [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="herramientareuniones...."></textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="herramientareuniones...."></textarea>
                     </div>
 
                     <ng-template #Notherramientareuniones>
-                        <textarea disabled matInput placeholder="herramientareuniones....">{{herramientasObje.herramientareuniones}}</textarea>
+                        <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="herramientareuniones....">{{herramientasObje.herramientareuniones}}</textarea>
                     </ng-template>
                 </mat-form-field>
             </mat-card-content>
@@ -110,4 +231,4 @@
             </mat-card-actions>
         </p>
     </mat-card>
-</div>
+</div>-->

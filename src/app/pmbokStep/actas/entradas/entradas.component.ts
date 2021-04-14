@@ -13,6 +13,7 @@ import { ActasService } from 'src/app/service/actas.service';
   templateUrl: './entradas.component.html',
   styleUrls: ['./entradas.component.css']
 })
+
 export class EntradasComponent implements OnInit {
   public entradaActa !: EntradaActa;
   public reunion !: Reunion;
@@ -24,6 +25,9 @@ export class EntradasComponent implements OnInit {
   public factoresEnable: boolean = true;
   public activosEnable: boolean = true;
   public messages: string[] = [""];
+
+
+  public cargaEnable: boolean = true;
   constructor(
 
     public entradactaService: EntradactaService,
@@ -34,6 +38,12 @@ export class EntradasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cargaEnable = true;
+    setTimeout(() => {
+      console.log('cargando');
+      this.cargaEnable = false;
+    }, 2000);
+
     this.entradaActa = new EntradaActa(0, "", "", "", 0);
     this.acta = new Actas(0, 0);
 
@@ -41,134 +51,123 @@ export class EntradasComponent implements OnInit {
   }
 
   public guardarActa(): void {
-    /*
-    pasos
-    1. extraer en numero el id del proyecto 
-      1.1 usar el id del proyecto para crear una reunion (predefinida)
-      1.2 usar el id 1 de la fase como (Fase estatica, o generica)
 
-    2. obtener el ID de la reunion y guardarla en el locasstore
-
-    3. con la reunion realizada, ahora seguirá crear el ACTA del proyecto con el idReunion
-    */
-    console.log('0');
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
-
     if (idProyecto > 0) {
 
-      console.log('->1');
+
       this.crearReunion(idProyecto);
-      console.log('salio de reunion');
-      this.crearActa();
-      console.log('salio de crear acta');
-      console.log('2');
 
-      x = localStorage.getItem("idactas");
-      var idActa = Number(x);
-      if (idActa > 0) {
-        this.entradaActa.idActa = idActa;
-        /*public identrada:number,
-          public acuerdos:string,
-          public factores:string,
-          public activosprocesos:string,
-          public idActa:number*/
-        this.entradaActa.identrada = 0;
-        this.entradactaService.save(this.entradaActa).subscribe(
-          data => {
-            console.log('3');
-            console.log(data);
-            window.alert("Nueva acta guardada ");
-
-            localStorage.setItem("entradaActaId", data.identrada);
-            window.location.reload();
+      //this.crearActa();
 
 
-          },
-          err => {
-            console.log(err.error.error);
-
-            this.messages = err.error.error;
-          }
-        );
-      }else {
-        window.alert('error en el identificador del ACTA');
-      }
     } else {
       window.alert('Seleccione un proyecto');
     }
 
   }
 
-  /*
-    nO DEVUVLE IDREUNIONES
-  */
   public crearReunion(ProyectoId: number) {
-    /*
-      public idreuniones:number,
-      public nombreReunion:string,
-      public descripcion:string,
-      public ProyectoId:number,
-      public FaseProyectoId:number,
-    */
-    console.log('crearReunion');
+    console.log('--------- public crearReunion(');
     this.reunion = new Reunion(0, "Reunion Generica", "Sin descripción", ProyectoId, 1);
 
     this.reunionService.save(this.reunion).subscribe(
       data => {
-        console.log(data);
-
-        this.messages[0] = "El Product Se grabo Correctamente";
-        console.log('data: ' + data);
+        console.log('data de reuniones para EL ACTA****');
         console.log('data Reuniones : ' + data.idreuniones);
         localStorage.setItem("idreunion", data.idreuniones);
+        console.log('*************');
+        console.log(localStorage.getItem("idreunion"));
+        console.log('*************');
+        this.crearActa(data.idreuniones);
+
       },
 
       err => {
-        console.log(err.error.error);
+        console.log('error en la reuniones', err.error.error);
 
         this.messages = err.error.error;
       }
     );
+
   }
+  public xxx(cosa: any) {
+    console.log('metodod xxx', cosa);
 
-  /*
-  Crear el Acta nos devuelce IDACTAS
-  */
-  public crearActa() {
-    console.log('crearActa');
-    let y = localStorage.getItem("idreunion");
-    var idReunionLoca = Number(y);
+  }
+  public crearActa(cosa: any) {
+
+    console.log('--------- public crearActa(');
+    console.log('-> reuniones en Acta', cosa);
+    localStorage.setItem("idreunion", cosa);
+    console.log('-> idReunionLoca ', localStorage.getItem("idreunion"));
 
 
-    console.log("numero de la reunion  " + idReunionLoca);
-    this.acta = new Actas(0, idReunionLoca);
-    this.acta.idreuniones = idReunionLoca;
-    console.log(this.acta);
-    console.log('mandando nueva acta ');
 
-    if (this.acta.idreuniones == null || this.acta.idreuniones == 0) {
+    if (this.acta.idreuniones == null) {
       window.alert('ERROR EN EL IDENTIFICADOR DE LAS REUNIONES');
     } else {
+      this.acta.idreuniones = cosa;
+      console.log(this.acta);
       this.actaService.save(this.acta).subscribe(
         data => {
-          console.log(data);
-
-          this.messages[0] = "Se grabo Correctamente";
+          console.log('data de creacion de un  ACTA');
           console.log(data);
           console.log(data.idactas);
           localStorage.setItem("idactas", data.idactas);
+          this.crearEntrada(data.idactas);
         },
         err => {
-          console.log(err.error.error);
+          console.log('erroe en craciones del ACTA', err.error.error);
 
           this.messages = err.error.error;
         }
       );
+
     }
   }
 
+  public crearEntrada(iDacta: any) {
+    console.log('IDE DE LA ACTA PARA GRABAR LA ENTRADA DEL ACTA : ', iDacta)
+    if (iDacta > 0) {
+      this.entradaActa.identrada = 0;
+      this.entradaActa.idActa = iDacta;
+      /*public identrada:number,
+        public acuerdos:string,
+        public factores:string,
+        public activosprocesos:string,
+        public idActa:number*/
+      console.log(this.entradaActa);
 
+      this.entradactaService.save(this.entradaActa).subscribe(
+        data => {
+          console.log('data de ENTRADA DEL ACTA');
+          console.log(data);
+          this.grabarEntrada(data.identrada);
+          window.alert("Nueva acta guardada ");
+          
+          
+          window.location.reload();
+
+
+        },
+        err => {
+          console.log('ERROR EN ENTRADA DEL ACTA',
+            err.error.error);
+
+          this.messages = err.error.error;
+        }
+      );
+    } else {
+      window.alert('error en el identificador del ACTA');
+    }
+  }
+  public grabarEntrada(identrada: any){
+    console.log('*** id de la entrdaa grabda:',identrada)
+    localStorage.setItem("entradaActaId", String(identrada));
+    console.log('**  id de la entrdaa grabda:',localStorage.getItem("entradaActaId"))
+  }
 
 
   public guardarAcuerdos() {
