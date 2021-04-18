@@ -15,8 +15,18 @@
 
     </div>
     <div class="table-cell">
-        <button (click)="entradaM()"> Ingresar </button>
+
+        <div *ngIf="entrada; else DataEntrada1">
+            <button disabled> Ingresar </button>
+        </div>
+
+        <ng-template #DataEntrada1>
+            <button (click)="entradaM()"> Ingresar </button>
+        </ng-template>
+
+
     </div>
+
     <!-- **************************************-->
     <div class="table-cell cell-feature">CASO DE NEGOCIO</div>
     <div class="table-cell">
@@ -31,11 +41,11 @@
     </div>
     <div class="table-cell">
 
-        <div *ngIf="disableOpciones(); else DataEntrada1">
+        <div *ngIf="caso; else DataCaso1">
             <button disabled> Ingresar </button>
         </div>
 
-        <ng-template #DataEntrada1>
+        <ng-template #DataCaso1>
             <button (click)="casoM()"> Ingresar </button>
         </ng-template>
 
@@ -54,7 +64,7 @@
 
     </div>
     <div class="table-cell">
-        <div *ngIf="disableOpciones(); else DataEntrada2">
+        <div *ngIf="plan; else DataEntrada2">
 
             <button disabled> Ingresar </button>
         </div>
@@ -79,7 +89,7 @@
     </div>
 
     <div class="table-cell">
-        <div *ngIf="disableOpciones(); else DataEntrada3">
+        <div *ngIf="herramienta; else DataEntrada3">
 
             <button disabled> Ingresar </button>
         </div>
@@ -95,16 +105,16 @@
 <!-- **************************************-->
 
 <div class="espacio">
-    <div *ngIf="entrada">ENTRADAS DEL ACTA
+    <div *ngIf="entradaVista">ENTRADAS DEL ACTA
         <app-entradas></app-entradas>
     </div>
-    <div *ngIf="caso">CASO DE NEGOCIO
+    <div *ngIf="casoVista">CASO DE NEGOCIO
         <app-caso-negocio></app-caso-negocio>
     </div>
-    <div *ngIf="plan">PLANES PARA LA GESTIÓN DE BENEFICIADOS
+    <div *ngIf="planVista">PLANES PARA LA GESTIÓN DE BENEFICIADOS
         <app-plan-gestion-beneficios></app-plan-gestion-beneficios>
     </div>
-    <div *ngIf="herramienta">HERRAMIENTAS Y TÉCNICAS
+    <div *ngIf="herramientaVista">HERRAMIENTAS Y TÉCNICAS
         <app-herramientas-acta></app-herramientas-acta>
     </div>
 </div>

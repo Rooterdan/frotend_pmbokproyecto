@@ -3,7 +3,7 @@ import { HerramientasActa } from 'src/app/domain/herramientasactas';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 import { HerramientasactaService } from 'src/app/service/herramientasacta.service';
 
-
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -24,6 +24,7 @@ export class HerramientasActaComponent implements OnInit {
   public cargaEnable:boolean=true;
   
   constructor(
+    public router: Router,
     public herrmientasServices: HerramientasactaService,
     public entradactaService: EntradactaService,
     public spinnerService : NgxSpinnerService
@@ -53,8 +54,9 @@ export class HerramientasActaComponent implements OnInit {
       this.herrmientasServices.save(this.herramientasObje).subscribe(
         ok => {
           console.log(ok);
-          window.alert("Nueva acta guardada ");
+          window.alert("Nueva Herramientas del acta guardado  ");
           window.location.reload();
+          this.router.navigate(['/seguimiento-proyecto']);
 
         },
         err => {

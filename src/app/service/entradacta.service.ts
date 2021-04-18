@@ -22,11 +22,27 @@ export class EntradactaService {
       return headers;
     }
   */
-    public validarActa(idProyecto: number): Observable<any> {
+
+      
+    public valorIdEntraActa(idProyecto: number): Observable<any> {
+      //let header=this.createTokenHeader();
+      console.log(this.url + 'getEntradaIdActa/' + idProyecto);
+      
+      return this.httpClient.get(this.url + 'getEntradaIdActa/' + idProyecto);
+    }
+
+    
+    public validarValoresActa(idProyecto: number): Observable<any> {
       //let header=this.createTokenHeader();
       console.log(this.url + 'validarActa/' + idProyecto);
       
       return this.httpClient.get(this.url + 'validarActa/' + idProyecto);
+    } 
+    public validarActa(idProyecto: number): Observable<any> {
+      //let header=this.createTokenHeader();
+      console.log(this.url + 'getIdActa/' + idProyecto);
+      
+      return this.httpClient.get(this.url + 'getIdActa/' + idProyecto);
     }
 
   public findAll(): Observable<any> {

@@ -4,6 +4,7 @@ import { ReunionService } from 'src/app/service/reunion.service';
 import { EntradaActa } from 'src/app/domain/entradacta';
 import { Reunion } from 'src/app/domain/reunion';
 import { Actas } from 'src/app/domain/actas';
+import { Router } from '@angular/router';
 import { ActasService } from 'src/app/service/actas.service';
 
 import { NgxSpinnerService } from "ngx-spinner";
@@ -31,7 +32,7 @@ export class EntradasComponent implements OnInit {
 
   public cargaEnable: boolean = true;
   constructor(
-
+    public router: Router,
     public entradactaService: EntradactaService,
     public reunionService: ReunionService,
     public actaService: ActasService,
@@ -155,6 +156,7 @@ export class EntradasComponent implements OnInit {
           
           
           window.location.reload();
+          this.router.navigate(['/seguimiento-proyecto']);
 
 
         },

@@ -137,30 +137,6 @@
         <mat-grid-tile>
             <mat-card>
                 <p>
-                    <mat-card-title>Resultado esperados para El acta del proyecto</mat-card-title>
-                    <mat-card-content>
-
-                        <div *ngIf="resultado; else Notresultado">
-                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="planObje.resultado" matInput placeholder="resultado...."></textarea>
-                        </div>
-
-                        <ng-template #Notresultado>
-                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="resultado....">{{planObje.resultado}}</textarea>
-                        </ng-template>
-
-                    </mat-card-content>
-
-                    <mat-card-actions>
-
-                        <button (click)="guardarresultado()" mat-button>GUARDAR</button>
-                    </mat-card-actions>
-                </p>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-card>
-                <p>
                     <mat-card-title>Guardar informacion del acta</mat-card-title>
                     <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
 

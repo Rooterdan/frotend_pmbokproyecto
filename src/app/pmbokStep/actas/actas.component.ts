@@ -15,13 +15,20 @@ export class ActasComponent implements OnInit {
   public plan: boolean = false;
   public herramienta: boolean = false;
 
+  public entradaVista: boolean = false;
+  public casoVista: boolean = false;
+  public planVista: boolean = false;
+  public herramientaVista: boolean = false;
+
 
   constructor(
     public entradaDeActaServices:EntradactaService,
     ) { }
 
   ngOnInit(): void {
-    this.disableOpciones();
+    console.log('***ngOnInit ActasComponent');
+    this.RevisarAvances();
+    
   }
 
   public disableOpciones() {
@@ -40,27 +47,68 @@ export class ActasComponent implements OnInit {
   }
   public entradaM(): void {
     this.falseTotal();
-    this.entrada = true;
+    this.entradaVista = true;
   }
   public casoM(): void {
     this.falseTotal();
-    this.caso = true;
+    this.casoVista = true;
   }
   public planM(): void {
     this.falseTotal();
-    this.plan = true;
+    this.planVista = true;
   }
   public herramientaM(): void {
     this.falseTotal();
-    this.herramienta = true;
+    this.herramientaVista = true;
   }
 
   public falseTotal(): void {
-    this.entrada = false;
-    this.caso = false;
-    this.plan = false;
-    this.herramienta = false;
+    this.entradaVista = false;
+    this.casoVista = false;
+    this.planVista = false;
+    this.herramientaVista = false;
 
   }
+  public RevisarAvances():void{    
+    var datos = JSON.parse(localStorage.getItem('datosActa') || '{}');
+   
+    if( datos.acta){
+      console.log('********************* public RevisarAvances():void{'  );
+      console.log(datos.casoNegocioValidate);
+      console.log(datos.entradactaValidate);
+      console.log(datos.herramientasValidate);
+      console.log(datos.planValidate);
+      this.entrada= datos.entradactaValidate;
+      this.caso = datos.casoNegocioValidate;
+      this.plan = datos.planValidate;
+      this.herramienta = datos.herramientasValidate;
 
+
+      let x = localStorage.getItem("idproyecto");
+      var idProyecto = Number(x);
+      this.entradaDeActaServices.validarActa(idProyecto).subscribe(
+        data=>{
+          console.log('ID DE LA REUNION ES ->', data);
+          
+          var idActa=data;
+          localStorage.setItem("idactas", idActa);
+        }
+      );
+      
+      if(datos.entradactaValidate){
+        console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
+        this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
+          data=>{
+            console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
+            
+            var idEntradaActa=data;
+            localStorage.setItem("entradaActaId", idEntradaActa);
+          }
+        );
+      }
+      
+
+    }
+    
+  }
 }

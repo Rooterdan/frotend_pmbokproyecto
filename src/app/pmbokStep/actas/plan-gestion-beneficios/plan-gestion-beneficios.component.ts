@@ -1,6 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { PlanGestioBeneficio } from 'src/app/domain/plangestionbeneficio';
+import { Router } from '@angular/router';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 import { PlangestionbeneficioService } from 'src/app/service/plangestionbeneficio.service';
 
@@ -26,6 +26,7 @@ export class PlanGestionBeneficiosComponent implements OnInit {
 
 
   constructor(
+    public router: Router,
     public planesService: PlangestionbeneficioService,
     public entradactaService: EntradactaService,
     public spinnerService : NgxSpinnerService
@@ -58,10 +59,11 @@ export class PlanGestionBeneficiosComponent implements OnInit {
       console.log( this.planObje);
       this.planesService.save(this.planObje).subscribe(
         ok => {
-          console.log('3');
+          console.log('------------**');
           console.log(ok);
-          window.alert("Nuevo dato gurdado ");
+          window.alert("Nuevo Plan de Gestión se ha grabado ");
           window.location.reload();
+          this.router.navigate(['/seguimiento-proyecto']);
   
         },
         err => {

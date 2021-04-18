@@ -1,4 +1,4 @@
-<div *ngIf="cargaEnable; else DataEntrada">
+<div *ngIf="cargaEnable; else DataCaso">
 
     <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
         <p style="font-size: 20px; color: white">Cargando... </p>
@@ -7,7 +7,7 @@
 
 </div>
 
-<ng-template #DataEntrada>
+<ng-template #DataCaso>
 
     <mat-grid-list cols="2" rowHeight="2:2">
         <mat-grid-tile>
@@ -63,15 +63,15 @@
         <mat-grid-tile>
             <mat-card>
                 <p>
-                    <mat-card-title>Objetivos para El acta del proyecto </mat-card-title>
+                    <mat-card-title>Incidentes para El acta del proyecto </mat-card-title>
                     <mat-card-content>
 
-                        <div *ngIf="objetivos; else Notobjetivos">
-                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.objetivos" matInput placeholder="objetivos...."></textarea>
+                        <div *ngIf="incidentes; else Notincidentess">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="casoMegocio.incidentes" matInput placeholder="incidentes...."></textarea>
                         </div>
 
-                        <ng-template #Notobjetivos>
-                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="objetivos....">{{casoMegocio.objetivos}}</textarea>
+                        <ng-template #Notincidentess>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="incidentes....">{{casoMegocio.incidentes}}</textarea>
                         </ng-template>
 
 
@@ -79,7 +79,7 @@
 
                     <mat-card-actions>
 
-                        <button (click)="guardarobjetivos()" mat-button>GUARDAR</button>
+                        <button (click)="guardarincidentes()" mat-button>GUARDAR</button>
                     </mat-card-actions>
                 </p>
             </mat-card>

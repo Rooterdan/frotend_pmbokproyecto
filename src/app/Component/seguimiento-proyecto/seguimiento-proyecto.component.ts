@@ -48,7 +48,7 @@ export class SeguimientoProyectoComponent implements OnInit {
   async referencia() {
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
-    await this.entradaDeActaServices.validarActa(idProyecto).subscribe(
+    await this.entradaDeActaServices.validarValoresActa(idProyecto).subscribe(
       data => {
         console.log('---------- referencia()');
         console.log(data);
