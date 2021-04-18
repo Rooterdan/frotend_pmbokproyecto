@@ -39,6 +39,8 @@ import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-ges
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     //MatTableModule
     MatCardModule,
     MatProgressSpinnerModule,
-    MatGridListModule
+    MatGridListModule,
+    NgxSpinnerModule
     
     
   ],

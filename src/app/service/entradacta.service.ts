@@ -22,7 +22,12 @@ export class EntradactaService {
       return headers;
     }
   */
-
+    public validarActa(idProyecto: number): Observable<any> {
+      //let header=this.createTokenHeader();
+      console.log(this.url + 'validarActa/' + idProyecto);
+      
+      return this.httpClient.get(this.url + 'validarActa/' + idProyecto);
+    }
 
   public findAll(): Observable<any> {
     //let header=this.createTokenHeader();

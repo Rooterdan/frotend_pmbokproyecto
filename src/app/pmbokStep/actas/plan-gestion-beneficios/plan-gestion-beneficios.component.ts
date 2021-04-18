@@ -4,6 +4,8 @@ import { PlanGestioBeneficio } from 'src/app/domain/plangestionbeneficio';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 import { PlangestionbeneficioService } from 'src/app/service/plangestionbeneficio.service';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-plan-gestion-beneficios',
   templateUrl: './plan-gestion-beneficios.component.html',
@@ -25,15 +27,18 @@ export class PlanGestionBeneficiosComponent implements OnInit {
 
   constructor(
     public planesService: PlangestionbeneficioService,
-    public entradactaService: EntradactaService
+    public entradactaService: EntradactaService,
+    public spinnerService : NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.cargaEnable=true;
+    this.spinnerService.show();
+    this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
-     
-      this.cargaEnable=false;
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+      
     }, 2000);
     
     this.planObje = new PlanGestioBeneficio(0, 0, "", "", "", "","");

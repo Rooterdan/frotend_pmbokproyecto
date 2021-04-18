@@ -6,6 +6,8 @@ import { Reunion } from 'src/app/domain/reunion';
 import { Actas } from 'src/app/domain/actas';
 import { ActasService } from 'src/app/service/actas.service';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 
 @Component({
@@ -32,16 +34,20 @@ export class EntradasComponent implements OnInit {
 
     public entradactaService: EntradactaService,
     public reunionService: ReunionService,
-    public actaService: ActasService
+    public actaService: ActasService,
+    public spinnerService : NgxSpinnerService
 
 
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {+
+    this.spinnerService.show();
     this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
+      this.spinnerService.hide();
       this.cargaEnable = false;
+      
     }, 2000);
 
     this.entradaActa = new EntradaActa(0, "", "", "", 0);

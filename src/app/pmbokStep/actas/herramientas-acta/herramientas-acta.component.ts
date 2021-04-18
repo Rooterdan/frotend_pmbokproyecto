@@ -3,6 +3,9 @@ import { HerramientasActa } from 'src/app/domain/herramientasactas';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 import { HerramientasactaService } from 'src/app/service/herramientasacta.service';
 
+
+import { NgxSpinnerService } from "ngx-spinner";
+
 @Component({
   selector: 'app-herramientas-acta',
   templateUrl: './herramientas-acta.component.html',
@@ -22,16 +25,19 @@ export class HerramientasActaComponent implements OnInit {
   
   constructor(
     public herrmientasServices: HerramientasactaService,
-    public entradactaService: EntradactaService
+    public entradactaService: EntradactaService,
+    public spinnerService : NgxSpinnerService
 
   ) { }
 
   ngOnInit(): void {
-    this.cargaEnable=true;
+    this.spinnerService.show();
+    this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
-     
-      this.cargaEnable=false;
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+      
     }, 2000);
     this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0);
   }

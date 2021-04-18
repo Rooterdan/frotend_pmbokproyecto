@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { EntradactaService } from 'src/app/service/entradacta.service';
 
 @Component({
   selector: 'app-actas',
@@ -15,7 +16,9 @@ export class ActasComponent implements OnInit {
   public herramienta: boolean = false;
 
 
-  constructor() { }
+  constructor(
+    public entradaDeActaServices:EntradactaService,
+    ) { }
 
   ngOnInit(): void {
     this.disableOpciones();

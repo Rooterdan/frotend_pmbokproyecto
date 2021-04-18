@@ -3,6 +3,9 @@ import { CasoNegocio } from 'src/app/domain/casonegocio';
 import { CasonegocioService } from 'src/app/service/casonegocio.service';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 
+import { NgxSpinnerService } from "ngx-spinner";
+
+
 @Component({
   selector: 'app-caso-negocio',
   templateUrl: './caso-negocio.component.html',
@@ -23,16 +26,19 @@ export class CasoNegocioComponent implements OnInit {
 
   constructor(
     public casoServices: CasonegocioService,
-    public entradactaService: EntradactaService
+    public entradactaService: EntradactaService,
+    public spinnerService : NgxSpinnerService
 
   ) { }
 
   ngOnInit(): void {
-    this.cargaEnable=true;
+    this.spinnerService.show();
+    this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
-     
-      this.cargaEnable=false;
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+      
     }, 2000);
     
     this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0);
