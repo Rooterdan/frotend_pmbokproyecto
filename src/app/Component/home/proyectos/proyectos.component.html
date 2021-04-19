@@ -1,1 +1,27 @@
-<h1>PENDIENTE</h1>
+<div *ngFor="let proyecto of proyectos">
+
+<div class="support-grid"></div>
+
+  <div class="band">
+ 
+    <div class="item-3">
+      <a  class="card"> 
+        <p class="admin-card"> Creador :  {{proyecto.admin}} </p> 
+        <div class="thumb" ></div>
+        <article>
+          <h1>{{proyecto.nombre}}</h1>
+          <div class="card-divisor"></div> <!--  Esta es la division que se ve en el card (Tarjeta)-->
+          <p> {{proyecto.descripcion}}</p>
+   
+        </article>
+
+        <div class="card-footer text-center">
+          <button class="button" routerLink="/seguimiento-proyecto"><span>  Ver </span></button>     
+         <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
+        </div>
+      </a>
+    </div>
+   
+  </div>
+</div>
+  

@@ -1,10 +1,12 @@
+<img class="wave" src="/assets/img/fondoRegistro.svg">
 <div class="form">
-  <div class="form-toggle"></div>
+ 
   <div class="form-panel one">
     <div class="form-header">
       <h1>Registro</h1>
     </div>
     <div class="form-content">
+
       <form>
         <div class="form-group">
           <label for="username">Email</label>
@@ -16,7 +18,7 @@
         </div>
 
         <div class="form-group">
-          <label for="username">Nombre Completo</label>
+          <label for="username" class="usernames">Nombre Completo</label>
           <input type="username" id="username" name="username" [(ngModel)]="usuarios.nombre" required />
         </div>
 
@@ -40,5 +42,13 @@
         </div>
       </form>
     </div>
-  </div>
+</div>
+
+<ngx-spinner   bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-spin-clockwise-fade">
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
 </div>

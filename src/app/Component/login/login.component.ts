@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/domain/user';
 import { Usuario } from 'src/app/domain/usuario';
+import { SpinnerService } from 'src/app/service/spinner.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
@@ -18,15 +19,20 @@ export class LoginComponent implements OnInit {
   public showMsg: boolean = false;
   public messages: String[] = [];
   public usuarios: Usuario= new Usuario("","","","","") ;
+  
 
+  public showPass: boolean = true;
+  
   constructor(
     public usuarioService: UsuarioService,
-    public router: Router) { }
+    public router: Router,
+    public spinnerService:SpinnerService) { }
 
   ngOnInit(): void {
     
   }
   
+ 
 
 
   public ingresar(): void {

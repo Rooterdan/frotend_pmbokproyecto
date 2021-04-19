@@ -10,11 +10,18 @@ import { AuthLoginService } from './service/auth-login.service';
 })
 export class AppComponent {
   title = 'Pmbok V7 ';
+ 
 
+  constructor(public router:Router, public authlogin:AuthLoginService){
+     
+       
+  }
 
-  constructor(public router:Router, public authlogin:AuthLoginService){}
+   
+
   public isAuth():boolean{
     if (localStorage.getItem('usuario')) {
+ 
       return true;
     } else {
       return false;

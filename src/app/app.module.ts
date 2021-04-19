@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +40,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 
+
+import {MatInputModule} from '@angular/material/input';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import { InterceptorService } from './service/interceptor.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +77,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     HttpClientModule,
     //---------------------
     FormsModule,
+    
+    MatInputModule,
+    NgxSpinnerModule,
     //Agnular Material
     MaterilaModule,
     MatFormFieldModule,
@@ -84,7 +92,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     
     
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
