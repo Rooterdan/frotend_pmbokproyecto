@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,11 +38,21 @@ import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vist
 import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
+<<<<<<< HEAD
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { VentanaComponent } from './Component/ventana/ventana.component';
+=======
 
+import {MatInputModule} from '@angular/material/input';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {InterceptorService } from './service/interceptor.service';
+>>>>>>> ac94ae04da296e677df169e52658f1564afc34d6
+
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -68,8 +78,12 @@ import { VentanaComponent } from './Component/ventana/ventana.component';
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
+<<<<<<< HEAD
     VentanaComponent,
     
+=======
+  
+>>>>>>> ac94ae04da296e677df169e52658f1564afc34d6
   ],
   imports: [
     BrowserModule,
@@ -77,6 +91,9 @@ import { VentanaComponent } from './Component/ventana/ventana.component';
     HttpClientModule,
     //---------------------
     FormsModule,
+    MatToolbarModule,  
+    MatInputModule,
+    NgxSpinnerModule,
     //Agnular Material
     MaterilaModule,
     MatFormFieldModule,
@@ -88,11 +105,13 @@ import { VentanaComponent } from './Component/ventana/ventana.component';
     MatCardModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    NgxSpinnerModule
-    
-    
+    NgxSpinnerModule,
+  
+    MatIconModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

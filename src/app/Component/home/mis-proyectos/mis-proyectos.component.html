@@ -1,50 +1,45 @@
 <head>
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
 </head>
 <div class="espacio">
-    <button (click)="buscarProyectos()" type="button" class="btn btn-warning" data-type="minus">
+    <button (click)="buscarProyectos()" type="button" class="btn btn-success" data-type="minus">
     Actualizar
 </button>
 </div>
-<div class="espacio">
-    <table class="table">
-        <!--
-        <div *ngIf="showMsg">
-            <p *ngFor="let msg of messages">
-                {{msg}}
-            </p>
-
-        </div>-->
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">creado por</th>
-                <th scope="col">Opciones</th>
-            </tr>
-        </thead>
-
-        <tr *ngFor="let proyecto of proyectos">
-            <td th scope="row">{{proyecto.nombre}}</td>
-            <td th scope="row">{{proyecto.descripcion}}</td>
-            <td th scope="row">{{proyecto.admin}}</td>
-            <td>
-                <!--
-                <button (click)="delete(proyecto.idproyecto)" type="button" class="btn btn-danger btn-number"
-                    data-type="minus">
-                    eliminar proyecto
-                </button>-->
-
-                <button (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)" type="button" class="btn btn-warning" data-type="minus">
-                    Ver Proyecto
-                </button>
-            </td>
-
-        </tr>
 
 
-    </table>
+
+
+<div *ngFor="let proyecto of proyectos">
+
+<div class="support-grid"></div>
+
+  <div class="band">
+ 
+    <div class="item-3" style="margin-top:20px">
+      <a  class="card"> 
+     
+        <div class="thumb" ></div>
+        <article>
+          <h1>{{proyecto.nombre}}</h1>
+          <div class="card-divisor"></div> <!--  Esta es la division que se ve en el card (Tarjeta)-->
+          <p> {{proyecto.descripcion}}</p>
+   
+        </article>
+
+        <div class="card-footer text-center">
+          <button class="button" routerLink="/seguimiento-proyecto"><span>  Ver </span></button>     
+         <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
+        </div>
+      </a>
+    </div>
+   
+  </div>
 </div>
+
+
+
+  
+
+
