@@ -38,8 +38,10 @@ import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vist
 import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { VentanaComponent } from './Component/ventana/ventana.component';
 
 
 @NgModule({
@@ -66,6 +68,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
+    VentanaComponent,
     
   ],
   imports: [
@@ -79,6 +82,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatFormFieldModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     //MatTableModule
     MatCardModule,
     MatProgressSpinnerModule,

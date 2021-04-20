@@ -15,7 +15,7 @@
 
                 <mat-tab *ngFor="let tab of asyncTabs | async">
                     <ng-template mat-tab-label>
-                        <button mat-raised-button>{{tab.label}}</button>
+                        <button mat-raised-button color="primary">{{tab.label}}</button>
                     </ng-template>
 
                     <div *ngIf="tab.label=== 'Mi Proyectos' ">
