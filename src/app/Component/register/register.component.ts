@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
-    public usuarioService: UsuarioService
+    public usuarioService: UsuarioService,
+    public router: Router
   ) { }
   public Mensaje:boolean=false;
   public notificacion: string[] = [""];
@@ -33,7 +35,14 @@ export class RegisterComponent implements OnInit {
         //this.showMsg=true;
         this.Mensaje=true;
         
-        this.notificacion[0] = "Customer Se grabo Correctamente";
+        this.notificacion[0] = "Nuevo Usuario Registrado";
+        setTimeout(
+          ()=> {
+            console.log('Recargando');
+          }
+        );
+        window.location.reload();
+        this.router.navigate(['/']);
 
       },
       err => {

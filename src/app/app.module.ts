@@ -39,7 +39,7 @@ import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-ges
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { VentanaComponent } from './Component/ventana/ventana.component';
 
@@ -84,6 +84,7 @@ import { VentanaComponent } from './Component/ventana/ventana.component';
     BrowserAnimationsModule,
     MatButtonModule,
     //MatTableModule
+    MatDialogModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatGridListModule,
