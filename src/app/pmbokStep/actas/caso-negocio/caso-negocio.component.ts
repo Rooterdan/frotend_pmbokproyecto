@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CasoNegocio } from 'src/app/domain/casonegocio';
 import { CasonegocioService } from 'src/app/service/casonegocio.service';
 import { EntradactaService } from 'src/app/service/entradacta.service';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-caso-negocio',
@@ -22,17 +25,21 @@ export class CasoNegocioComponent implements OnInit {
   public cargaEnable:boolean=true;
 
   constructor(
+    public router: Router,
     public casoServices: CasonegocioService,
-    public entradactaService: EntradactaService
+    public entradactaService: EntradactaService,
+    public spinnerService : NgxSpinnerService
 
   ) { }
 
   ngOnInit(): void {
-    this.cargaEnable=true;
+    this.spinnerService.show();
+    this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
-     
-      this.cargaEnable=false;
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+      
     }, 2000);
     
     this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0);
@@ -52,6 +59,7 @@ export class CasoNegocioComponent implements OnInit {
         console.log(ok);
         window.alert("Nueva acta guardada ");
         window.location.reload();
+        this.router.navigate(['/seguimiento-proyecto']);
 
       },
       err => {

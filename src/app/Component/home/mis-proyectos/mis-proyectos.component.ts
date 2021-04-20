@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/domain/proyectos';
+import { validarActa } from 'src/app/domain/validarActa';
+import { ActasService } from 'src/app/service/actas.service';
+import { EntradactaService } from 'src/app/service/entradacta.service';
 import { ProyectosService } from 'src/app/service/proyectos.service';
 
 @Component({
@@ -11,15 +14,20 @@ import { ProyectosService } from 'src/app/service/proyectos.service';
 export class MisProyectosComponent implements OnInit {
   public showMsg: boolean = false;
   public messages: string[] = [""];
+  public validarActaDomain!: validarActa;
+
   constructor(
     public proyectoServices: ProyectosService,
-    public router: Router
+    public router: Router,
+    public actaService: ActasService,
+    
   ) { }
 
   public proyectos !: Proyecto[];
 
   ngOnInit(): void {
     this.buscarProyectos();
+    //this.encontrarReferentes();
   }
 
   public buscarProyectos(): void {
@@ -31,7 +39,7 @@ export class MisProyectosComponent implements OnInit {
         this.proyectos = data;
       },
       error => {
-        console.log("Error en "+ error);
+        console.log("Error en " + error);
       });
   }
 
@@ -61,13 +69,17 @@ export class MisProyectosComponent implements OnInit {
     localStorage.removeItem('idactas');
     localStorage.removeItem('idreunion');
     localStorage.removeItem('entradaActaId');
-    
 
     localStorage.setItem("nombreProyecto", nombre);
     localStorage.setItem("idproyecto", idproyecto.toString());
+
+
+
     this.router.navigate(['/seguimiento-proyecto']);
-    //window.location.reload();
+    
   }
+
+ 
 
 
 }

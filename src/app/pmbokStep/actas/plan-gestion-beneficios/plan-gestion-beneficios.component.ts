@@ -1,8 +1,10 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { PlanGestioBeneficio } from 'src/app/domain/plangestionbeneficio';
+import { Router } from '@angular/router';
 import { EntradactaService } from 'src/app/service/entradacta.service';
 import { PlangestionbeneficioService } from 'src/app/service/plangestionbeneficio.service';
+
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-plan-gestion-beneficios',
@@ -24,16 +26,20 @@ export class PlanGestionBeneficiosComponent implements OnInit {
 
 
   constructor(
+    public router: Router,
     public planesService: PlangestionbeneficioService,
-    public entradactaService: EntradactaService
+    public entradactaService: EntradactaService,
+    public spinnerService : NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
-    this.cargaEnable=true;
+    this.spinnerService.show();
+    this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
-     
-      this.cargaEnable=false;
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+      
     }, 2000);
     
     this.planObje = new PlanGestioBeneficio(0, 0, "", "", "", "","");
@@ -53,10 +59,11 @@ export class PlanGestionBeneficiosComponent implements OnInit {
       console.log( this.planObje);
       this.planesService.save(this.planObje).subscribe(
         ok => {
-          console.log('3');
+          console.log('------------**');
           console.log(ok);
-          window.alert("Nuevo dato gurdado ");
+          window.alert("Nuevo Plan de Gestión se ha grabado ");
           window.location.reload();
+          this.router.navigate(['/seguimiento-proyecto']);
   
         },
         err => {

@@ -1,7 +1,10 @@
 <div *ngIf="cargaEnable; else DataEntrada">
-    <mat-spinner color="warn"></mat-spinner>
 
-    sdfsafsad
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Cargando... </p>
+    </ngx-spinner>
+
+
 </div>
 
 <ng-template #DataEntrada>
@@ -102,30 +105,6 @@
                     <mat-card-actions>
 
                         <button (click)="guardarservicios()" mat-button>GUARDAR</button>
-                    </mat-card-actions>
-                </p>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-card>
-                <p>
-                    <mat-card-title>Resultado esperados para El acta del proyecto</mat-card-title>
-                    <mat-card-content>
-
-                        <div *ngIf="resultado; else Notresultado">
-                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="planObje.resultado" matInput placeholder="resultado...."></textarea>
-                        </div>
-
-                        <ng-template #Notresultado>
-                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="resultado....">{{planObje.resultado}}</textarea>
-                        </ng-template>
-
-                    </mat-card-content>
-
-                    <mat-card-actions>
-
-                        <button (click)="guardarresultado()" mat-button>GUARDAR</button>
                     </mat-card-actions>
                 </p>
             </mat-card>

@@ -20,6 +20,8 @@
 .mat-grid-list {
     background: rgb(243, 237, 237);
     border: green;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 
 .centrado {
