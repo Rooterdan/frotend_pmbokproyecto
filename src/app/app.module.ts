@@ -39,13 +39,13 @@ import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-ges
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
 
-import { NgxSpinnerModule } from 'ngx-spinner';
-
-
-
 import {MatInputModule} from '@angular/material/input';
 import {NgxSpinnerModule} from 'ngx-spinner';
-import { InterceptorService } from './service/interceptor.service';
+import {InterceptorService } from './service/interceptor.service';
+
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,7 @@ import { InterceptorService } from './service/interceptor.service';
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
-    
+  
   ],
   imports: [
     BrowserModule,
@@ -79,7 +79,7 @@ import { InterceptorService } from './service/interceptor.service';
     HttpClientModule,
     //---------------------
     FormsModule,
-    
+    MatToolbarModule,  
     MatInputModule,
     NgxSpinnerModule,
     //Agnular Material
@@ -91,9 +91,9 @@ import { InterceptorService } from './service/interceptor.service';
     MatCardModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    NgxSpinnerModule
-    
-    
+    NgxSpinnerModule,
+  
+    MatIconModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
