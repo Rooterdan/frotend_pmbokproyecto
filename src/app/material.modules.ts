@@ -5,7 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
+
 import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
     imports: [
@@ -16,7 +16,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
         //MatTabsModule,
         MatTableModule,
         MatButtonModule,
-        MatDialogModule,
         MatGridListModule
          
         

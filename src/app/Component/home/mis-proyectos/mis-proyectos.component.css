@@ -1,231 +1,165 @@
-<<<<<<< HEAD
-.espacio {
-    padding: 3%;
-    border-radius: 20px;
-    border: 3px;
-}
-
-section {
-    display: table;
-}
-
-.example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-}
-
-.example-button-row {
-    display: table-cell;
-    width: 490px;
-}
-
-.example-button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-=======
 html {
-  background: #f5f7f8;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  padding: 20px 0;
+    background: #f5f7f8;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 20px 0;
 }
 
 .band {
-  width: 90%;
-  max-width: 1240px;
-  margin: 0 auto;
-  
-  display: grid;
-  
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-gap: 20px;
-  
+    width: 90%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
 }
 
 @media only screen and (min-width: 500px) {
-  .band {
-    grid-template-columns: 1fr 1fr;
-  }  
- 
- 
+    .band {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media only screen and (min-width: 850px) {
-  .band {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+    .band {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
+
 
 /* card */
 
 .card {
-  min-height: 100%;
-  background: rgb(241, 253, 249);
-  box-shadow: 0 3px 3px rgba(43, 42, 42, 0.778);
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  position: relative;
-  top: 0;
-  transition: all .1s ease-in;
+    min-height: 100%;
+    background: rgb(241, 253, 249);
+    box-shadow: 0 3px 3px rgba(43, 42, 42, 0.778);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    position: relative;
+    top: 0;
+    transition: all .1s ease-in;
 }
 
 .card:hover {
-  top: -3px;
-  box-shadow: 0 3px 3px rgb(248, 173, 138);
-
+    top: -3px;
+    box-shadow: 0 3px 3px rgb(248, 173, 138);
 }
 
 .card article {
-  padding: 20px;
-  display: flex;
-  
-  flex: 1;
-  justify-content: space-between;
-  flex-direction: column;
-  
+    padding: 20px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
 }
- 
 
-.card p { 
-  flex: 1; /* make p grow to fill available space*/
-  line-height: 1.1;
+.card p {
+    flex: 1;
+    /* make p grow to fill available space*/
+    line-height: 1.1;
 }
+
 
 /* typography */
-h1 {
-  font-size: 20px;
-  margin: 0;
-  color: #333;
-}
- 
 
+h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
 
 .card-divisor {
-  border-bottom: 1px solid rgb(253, 216, 204);
-  padding-bottom: 6px;
+    border-bottom: 1px solid rgb(253, 216, 204);
+    padding-bottom: 6px;
 }
 
-
-.learn-more { 
-  position: static;
-  display: flex;
-  
+.learn-more {
+    position: static;
+    display: flex;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .button {
-  border-radius: 4px;
-  background-color: #020202;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 12px;
-  padding: 5px;
-  width: 90px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  padding-left: 2%;
+    border-radius: 4px;
+    background-color: #020202;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
+    width: 90px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    padding-left: 2%;
 }
 
 .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
 }
 
 .button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
 }
 
 .button:hover span {
-  padding-right: 25px;
+    padding-right: 25px;
 }
 
 .button:hover span:after {
-  opacity: 1;
-  right: 0;
+    opacity: 1;
+    right: 0;
 }
-
-
-
-
-
-
-
-
 
 button {
-position: relative;
-display: inline-block;
-cursor: pointer;
-outline: none;
-border: 0;
-vertical-align: middle;
-text-decoration: none;
-font-size: inherit;
-color: #f5f7f8;
-font-family: inherit;
-margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: inherit;
+    color: #f5f7f8;
+    font-family: inherit;
+    margin-bottom: 30px;
 }
+
 button.learn-more {
-transition: all 0.5s cubic-bezier(0.65, -0.25, 0.25, 1.95);
-font-weight: 120;
-color: #73d1d1;
-padding: 0.7rem 0.8rem;
-background: rgb(34, 34, 34);
-text-transform: uppercase;
+    transition: all 0.5s cubic-bezier(0.65, -0.25, 0.25, 1.95);
+    font-weight: 120;
+    color: #73d1d1;
+    padding: 0.7rem 0.8rem;
+    background: rgb(34, 34, 34);
+    text-transform: uppercase;
 }
-button.learn-more:hover, button.learn-more:focus, button.learn-more:active {
-letter-spacing: 0.125rem;
+
+button.learn-more:hover,
+button.learn-more:focus,
+button.learn-more:active {
+    letter-spacing: 0.125rem;
 }
 
 @supports (display: grid) {
-body {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 0.625rem;
-  grid-template-areas: ". main main ." ". main main .";
-}
-
-#container {
-  grid-area: main;
-  align-self: center;
-  justify-self: center;
-}
->>>>>>> ac94ae04da296e677df169e52658f1564afc34d6
+    body {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 0.625rem;
+        grid-template-areas: ". main main ." ". main main .";
+    }
+    #container {
+        grid-area: main;
+        align-self: center;
+        justify-self: center;
+    }
 }

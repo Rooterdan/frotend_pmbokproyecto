@@ -38,17 +38,13 @@ import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vist
 import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
-<<<<<<< HEAD
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { VentanaComponent } from './Component/ventana/ventana.component';
-=======
-
 import {MatInputModule} from '@angular/material/input';
-import {NgxSpinnerModule} from 'ngx-spinner';
+
 import {InterceptorService } from './service/interceptor.service';
->>>>>>> ac94ae04da296e677df169e52658f1564afc34d6
 
 import {MatIconModule} from '@angular/material/icon';
 
@@ -78,12 +74,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
-<<<<<<< HEAD
-    VentanaComponent,
-    
-=======
   
->>>>>>> ac94ae04da296e677df169e52658f1564afc34d6
   ],
   imports: [
     BrowserModule,
