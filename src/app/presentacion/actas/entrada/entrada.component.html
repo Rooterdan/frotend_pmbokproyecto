@@ -1,24 +1,13 @@
 <mat-card>
-    <mat-card-header>
-
-        <mat-card-title>
-            <h1>ACTA DE CONSTITCIÓN DEL PROYECTO </h1>
-        </mat-card-title>
-        <mat-card-subtitle>...</mat-card-subtitle>
-    </mat-card-header>
-
 
     <mat-card-content class="mat-card-content-padre">
 
         <mat-card-title>
             <h2>Entradas del Acta
-            </h2>
-            <h3>
                 <button mat-button matSuffix mat-icon-button aria-label="Clear">
                     <mat-icon  (click)="Ver()" class="transformation">Ver</mat-icon>
                   </button>
-            </h3>
-
+            </h2>
         </mat-card-title>
         <div *ngIf="vista ; else elseBlock">
             <!-- ----------------------->

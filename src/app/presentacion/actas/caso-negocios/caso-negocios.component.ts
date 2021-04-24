@@ -10,6 +10,12 @@ export class CasoNegociosComponent implements OnInit {
 
   public datosCasoNegocio !: CasoNegocio;
 
+  public vista:Boolean=false;
+  public vistaMetas   :Boolean=false;
+  public vistaobjetivos   :Boolean=false;
+  public vistaincidentes   :Boolean=false;
+  public vistaoportunidades   :Boolean=false;
+
   constructor(
     public casoNegocioService: CasonegocioService
   ) { }
@@ -17,6 +23,53 @@ export class CasoNegociosComponent implements OnInit {
   ngOnInit(): void {
     this.buscarCasoDeNegocioPorEntrada();
   }
+
+ /*
+    componenetes de las caso de negocio
+  */
+    public VerMetas  (){
+      if(this.vistaMetas==false){
+        return this.vistaMetas= true;
+  
+      }else{
+        return this.vistaMetas =false;
+      }
+    }
+    public Verobjetivos  (){
+      if(this.vistaobjetivos==false){
+        return this.vistaobjetivos= true;
+  
+      }else{
+        return this.vistaobjetivos =false;
+      }
+
+    }
+    public Verincidentes  (){
+      if(this.vistaincidentes==false){
+        return this.vistaincidentes= true;
+  
+      }else{
+        return this.vistaincidentes =false;
+      }
+
+    }
+    public Veroportunidades   (){
+      if(this.vistaoportunidades==false){
+        return this.vistaoportunidades= true;
+  
+      }else{
+        return this.vistaoportunidades =false;
+      }
+    }
+    public Ver(){
+      if(this.vista==false){
+        return this.vista= true;
+  
+      }else{
+        return this.vista =false;
+      }
+    }
+
   public buscarCasoDeNegocioPorEntrada() {
     /*
     Se debe tener previamente cargado el ID del acta

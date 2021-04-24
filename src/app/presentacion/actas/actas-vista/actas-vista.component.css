@@ -1,16 +1,27 @@
-.Padre{
+.Padre {
     background-color: #EAD5D1;
-    
 }
-.entradas{
-    justify-content:center;
+
+.mat-card-header {
+    justify-content: center;
 }
-.Herramientas{
-    justify-content:center;
+
+.mat-card-subtitle {
+    justify-content: center;
 }
-.casoNegocio{
-    justify-content:center;
+
+.entradas {
+    justify-content: center;
 }
+
+.Herramientas {
+    justify-content: center;
+}
+
+.casoNegocio {
+    justify-content: center;
+}
+
 .planBeneficios {
-    justify-content:center;
+    justify-content: center;
 }
