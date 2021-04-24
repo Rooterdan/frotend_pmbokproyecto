@@ -9,6 +9,11 @@ import { EntradaActa } from 'src/app/domain/entradacta'
 })
 export class EntradaComponent implements OnInit {
   public datosEntrada !: EntradaActa;
+  public vista:Boolean=false;
+  public vistaacuerdos :Boolean=false;
+  public vistafactores :Boolean=false;
+  public vistaactivos :Boolean=false;
+
   constructor(
     public entradaService: EntradactaService
   ) { }
@@ -17,6 +22,50 @@ export class EntradaComponent implements OnInit {
     this.buscarEntradaPorActa();
   }
 
+  /*
+    componenetes de la entrada del acta
+  */
+    public Veracuerdos (){
+      if(this.vistaacuerdos==false){
+        return this.vistaacuerdos= true;
+  
+      }else{
+        return this.vistaacuerdos =false;
+      }
+
+    }
+
+    public Verfactores (){
+      if(this.vistafactores==false){
+        return this.vistafactores= true;
+  
+      }else{
+        return this.vistafactores =false;
+      }
+
+    }
+
+    public Veractivos (){
+      if(this.vistaactivos==false){
+        return this.vistaactivos= true;
+  
+      }else{
+        return this.vistaactivos =false;
+      }
+
+    }
+    
+
+
+
+  public Ver(){
+    if(this.vista==false){
+      return this.vista= true;
+
+    }else{
+      return this.vista =false;
+    }
+  }
   public buscarEntradaPorActa() {
     //revisar bien la variable
 
