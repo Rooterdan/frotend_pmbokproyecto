@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/app/domain/user';
+import { Component, ContentChild, OnInit,ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+ 
+
+import { Router } from '@angular/router'; 
+
 import { Usuario } from 'src/app/domain/usuario';
-import { SpinnerService } from 'src/app/service/spinner.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { DialogComponent } from '../dialog/dialog.component';
+ 
 
 @Component({
   selector: 'app-login',
@@ -20,49 +24,76 @@ export class LoginComponent implements OnInit {
   public messages: String[] = [];
   public usuarios: Usuario= new Usuario("","","","","") ;
   
+  public title= "NOTIFICACIÓN DE ERROR";
 
   public showPass: boolean = true;
   
+
   constructor(
     public usuarioService: UsuarioService,
     public router: Router,
-    public spinnerService:SpinnerService) { }
+    public dialog:MatDialog
+    ) { }
 
-  ngOnInit(): void {
     
-  }
   
- 
+  ngOnInit(): void {}
 
+  public abrirModal(nameError:String,titleModule:String){
+    this.dialog.open(DialogComponent, { data : { typeError : nameError, title:titleModule}});
+  }
+
+  public fieldTextType: boolean = false;
+
+ 
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+ 
+  public verificarCampos(){
+    if(this.usuarios.email.length > 0 && this.usuarios.password.length > 0){
+      return true;
+    }
+    return false;
+  }
 
   public ingresar(): void {
-    this.usuarios;
-    console.log(this.usuarios); 
-    this.usuarioService.findById(this.usuarios.email).subscribe(
-      ok=>{
-        console.log('****************');
-        console.log(ok);
-        this.messages[0]="Usuario encontrado";
-      
-        if (ok.password ===this.usuarios.password){
-          this.messages[0]="Cargando pantalla ...";
-          localStorage.setItem("usuario",this.usuarios.email);
-          localStorage.setItem("pass",this.usuarios.password);
-          this.router.navigate(['/home']);
+      if(this.verificarCampos() == true ){
+        this.usuarioService.findById(this.usuarios.email).subscribe(
+          ok=>{
+            console.log('****************');
+            console.log(ok);
+            this.messages[0]="Usuario encontrado";
+          
+            if (ok.password == this.usuarios.password){
+          
+              localStorage.setItem("usuario",this.usuarios.email);
+              localStorage.setItem("pass",this.usuarios.password);
+              this.router.navigate(['/home']);
+              
+            }else{
+             this.messages[0]="Error en constraseña";
+           
+             this.abrirModal("Porfavor verifica Password",this.title);
+            }
+            
+          },
+          err=>{
+            console.log(this.usuarios.email);
+            console.log(err.error);
+            this.showMsg=true;
+           // this.messages=err.error.error;
+            //this.messages[0]="No se encuentra el usuario";
+            this.abrirModal("No se encuentra el usuario",this.title);
+    
+          }
+        );
+      }else{
+        this.abrirModal("Porfavor llene los campos vacios" ,this.title);
 
-        }else{
-          this.messages[0]="Error en constraseña";
-        }
-        
-        this.showMsg=true;
-        
-      },
-      err=>{
-        console.log(err.error.error);
-        
-        this.showMsg=true;
-        this.messages=err.error.error;
-        }
-    );
+      }
+     
+ 
+   
   }
 }

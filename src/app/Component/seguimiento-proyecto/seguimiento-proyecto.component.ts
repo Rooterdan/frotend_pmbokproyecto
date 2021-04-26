@@ -13,7 +13,7 @@ export class SeguimientoProyectoComponent implements OnInit {
   public actaDeConstitucionDelProyecto:Boolean=false;
   public planParaLaDireccionDeProyectos:Boolean=false;
   public planificacionParaLaGestionDelAlcance:Boolean=false;
-
+  public panelOpenState = false;
   constructor(public entradaDeActaServices: EntradactaService) { }
 
   ngOnInit(): void {
