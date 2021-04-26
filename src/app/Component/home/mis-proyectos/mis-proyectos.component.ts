@@ -73,8 +73,6 @@ export class MisProyectosComponent implements OnInit {
     localStorage.setItem("nombreProyecto", nombre);
     localStorage.setItem("idproyecto", idproyecto.toString());
 
-
-
     this.router.navigate(['/seguimiento-proyecto']);
     
   }

@@ -10,12 +10,67 @@ import { HerramientasactaService } from 'src/app/service/herramientasacta.servic
 export class HerramientasComponent implements OnInit {
 
   public datosHerramientas !: HerramientasActa;
+  public vista:Boolean=false;
+  public vistajuicioexpertos  :Boolean=false;
+  public vistarecopilaciondatos  :Boolean=false;
+  public vistahabilidades  :Boolean=false;
+  public vistaReuniones  :Boolean=false;
   constructor(
     public herramientasService: HerramientasactaService
   ) { }
 
   ngOnInit(): void {
     this.buscarherramientasPorActa();
+  }
+   /*
+    componenetes de las Herramientas del Acta
+  */
+    public Verjuicioexpertos  (){
+      if(this.vistajuicioexpertos==false){
+        return this.vistajuicioexpertos= true;
+  
+      }else{
+        return this.vistajuicioexpertos =false;
+      }
+
+    }
+
+    public Verrecopilaciondatos  (){
+      if(this.vistarecopilaciondatos==false){
+        return this.vistarecopilaciondatos= true;
+  
+      }else{
+        return this.vistarecopilaciondatos=false;
+      }
+
+    }
+    
+    public Verhabilidades (){
+      if(this.vistahabilidades==false){
+        return this.vistahabilidades= true;
+  
+      }else{
+        return this.vistahabilidades =false;
+      }
+
+    }
+    public VerReuniones (){
+      if(this.vistaReuniones==false){
+        return this.vistaReuniones= true;
+  
+      }else{
+        return this.vistaReuniones =false;
+      }
+
+    }
+
+  public Ver(){
+    if(this.vista==false){
+      return this.vista= true;
+
+    }else{
+      return this.vista =false;
+    }
   }
 
   public buscarherramientasPorActa() {

@@ -19,7 +19,7 @@ export class ProyectosComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.findAllProyects();
+    //this.findAllProyects();
   }
 
   public findAllProyects(){

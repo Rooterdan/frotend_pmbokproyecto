@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+ 
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+ 
+ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -15,12 +17,12 @@ export class RegisterComponent implements OnInit {
     this.Mensaje=false;
   }
 
-  constructor(
-    public usuarioService: UsuarioService, public dialog:MatDialog,public router:Router) { }
+  constructor(public usuarioService: UsuarioService, public dialog:MatDialog,public router:Router) { }
 
 
 
-  public Mensaje:boolean=false;
+
+   public Mensaje:boolean=false;
   public notificacion: string[] = [""];
   public usuarios: Usuario= new Usuario("","","","","") ;
 
@@ -50,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.usuarios.token="generico123456789";
 
     console.log(this.usuarios);
-
+ 
     if(this.verificarCampos() == true){
       this.usuarioService.save(this.usuarios).subscribe(
         ok => {
@@ -75,7 +77,28 @@ export class RegisterComponent implements OnInit {
 
     }
  
+    this.usuarioService.save(this.usuarios).subscribe(
+      ok => {
+        //this.showMsg=true;
+        this.Mensaje=true;
+        
+        this.notificacion[0] = "Nuevo Usuario Registrado";
+        setTimeout(
+          ()=> {
+            console.log('Recargando');
+          }
+        );
+        window.location.reload();
+        this.router.navigate(['/']);
 
+      },
+      err => {
+        console.log(err.error.error);
 
+        //this.showMsg=true;
+        this.notificacion[0] = "Error Al guardar el Ususario";
+      }
+    );
+ 
   }
 }

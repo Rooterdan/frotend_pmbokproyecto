@@ -11,6 +11,7 @@
 
 <div *ngFor="let proyecto of proyectos">
 
+ 
 <div class="support-grid"></div>
 
   <div class="band">
@@ -35,4 +36,31 @@
    
   </div>
 </div>
+ 
+    <div class="support-grid"></div>
 
+    <div class="band">
+
+        <div class="item-3" style="margin-top:20px">
+            <a class="card">
+
+                <div class="thumb"></div>
+                <article>
+                    <h1>Nombre del Proyecto:</h1>
+                    <h3>{{proyecto.nombre}}</h3>
+                    <div class="card-divisor"></div>
+                    <!--  Esta es la division que se ve en el card (Tarjeta)-->
+                    <p> {{proyecto.descripcion}}</p>
+
+                </article>
+
+                <div class="card-footer text-center">
+                    <button class="button" (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)"><span>  Ver </span></button>
+                    <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+ 

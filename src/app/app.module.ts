@@ -87,7 +87,9 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatFormFieldModule,
     MatTabsModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     //MatTableModule
+    MatDialogModule,
     MatCardModule,
     MatProgressSpinnerModule,
     MatGridListModule,
