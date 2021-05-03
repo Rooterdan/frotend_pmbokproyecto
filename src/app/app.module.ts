@@ -5,7 +5,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './Component/usuario/usuario.component';
 import { LoginComponent } from './Component/login/login.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { HomeComponent } from './Component/home/home.component';
@@ -50,7 +49,6 @@ import { MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
