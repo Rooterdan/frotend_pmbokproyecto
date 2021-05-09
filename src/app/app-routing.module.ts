@@ -61,6 +61,17 @@ const routes: Routes = [
   /**
    * Fin actas de inicion
    */
+
+
+   /**
+   * actas de PDP
+   */
+    /**
+       * Vistas de presentacion de Informacion deL PDP
+       */
+    /**
+   * Fin actas de PDP
+   */
 ];
 
 @NgModule({

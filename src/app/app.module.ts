@@ -49,6 +49,9 @@ import {InterceptorService } from './service/interceptor.service';
 import {MatIconModule} from '@angular/material/icon';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { PdpComponent } from './Component/pdp/pdp.component';
+import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.component';
+import { HeramientasPdpComponent } from './pmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +77,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
+    PdpComponent,
+    EntradaspdpComponent,
+    HeramientasPdpComponent,
   
   ],
   imports: [
