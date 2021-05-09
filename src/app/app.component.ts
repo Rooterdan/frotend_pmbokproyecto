@@ -12,20 +12,14 @@ export class AppComponent {
   title = 'Pmbok V7 ';
  
 
-  constructor(public router:Router, public authlogin:AuthLoginService){
-     
-       
-  }
+  constructor(public router:Router, public authlogin:AuthLoginService){}
 
-   
 
   public isAuth():boolean{
-    if (localStorage.getItem('usuario')) {
- 
-      return true;
-    } else {
+    if (!localStorage.getItem('usuario')) {
       return false;
     }
+    return true;
    // return !!localStorage.getItem('usuario');
   }
 

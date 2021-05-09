@@ -3,9 +3,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <div class="espacio">
-    <button (click)="buscarProyectos()" type="button" class="btn btn-success" data-type="minus">
-    Actualizar
-</button>
+    <button (click)="buscarProyectos()" style="margin-left:30px;margin-top:30px"type="button" class="btn btn-success" data-type="minus"> Actualizar </button>
 </div>
 
 
@@ -13,6 +11,32 @@
 
 <div *ngFor="let proyecto of proyectos">
 
+ 
+<div class="support-grid"></div>
+
+  <div class="band">
+ 
+    <div class="item-2" style="margin-top:20px">
+      <a  class="card"> 
+     
+        <div class="thumb" ></div>
+        <article>
+          <h1>{{proyecto.nombre}}</h1>
+          <div class="card-divisor"></div> <!--  Esta es la division que se ve en el card (Tarjeta)-->
+          <p> {{proyecto.descripcion}}</p>
+   
+        </article>
+
+        <div class="card-footer text-center">
+          <button class="button" routerLink="/seguimiento-proyecto"><span>  Ver </span></button>     
+         <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
+        </div>
+      </a>
+    </div>
+   
+  </div>
+</div>
+ 
     <div class="support-grid"></div>
 
     <div class="band">
@@ -39,3 +63,4 @@
 
     </div>
 </div>
+ 

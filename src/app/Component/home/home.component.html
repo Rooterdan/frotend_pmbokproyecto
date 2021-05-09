@@ -2,8 +2,7 @@
 <div class="support-grid"></div>
 
 <div class="band">
-
-    <div class="pantalla">
+    <div class="pantalla"> 
         <h3>Proyectos</h3>
         <div class="recuadro">
             <!-- <h3>Proyecos</h3>-->
@@ -47,84 +46,35 @@ type="ball-spin-clockwise-fade">
     </div>
 
 
-
-
-    <!--
-    <div class="item-3">
-      <a  class="card">
-        <div class="thumb" ></div>
-        <article>
-          <h1>Created by You, July Edition</h1>
-          <div class="card-divisor"></div> <!--  Esta es la division que se ve en el card (Tarjeta)- ->
-          <p>Welcome to our monthly feature of fantastic tutorial results created by you, the Envato Tuts+ community! </p>
-   
-        </article>
-
-        <div class="card-footer text-center">
-          <button class="button"><span>  Ver </span></button>     
-          <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Solicitar </span></button>
-        </div>
-      </a>
-    </div>
-    <div class="item-4">
-          <a   class="card">
-            
  
-            <div class="card-header">
+<div class="recuadro">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium"  color="#fff"  type="ball-spin-clockwise-fade">
+    <p style="font-size: 20px; color: white">Loading...</p>
+    </ngx-spinner>
 
-            </div>
 
-            <div class="thumb" ></div>
-         
-              <article>
+ <mat-tab-group>
+            <mat-tab *ngFor="let tab of asyncTabs | async">
+                <ng-template mat-tab-label>
+                    <button mat-raised-button>{{tab.label}}</button>
+                </ng-template>
 
-              <h1>How to Code a Scrolling “Alien Lander” Website</h1>
-            
-                <div class="card-divisor"></div>
-                <p>Welcome to our monthly feature of fantastic tutorial results created by you, the Envato Tuts+ community! </p>
-            </article>
+                <div *ngIf="tab.label=== 'Mi Proyectos' ">
+                    <app-mis-proyectos></app-mis-proyectos>
+                    <!--<app-traspaso></app-traspaso>-->
+                </div>
+                <div *ngIf="tab.label=== 'crear proyecto' ">
+                    <app-proyecto-save></app-proyecto-save>
+                    <!--<app-traspaso-ppi500></app-traspaso-ppi500>-->
+                </div>
+                <div *ngIf="tab.label=== 'Proyectos' ">
+                    <app-proyectos></app-proyectos>
+                    <!--<app-reintegro></app-reintegro>-->
+                </div>
+            </mat-tab>
+    </mat-tab-group>
        
+</div>
 
-            <div class="card-footer text-center">
-              <button class="button"><span>  Ver </span></button>     
-              <button class="btn btn-theme pull-right button" type="button" id="toright"><span> Solicitar </span></button>
-            </div>
 
-          </a>
-    </div>
-  
-    <div class="item-5">
-      <a   class="card">
-        <div class="thumb" ></div>
-        <div class="card-body">
-        <article>
-          <h1>5 Inspirational Business Portraits and How to Make Your Own</h1>
-          <div class="card-divisor"></div>
-
-          <p>Welcome to our monthly feature of fantastic tutorial results created by you, the Envato Tuts+ community! </p>
-        </article>
-        </div>
-        <div class="card-footer text-center">
-          <button class="button"><span>  Ver </span></button>     
-          <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Solicitar </span></button>
-        </div>
-      </a>
-    </div>
-
-    <div class="item-6">
-      <a class="card">
-        <div class="thumb"></div>
-        <article>
-          <h1>Notes From Behind the Firewall: The State of Web Design in China</h1>
-          <div class="card-divisor"></div>
-          <p>Welcome to our monthly feature of fantastic tutorial results created by you, the Envato Tuts+ community! </p>
-
-        </article>
-
-        <div class="card-footer text-center">
-          <button class="button"><span>  Ver </span></button>     
-          <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Solicitar </span></button>
-        </div>
-      </a>
-    </div> -->
 </div>

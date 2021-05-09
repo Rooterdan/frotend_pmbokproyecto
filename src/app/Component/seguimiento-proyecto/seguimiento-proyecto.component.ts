@@ -10,6 +10,7 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   public estado: boolean = false;
 
+<<<<<<< HEAD
   public actaDeConstitucionDelProyecto: Boolean = false;
   public planParaLaDireccionDeProyectos: Boolean = false;
   public planificacionParaLaGestionDelAlcance: Boolean = false;
@@ -23,6 +24,12 @@ export class SeguimientoProyectoComponent implements OnInit {
   public checkEstadoPdpActivo:Boolean =false;
   public checkEstadoPgaActivo:Boolean =false;
   public checkEstadoPgcActivo:Boolean =false;
+=======
+  public actaDeConstitucionDelProyecto:Boolean=false;
+  public planParaLaDireccionDeProyectos:Boolean=false;
+  public planificacionParaLaGestionDelAlcance:Boolean=false;
+  public panelOpenState = false;
+>>>>>>> 7c2ad2bf020fac6a2dd66c9d66f909d3e2035000
   constructor(public entradaDeActaServices: EntradactaService) { }
 
   ngOnInit(): void {
