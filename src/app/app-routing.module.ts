@@ -63,12 +63,25 @@ const routes: Routes = [
    * Fin actas de inicion
    */
 
+<<<<<<< HEAD
   /**
    *  PDP
    * 
    */
    { path: 'entradasPdp', component: EntradaspdpComponent },
 
+=======
+
+   /**
+   * actas de PDP
+   */
+    /**
+       * Vistas de presentacion de Informacion deL PDP
+       */
+    /**
+   * Fin actas de PDP
+   */
+>>>>>>> 4387d353209f27a86543312d81ac3fe8ff191e09
 ];
 
 @NgModule({

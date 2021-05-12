@@ -22,17 +22,25 @@ import { EntradasComponent } from './pmbokStep/actas/entradas/entradas.component
 import { CasoNegocioComponent } from './pmbokStep/actas/caso-negocio/caso-negocio.component';
 import { PlanGestionBeneficiosComponent } from './pmbokStep/actas/plan-gestion-beneficios/plan-gestion-beneficios.component';
 import { HerramientasActaComponent } from './pmbokStep/actas/herramientas-acta/herramientas-acta.component';
-import { CasoNegociosComponent} from './presentacion/actas/caso-negocios/caso-negocios.component';
-import { ActasVistaComponent} from './presentacion/actas/actas-vista/actas-vista.component';
-import { HerramientasComponent} from './presentacion/actas/herramientas/herramientas.component';
-import { PlanGestionComponent} from './presentacion/actas/plan-gestion/plan-gestion.component';
-import { EntradaComponent} from './presentacion/actas/entrada/entrada.component';
 //
 import { FilterProyectoPipe } from './pipes/filter-proyecto.pipe';
 //
 import { DialogComponent } from './Component/dialog/dialog.component';
-import { MatButtonModule} from '@angular/material/button';
 //import {MatTableModule} from '@angular/material/table';
+ 
+import { EntradaComponent } from './presentacion/actas/entrada/entrada.component';
+import { HerramientasComponent } from './presentacion/actas/herramientas/herramientas.component';
+import { CasoNegociosComponent } from './presentacion/actas/caso-negocios/caso-negocios.component';
+import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vista.component';
+import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
+import {MatButtonModule} from '@angular/material/button';
+import { VentanaComponent } from './Component/ventana/ventana.component';
+
+
+
+import { PdpComponent } from './Component/pdp/pdp.component';
+import { HeramientasPdpComponent } from './pmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
+ 
 import { MatCardModule} from '@angular/material/card';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -47,8 +55,10 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
+ 
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +82,17 @@ import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.co
     CasoNegociosComponent,
     ActasVistaComponent,
     PlanGestionComponent,
+
+    PdpComponent,
+    EntradaspdpComponent,
+    HeramientasPdpComponent,
+  
+ 
     DialogComponent,
+ 
     FilterProyectoPipe,
     EntradaspdpComponent,
+ 
   ],
   imports: [
     BrowserModule,
