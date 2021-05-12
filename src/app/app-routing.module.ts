@@ -24,6 +24,7 @@ import { EntradaComponent } from './presentacion/actas/entrada/entrada.component
 import { HerramientasComponent } from './presentacion/actas/herramientas/herramientas.component';
 import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
 import { CasoNegociosComponent } from './presentacion/actas/caso-negocios/caso-negocios.component';
+import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.component';
 
 
 
@@ -61,6 +62,13 @@ const routes: Routes = [
   /**
    * Fin actas de inicion
    */
+
+  /**
+   *  PDP
+   * 
+   */
+   { path: 'entradasPdp', component: EntradaspdpComponent },
+
 ];
 
 @NgModule({

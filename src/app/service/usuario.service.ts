@@ -38,8 +38,8 @@ export class UsuarioService {
 
   public save(usuario: Usuario): Observable<any> {
     //let header=this.createTokenHeader();
-    console.log('***********************');
-    console.log(this.url+'save');
+   // console.log('***********************');
+   // console.log(this.url+'save');
   
     return this.httpClient.post(this.url + 'save', usuario);
   }

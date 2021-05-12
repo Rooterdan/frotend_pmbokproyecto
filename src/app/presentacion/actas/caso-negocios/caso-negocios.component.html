@@ -1,6 +1,5 @@
+<!-- 
 <mat-card>
-
-
     <mat-card-content class="mat-card-content-padre">
 
         <mat-card-title class="ti">
@@ -12,7 +11,7 @@
 
         </mat-card-title>
         <div *ngIf="vista ; else elseBlock">
-            <!-- ----------------------->
+         
             <mat-card-content class="mat-card-content-1">
                 <h4>Metas del caso de negocio
                     <button mat-button matSuffix mat-icon-button aria-label="Clear">
@@ -24,7 +23,7 @@
                 </p>
                 <ng-template #elseBlockvistaMetas></ng-template>
             </mat-card-content>
-            <!-- ----------------------->
+
             <mat-card-content class="mat-card-content-2">
                 <h4>objetivos del caso de negocio
                     <button mat-button matSuffix mat-icon-button aria-label="Clear">
@@ -36,7 +35,7 @@
                 </p>
                 <ng-template #elseBlockvistaobjetivos></ng-template>
             </mat-card-content>
-            <!-- ----------------------->
+         
             <mat-card-content class="mat-card-content-1">
                 <h4>incidentes del caso de negocio
                     <button mat-button matSuffix mat-icon-button aria-label="Clear">
@@ -48,7 +47,7 @@
                 </p>
                 <ng-template #elseBlockvistaincidentes></ng-template>
             </mat-card-content>
-            <!-- ----------------------->
+
             <mat-card-content class="mat-card-content-2">
                 <h4>oportunidades del caso de negocio
                     <button mat-button matSuffix mat-icon-button aria-label="Clear">
@@ -60,9 +59,89 @@
                 </p>
                 <ng-template #elseBlockvistaoportunidades></ng-template>
             </mat-card-content>
-            <!-- ----------------------->
+         
         </div>
         <ng-template #elseBlock></ng-template>
     </mat-card-content>
 
 </mat-card>
+
+-->
+
+
+
+<div class="contenido-accordion"> 
+<mat-accordion class="example-headers-align" multi>
+
+        <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  Metas del caso de negocio</mat-panel-title>
+
+                <mat-panel-description>  
+             
+
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                  {{datosCasoNegocio.metas}}
+                </ng-template>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+            <mat-panel-title>  objetivos del caso de negocio</mat-panel-title>
+
+            <mat-panel-description>  
+ 
+
+            
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+              {{datosCasoNegocio.objetivos}}
+            </ng-template>
+        </mat-expansion-panel>
+
+
+          <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  incidentes del caso de negocio </mat-panel-title>
+
+                <mat-panel-description>  
+            
+          
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                      {{datosCasoNegocio.incidentes}}
+                </ng-template>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  oportunidades del caso de negocio </mat-panel-title>
+
+                <mat-panel-description>  
+            
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                       {{datosCasoNegocio.oportunidades}}
+                </ng-template>
+        </mat-expansion-panel>
+
+
+ 
+
+</mat-accordion>
+
+</div>

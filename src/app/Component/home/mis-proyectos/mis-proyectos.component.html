@@ -1,66 +1,62 @@
-<head>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
-<div class="espacio">
-    <button (click)="buscarProyectos()" style="margin-left:30px;margin-top:30px"type="button" class="btn btn-success" data-type="minus"> Actualizar </button>
+ 
+ <div class="div1">
+        <button (click)="buscarProyectos()" style="left:20px;background-color:green" type="button" mat-stroked-button data-type="minus"> Actualizar </button>
+        <input matInput class="barraBusqueda" type="text" placeholder = "Buscar por nombre proyecto,creador" [(ngModel)]="filterpost"   name="filterpost"/>   
+        <button style="top:-1px; left:30%" class="buttonClear" *ngIf="filterpost"  mat-icon-button aria-label="Clear" (click)="filterpost=''">
+          <mat-icon>close</mat-icon>
+        </button>
 </div>
 
 
 
 
-<div *ngFor="let proyecto of proyectos">
+<div class="div2">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+     <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let proyecto of proyectos | filterProyecto:filterpost ">
+         <div class="wrapper">
 
+          <div class="card radius shadowDepth1">
+          <div class="card__image border-tlr-radius" >
+            <img src="/assets/img/proyectos/tipoProyecto/productivo.jpg" *ngIf="proyecto.tipo_id == 'tipo01'" alt="image" class="border-tlr-radius">
+            <img src="/assets/img/proyectos/tipoProyecto/proyectos-sociales.png" *ngIf="proyecto.tipo_id == 'tipo02'" alt="image2" class="border-tlr-radius">
+            <img src="/assets/img/proyectos/tipoProyecto/comunitario.jpg" *ngIf="proyecto.tipo_id == 'tipo03'" alt="image2" class="border-tlr-radius">
+            <img src="/assets/img/proyectos/tipoProyecto/proyectoVida2.jpg" *ngIf="proyecto.tipo_id == 'tipo04'" alt="image2" class="border-tlr-radius">
+            <img src="/assets/img/proyectos/tipoProyecto/investigacion.jpg" *ngIf="proyecto.tipo_id == 'tipo05'" alt="image2" class="border-tlr-radius">
+
+          </div>
+
+          <div class="card__content card__padding">
+              <div class="card__share">
+                <a id="share" class="share-icon" (click) = "entrarProyecto(proyecto.nombre,proyecto.idproyecto)"> Ver </a>
+              </div>
+
+            <div class="card__meta" *ngFor="let tip of tipos">
+              <a *ngIf="proyecto.tipo_id == tip.tipo_id ">{{tip.clasificacion}}</a>
+           <!--   <time>17th March</time> -->
+            </div>
+
+            <article class="card__article">
+              <h2><a href="#">{{proyecto.nombre}}</a></h2>
+
+              <p>{{proyecto.descripcion}}</p>
+            </article>
+          </div>
  
-<div class="support-grid"></div>
+          <div class="card__action">
+            <div class="card__author">
+              <img src="/assets/img/proyectos/iconFinder.png" alt="user">
+              <div class="card__author-content">
+                By <a style="color: rgb(255, 145, 0);"> {{ proyecto.admin }} </a>
+              </div>
+            </div>
+          </div>
+          </div>
 
-  <div class="band">
- 
-    <div class="item-2" style="margin-top:20px">
-      <a  class="card"> 
-     
-        <div class="thumb" ></div>
-        <article>
-          <h1>{{proyecto.nombre}}</h1>
-          <div class="card-divisor"></div> <!--  Esta es la division que se ve en el card (Tarjeta)-->
-          <p> {{proyecto.descripcion}}</p>
-   
-        </article>
-
-        <div class="card-footer text-center">
-          <button class="button" routerLink="/seguimiento-proyecto"><span>  Ver </span></button>     
-         <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
-        </div>
-      </a>
-    </div>
-   
+     </div>
   </div>
+
+
 </div>
- 
-    <div class="support-grid"></div>
 
-    <div class="band">
 
-        <div class="item-3" style="margin-top:20px">
-            <a class="card">
-
-                <div class="thumb"></div>
-                <article>
-                    <h1>Nombre del Proyecto:</h1>
-                    <h3>{{proyecto.nombre}}</h3>
-                    <div class="card-divisor"></div>
-                    <!--  Esta es la division que se ve en el card (Tarjeta)-->
-                    <p> {{proyecto.descripcion}}</p>
-
-                </article>
-
-                <div class="card-footer text-center">
-                    <button class="button" (click)="entrarProyecto(proyecto.nombre,proyecto.idproyecto)"><span>  Ver </span></button>
-                    <!-- <button class="btn btn-theme pull-right button" type="button" id="toright"><span>  Abandonar </span></button> -->
-                </div>
-            </a>
-        </div>
-
-    </div>
-</div>
  

@@ -1,5 +1,7 @@
+<!--
+
 <body>
-    <h3>Presntación del acta de constitución</h3>
+    <h3>Presentación del acta de constitución</h3>
 
 
     <div class="Padre">
@@ -28,3 +30,83 @@
         </div>
     </div>
 </body>
+
+-->
+<h3>Presentación del acta de constitución</h3>
+
+
+<div class="contenido-accordion"> 
+<mat-accordion class="example-headers-align" multi>
+
+        <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  ENTRADAS DEL ACTA </mat-panel-title>
+
+                <mat-panel-description>  
+             
+
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                 <app-entrada></app-entrada>
+                </ng-template>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+            <mat-panel-title>  HERRAMIENTAS DEL ACTA </mat-panel-title>
+
+            <mat-panel-description>  
+ 
+
+            
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+            <app-herramientas></app-herramientas>
+            </ng-template>
+        </mat-expansion-panel>
+
+
+          <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  CASO DE NEGOCIO DEL ACTA </mat-panel-title>
+
+                <mat-panel-description>  
+            
+          
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                    <app-caso-negocios></app-caso-negocios>
+                </ng-template>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  PLAN DE GESTION DE BENEFICIOS DEL ACTA </mat-panel-title>
+
+                <mat-panel-description>  
+            
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+            <app-plan-gestion></app-plan-gestion>
+                </ng-template>
+        </mat-expansion-panel>
+
+
+ 
+
+</mat-accordion>
+
+</div>

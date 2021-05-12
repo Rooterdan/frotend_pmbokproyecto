@@ -50,12 +50,11 @@
 .container-right{
   display: flex;
   height: 100%;
-  width: 50%;
+  width: 45%;
   align-items: center;
   text-align: center;
   margin-top: 0px;
- 
-}
+ }
 
 
 .login-form-container{
@@ -68,8 +67,9 @@
  
 
 .btn{
-	width: 60%;
-	height: 40px;
+  position: relative;
+	width: 65%;
+	height: 35px;
 	border-radius: 25px;
 	outline: none;
 	border: none;
@@ -80,9 +80,11 @@
 	color: rgb(0, 0, 0);
 	font-family: 'Poppins', sans-serif;
 	text-transform: uppercase;
+  margin-left: -1000px;
 	margin: 1rem 0;
 	cursor: pointer;
 	transition: .4s;
+  background-color: red;
 }
 
 .btn:hover{
@@ -105,22 +107,19 @@
     padding: 8px;
     border-radius: 7px;
     border: 1px solid rgb(168, 168, 168);
-    width: 70%;
+    width: 75%;
     outline: none;
 }
 
  
 
 .div-row {
-   padding-left: 10px;
-   margin:30px;
+  
+   margin:20px; 
+ 
 } 
 
-
-
-
-
-
+ 
 
 
 

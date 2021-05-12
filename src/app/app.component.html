@@ -2,7 +2,6 @@
 <html>
 
 <head>
-<<<<<<< HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -10,76 +9,20 @@
 <body>
 
 <div  *ngIf="isAuth()">
- <mat-toolbar style = "background-color:orange">
+ <mat-toolbar >
+
+  <div  class="bloqueBotonesLeft">
   <a routerLink="/home" mat-raised-button> GESTIONAPP </a>
-  <div>
-  <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()"  mat-raised-button color="primary"> SALIR </button>
   </div> 
 
- 
-</mat-toolbar>
+  <div class="bloqueBotonesRigth">
+    <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()"  mat-raised-button color="link"> {{ nombreUsuario }} </button>
+    <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()"  mat-raised-button color="warn"> SALIR </button>
+  </div>
+
+  </mat-toolbar>
 
 </div>
-=======
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-        }
-        
-        ul.topnav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            margin-bottom: 30px;
-            background-color: blue;
-        }
-        
-        ul.topnav li {
-            float: left;
-        }
-        
-        ul.topnav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        
-        ul.topnav li a:hover:not(.active) {
-            background-color: #111;
-        }
-        
-        ul.topnav li a.active {
-            background-color: #4CAF50;
-        }
-        
-        ul.topnav li.right {
-            float: right;
-        }
-        
-        @media screen and (max-width: 600px) {
-            ul.topnav li.right,
-            ul.topnav li {
-                float: none;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <div *ngIf="isAuth()">
-        <ul class="topnav">
-            <li><a style="{background:yellow;}" class="active" routerLink="/home">Home</a></li>
-            <!--<li><a  style="background:black;" routerLink="/participacion"> Mis proyectos </a></li>-->
-
-            <li style="background:black;" class="right"><a (click)="singOut()" routerLink="/login">Salir</a></li>
-        </ul>
-    </div>
->>>>>>> 09d3348b84c629a3a4ad7f4ae14f3d973a6a28da
 
 <router-outlet></router-outlet>
 
@@ -88,10 +31,6 @@
 
 
 
-<<<<<<< HEAD
 
 </html>
 
-=======
-<router-outlet></router-outlet>
->>>>>>> 09d3348b84c629a3a4ad7f4ae14f3d973a6a28da

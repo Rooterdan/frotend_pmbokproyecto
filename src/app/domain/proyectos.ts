@@ -3,9 +3,10 @@ export class Proyecto {
     public nombre !: string;
     public descripcion!: string;
     public admin!: string;
-    constructor(
+    public tipo_id!:string;
 
-    ) {
+    
+    constructor() {
 
     }
 }

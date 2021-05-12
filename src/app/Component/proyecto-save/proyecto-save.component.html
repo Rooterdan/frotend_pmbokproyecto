@@ -1,14 +1,30 @@
-<form>
+<div class="container">
+ 
+	<div class="container-right" >
+		<div class="login-form-container">
+			<h1>CREA TU PROYECTO AHORA</h1>
+			<div class ="div-row"> 
+				<input type="email"  class="input-field" placeholder="Nombre del proyecto"  [(ngModel)]="proyecto.nombre" name="nombre" required/>
+			</div>
 
-  <div class="group">
-    <input  name="nombre" [(ngModel)]="proyecto.nombre" type="text" >
-    <span class="highlight"></span><span class="bar"></span>
-    <label>Name</label>
-  </div>
+			<div class ="div-row">
+        
+				<textarea name="descripcion" cols="37" placeholder="Descripcion breve de tu proyecto" rows="4" [(ngModel)]="proyecto.descripcion"  class="input-field"  required >  </textarea>
+			</div> 
 
-  <a>Descripcion</a>
-  <div class="group">
-    <textarea name="descripcion" cols="37" rows="4" [(ngModel)]="proyecto.descripcion">   </textarea>
-  </div>
-  <button (click)="guardarNuevoProyecto()" type="button" class="button buttonBlue">Crear proyecto </button>
-</form>
+	<div class ="div-row">
+      <label class="select"> TIPO DE PROYECTO
+            <select id="slct" required="required"  [(ngModel)]="proyecto.tipo_id">
+            <option *ngFor="let tipo of tipos" [value]="tipo.tipo_id"> {{tipo.clasificacion}} </option>
+
+            </select>
+
+            <span style="left:-30px">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+            </span>
+      </label>
+						</div> 
+          <button (click)="guardarNuevoProyecto()" type="button" class="btn">Crear proyecto </button>
+		</div> 
+
+	</div>

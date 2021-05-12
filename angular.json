@@ -33,7 +33,7 @@
           
             ],
             "scripts": [
-              "src/assets/js/login.js",
+             
               "node_modules/@fortawesome/fontawesome-free/js/all.js" 
             ]
           },

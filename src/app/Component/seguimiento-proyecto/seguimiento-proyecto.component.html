@@ -1,3 +1,4 @@
+<!-- 
 <div class="table">
     <div class="table-cell"> Fase </div>
     <div class="table-cell "> Estado </div>
@@ -5,7 +6,7 @@
 
     <div class="table-cell cell-feature">Acta de constitucion del proyecto </div>
     <div class="table-cell">
-        <!-- **************************************-->
+        
         <div *ngIf="actaDeConstitucionDelProyecto; else elseBlock">
 
             <svg width="18" height="18" viewBox="0 0 18 18">
@@ -18,8 +19,7 @@
         </div>
         <ng-template #elseBlock></ng-template>
 
-
-        <!-- **************************************-->
+        
     </div>
     <div class="table-cell">
         <div *ngIf="actaDeConstitucionDelProyecto; else elseBlockBotones">
@@ -39,7 +39,6 @@
 
     <div class="table-cell cell-feature"> Plan para la direccion de proyectos </div>
     <div class="table-cell">
-        <!-- **************************************-->
         <div *ngIf="actaDeConstitucionDelProyecto; else elseBlock">
 
             <svg width="18" height="18" viewBox="0 0 18 18">
@@ -51,7 +50,7 @@
 
         </div>
         <ng-template #elseBlock></ng-template>
-        <!-- **************************************-->
+        
     </div>
     <div class="table-cell">
         <button disabled routerLink="#"> Ver Información </button>
@@ -59,7 +58,6 @@
     </div>
     <div class="table-cell cell-feature"> Planificacion para la gestion del alcance </div>
     <div class="table-cell">
-        <!-- **************************************-->
         <div *ngIf="actaDeConstitucionDelProyecto; else elseBlock">
 
             <svg width="18" height="18" viewBox="0 0 18 18">
@@ -71,7 +69,7 @@
 
         </div>
         <ng-template #elseBlock></ng-template>
-        <!-- **************************************-->
+        
     </div>
     <div class="table-cell">
         <button disabled routerLink="#"> Ver Información </button>
@@ -92,17 +90,105 @@
     </div>
 </div>
 
+-->
+ 
+
+<div class="contenido-accordion"> 
+<mat-accordion class="example-headers-align" multi>
+
+        <mat-expansion-panel class="panel" [disabled] = "!actaDeConstitucionDelProyecto ? 'disabled': null">
+                <mat-expansion-panel-header>
+                <mat-panel-title> Acta de constitucion de proyecto </mat-panel-title>
+
+                <mat-panel-description>  
+            
+                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
+                <div *ngIf="actaDeConstitucionDelProyecto;else elseBlock">
+                <mat-icon style="margin-left:15px;color:green;"> done </mat-icon> 
+                </div> 
+                <ng-template #elseBlock>
+                <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                </ng-template>
+
+                
+                <button mat-raised-button [disabled] = "actaDeConstitucionDelProyecto ? 'disabled': null" style="margin-left:350px" color="primary" routerLink="/Actas"> INGRESAR </button>
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                    <app-actas-vista></app-actas-vista>
+                </ng-template>
+        </mat-expansion-panel>
+ 
+
+        <mat-expansion-panel class="panel"  [disabled] = "!checkEstadoActaVar ? 'disabled': null"  >
+                <mat-expansion-panel-header>
+                <mat-panel-title>  Plan para la direccion de proyectos </mat-panel-title>
+
+                <mat-panel-description>  
+            
+                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
+                <mat-icon style="margin-left:10px"> account_circle</mat-icon> 
+                
+                <button mat-raised-button style="margin-left:350px" color="primary" [disabled] = "checkEstadoActaVar ? 'disabled': null" routerLink="/direccion"> INGRESAR </button>
+                
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+
+                </ng-template>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="panel" disabled>
+                <mat-expansion-panel-header>
+                <mat-panel-title> Planificacion para la gestion del alcance </mat-panel-title>
+
+                <mat-panel-description>  
+                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
+                <mat-icon style="margin-left:10px"> account_circle</mat-icon> 
+                <button mat-raised-button disabled style="margin-left:350px" color="primary"> INGRESAR </button></mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                Some deferred content
+                </ng-template>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="panel" disabled>
+                <mat-expansion-panel-header>
+                <mat-panel-title>   Planificacion de Gestion del Cronograma  </mat-panel-title>
+                <mat-panel-description>  
+                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
+                <mat-icon style="margin-left:10px"> account_circle</mat-icon> 
+                <button mat-raised-button style="margin-left:350px" disabled color="primary"> INGRESAR </button></mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                <app-plan-gestion> </app-plan-gestion>
+
+                </ng-template>
+        </mat-expansion-panel>
 
 
- <mat-accordion>
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    This is the expansion title
-  </mat-expansion-panel-header>
+        <mat-expansion-panel disabled>
+                <mat-expansion-panel-header>
 
-  <ng-template matExpansionPanelContent>
-    Some deferred content
-  </ng-template>
-</mat-expansion-panel>
+                <mat-panel-title>   Definicion de las Actividades </mat-panel-title>
+                
+                <mat-panel-description>  
+                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
+                <mat-icon style="margin-left:10px"> account_circle</mat-icon> 
+                <button mat-raised-button disabled  style="margin-left:350px" color="primary"> INGRESAR </button></mat-panel-description>
+
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                    Some deferred content
+                </ng-template>
+        </mat-expansion-panel>
+
 </mat-accordion>
 
+</div>

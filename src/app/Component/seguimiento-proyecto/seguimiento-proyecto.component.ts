@@ -10,14 +10,24 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   public estado: boolean = false;
 
-  public actaDeConstitucionDelProyecto:Boolean=false;
-  public planParaLaDireccionDeProyectos:Boolean=false;
-  public planificacionParaLaGestionDelAlcance:Boolean=false;
-  public panelOpenState = false;
+  public actaDeConstitucionDelProyecto: Boolean = false;
+  public planParaLaDireccionDeProyectos: Boolean = false;
+  public planificacionParaLaGestionDelAlcance: Boolean = false;
+
+  public checkEstadoActaVar:Boolean =false;
+  public checkEstadoPdpVar:Boolean =false;
+  public checkEstadoPgaVar:Boolean =false;
+  public checkEstadoPgcVar:Boolean =false;
+
+  public checkEstadoActaActivo:Boolean =false;
+  public checkEstadoPdpActivo:Boolean =false;
+  public checkEstadoPgaActivo:Boolean =false;
+  public checkEstadoPgcActivo:Boolean =false;
   constructor(public entradaDeActaServices: EntradactaService) { }
 
   ngOnInit(): void {
-    this.referencia()
+    this.referencia();
+    this.checkEstadoActa();
   }
 
   public revisarEstados() {
@@ -35,12 +45,12 @@ export class SeguimientoProyectoComponent implements OnInit {
     console.log(data.entradactaValidate);
     console.log(data.herramientasValidate);
     console.log(data.planValidate);
-    if(data.acta== true &&
-      data.casoNegocioValidate== true &&
-      data.entradactaValidate== true &&
-      data.herramientasValidate== true &&
-      data.planValidate== true){
-        this.actaDeConstitucionDelProyecto=true;
+    if (data.acta == true &&
+      data.casoNegocioValidate == true &&
+      data.entradactaValidate == true &&
+      data.herramientasValidate == true &&
+      data.planValidate == true) {
+      this.actaDeConstitucionDelProyecto = true;
 
     }
   }
@@ -55,6 +65,7 @@ export class SeguimientoProyectoComponent implements OnInit {
 
         localStorage.setItem('datosActa', JSON.stringify(data));
         this.revisarEstados();
+        this.checkEstadoActa();
 
       },
       err => {
@@ -66,4 +77,39 @@ export class SeguimientoProyectoComponent implements OnInit {
     );
 
   }
+
+
+  public checkEstadoActa() {
+    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+    //console.log(JSON.parse());
+    /*console.log(data);
+    console.log(data.acta);
+    console.log(data.casoNegocioValidate);
+    console.log(data.entradactaValidate);
+    console.log(data.herramientasValidate);
+    console.log(data.planValidate);*/
+    if (data.acta == true &&
+      data.casoNegocioValidate == true &&
+      data.entradactaValidate == true &&
+      data.herramientasValidate == true &&
+      data.planValidate == true) {
+        this.checkEstadoActaActivo=true;
+
+
+    }
+  }
+
+  public checkEstadoPdp() {
+
+  }
+
+  public checkEstadoPga() {
+
+  }
+
+  public checkEstadoPgc() {
+
+  }
+
+
 }

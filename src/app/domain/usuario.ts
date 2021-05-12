@@ -5,7 +5,7 @@ export class Usuario{
         public nombre:string,
         public password:string,
         public token:string,
-        public enable:string,        
+        public activo:string,        
     ){}
 
      

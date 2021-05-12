@@ -1,9 +1,9 @@
-
+ 
 <div class="support-grid"></div>
 
 <div class="band">
     <div class="pantalla"> 
-        <h3>Proyectos</h3>
+        
         <div class="recuadro">
             <!-- <h3>Proyecos</h3>-->
           <!--
@@ -11,12 +11,9 @@
                 <H3>Cargando datos...</H3>
             </ng-container>
 -->         
-<ngx-spinner   bdColor="rgba(51,51,51,0.8)"
-size="medium"
-color="#fff"
-type="ball-spin-clockwise-fade">
+<ngx-spinner   bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin-clockwise-fade">
 
-<p style="font-size: 20px; color: white">Loading...</p>
+<p style="font-size: 20px; color: white">Cargando...</p>
 
 </ngx-spinner>
 
@@ -28,7 +25,7 @@ type="ball-spin-clockwise-fade">
                         <button mat-raised-button color="primary">{{tab.label}}</button>
                     </ng-template>
 
-                    <div *ngIf="tab.label=== 'Mi Proyectos' ">
+                    <div *ngIf="tab.label=== 'Mis Proyectos' ">
                         <app-mis-proyectos></app-mis-proyectos>
                         <!--<app-traspaso></app-traspaso>-->
                     </div>
@@ -47,34 +44,5 @@ type="ball-spin-clockwise-fade">
 
 
  
-<div class="recuadro">
-    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium"  color="#fff"  type="ball-spin-clockwise-fade">
-    <p style="font-size: 20px; color: white">Loading...</p>
-    </ngx-spinner>
-
-
- <mat-tab-group>
-            <mat-tab *ngFor="let tab of asyncTabs | async">
-                <ng-template mat-tab-label>
-                    <button mat-raised-button>{{tab.label}}</button>
-                </ng-template>
-
-                <div *ngIf="tab.label=== 'Mi Proyectos' ">
-                    <app-mis-proyectos></app-mis-proyectos>
-                    <!--<app-traspaso></app-traspaso>-->
-                </div>
-                <div *ngIf="tab.label=== 'crear proyecto' ">
-                    <app-proyecto-save></app-proyecto-save>
-                    <!--<app-traspaso-ppi500></app-traspaso-ppi500>-->
-                </div>
-                <div *ngIf="tab.label=== 'Proyectos' ">
-                    <app-proyectos></app-proyectos>
-                    <!--<app-reintegro></app-reintegro>-->
-                </div>
-            </mat-tab>
-    </mat-tab-group>
-       
-</div>
-
 
 </div>

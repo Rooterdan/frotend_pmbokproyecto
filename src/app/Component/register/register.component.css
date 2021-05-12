@@ -38,19 +38,20 @@
    
 
    .btn{
-    width: 55%;
+    width: 45%;
     height: 38px;
     border-radius: 25px;
     outline: none;
     border: none;
     border-radius: 7px;
-    background-image: linear-gradient(to right, #ffed4b, #d3a541, #ff9956b1);
+    background-image: linear-gradient(to right, #302cf0b1,#9ec8ff,#b6c9ff);
     background-size: 200%;
     font-size: 1.2rem;
     color: rgb(0, 0, 0);
     font-family: 'Poppins', sans-serif;
+ 
     text-transform: uppercase;
-    margin: 7px;
+    margin: 9px;
     cursor: pointer;
     transition: .4s;
   }
@@ -72,10 +73,10 @@
   {
       box-sizing: border-box;
       font-size: 14px;
-      padding: 8px;
+      padding: 9px;
       border-radius: 7px;
       border: 1px solid rgb(168, 168, 168);
-      width: 70%;
+      width: 60%;
       outline: none;
       margin: 10px;
   }

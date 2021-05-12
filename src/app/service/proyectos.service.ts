@@ -31,7 +31,7 @@ export class ProyectosService {
 
   public findById(idproyecto:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+idproyecto);
+    return this.httpClient.get(this.url+'finById/'+idproyecto);
   }
   public findByEmail(email:string):Observable<any>{
     //let header=this.createTokenHeader();

@@ -11,14 +11,20 @@ import { AuthLoginService } from './service/auth-login.service';
 export class AppComponent {
   title = 'Pmbok V7 ';
  
+  public declare  nombreUsuario:any;
 
   constructor(public router:Router, public authlogin:AuthLoginService){}
+  
 
-
+  ngOnInit(): void {
+    this.nombreUsuario=  localStorage.getItem('usuario');
+  }
+   
   public isAuth():boolean{
     if (!localStorage.getItem('usuario')) {
       return false;
     }
+    this.nombreUsuario=  localStorage.getItem('usuario');
     return true;
    // return !!localStorage.getItem('usuario');
   }
@@ -26,5 +32,6 @@ export class AppComponent {
 
   public singOut(){
     localStorage.removeItem('usuario');
+    localStorage.removeItem('pass');
   }
 }

@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
 
 
-   public Mensaje:boolean=false;
+  public Mensaje:boolean=false;
   public notificacion: string[] = [""];
   public usuarios: Usuario= new Usuario("","","","","") ;
 
@@ -45,27 +45,28 @@ export class RegisterComponent implements OnInit {
 
   public registrarUsuario(): void {
 
-    this.notificacion = [""];
-    console.log("Option de guardado ");
-    
-    this.usuarios.enable="Y";
+    this.usuarios.activo="Y";
     this.usuarios.token="generico123456789";
+
 
     console.log(this.usuarios);
  
     if(this.verificarCampos() == true){
+      this.notificacion = [""];
+      console.log("Option de guardado ");
+      
+     
       this.usuarioService.save(this.usuarios).subscribe(
         ok => {
           //this.showMsg=true;
           this.Mensaje=true;
-          this.notificacion[0] = "Customer " +  this.usuarios.email + "Se grabo Correctamente";
+          this.notificacion[0] = "Customer " +  this.usuarios.email + " Se grabo Correctamente";
           this.dialog.open(DialogComponent, { data : { typeError : this.notificacion[0] , title:this.confirModule}});
           this.router.navigate(['/login']);
         },
         err => {
          // console.log(err.error.error);
-  
-          //this.showMsg=true;
+ 
           this.notificacion[0] = "Error Al guardar el Ususario";
           this.dialog.open(DialogComponent, { data : { typeError : this.notificacion[0] , title:this.errorModule}});
        
@@ -77,28 +78,8 @@ export class RegisterComponent implements OnInit {
 
     }
  
-    this.usuarioService.save(this.usuarios).subscribe(
-      ok => {
-        //this.showMsg=true;
-        this.Mensaje=true;
-        
-        this.notificacion[0] = "Nuevo Usuario Registrado";
-        setTimeout(
-          ()=> {
-            console.log('Recargando');
-          }
-        );
-        window.location.reload();
-        this.router.navigate(['/']);
-
-      },
-      err => {
-        console.log(err.error.error);
-
-        //this.showMsg=true;
-        this.notificacion[0] = "Error Al guardar el Ususario";
-      }
-    );
- 
+  
   }
+
+
 }

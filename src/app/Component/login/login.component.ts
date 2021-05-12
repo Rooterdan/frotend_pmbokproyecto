@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
  
 
 import { Router } from '@angular/router'; 
+import { AppComponent } from 'src/app/app.component';
 
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -26,27 +27,32 @@ export class LoginComponent implements OnInit {
   
   public title= "NOTIFICACIÓN DE ERROR";
 
-  public showPass: boolean = true;
   
+  
+  public fieldTextType: boolean = false;
+  public inp1:boolean = false;
+  public inp2:boolean = false;
 
   constructor(
     public usuarioService: UsuarioService,
     public router: Router,
-    public dialog:MatDialog
+    public dialog:MatDialog,
+    public appComponent:AppComponent
     ) { }
 
     
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.appComponent.isAuth() ? this.router.navigate(["/home"]) : this.router.navigate(["/"]);
+  }
 
   public abrirModal(nameError:String,titleModule:String){
     this.dialog.open(DialogComponent, { data : { typeError : nameError, title:titleModule}});
   }
 
-  public fieldTextType: boolean = false;
 
  
-  toggleFieldTextType() {
+  public toggleFieldTextType():void {
     this.fieldTextType = !this.fieldTextType;
   }
  

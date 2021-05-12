@@ -5,7 +5,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './Component/usuario/usuario.component';
 import { LoginComponent } from './Component/login/login.component';
 import { RegisterComponent } from './Component/register/register.component';
 import { HomeComponent } from './Component/home/home.component';
@@ -28,14 +27,16 @@ import { ActasVistaComponent} from './presentacion/actas/actas-vista/actas-vista
 import { HerramientasComponent} from './presentacion/actas/herramientas/herramientas.component';
 import { PlanGestionComponent} from './presentacion/actas/plan-gestion/plan-gestion.component';
 import { EntradaComponent} from './presentacion/actas/entrada/entrada.component';
-// 
+//
+import { FilterProyectoPipe } from './pipes/filter-proyecto.pipe';
+//
 import { DialogComponent } from './Component/dialog/dialog.component';
 import { MatButtonModule} from '@angular/material/button';
 //import {MatTableModule} from '@angular/material/table';
 import { MatCardModule} from '@angular/material/card';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatTabsModule } from '@angular/material/tabs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MaterilaModule } from "./material.modules";
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatGridListModule} from '@angular/material/grid-list';
@@ -46,11 +47,11 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
-
+import { FlexLayoutModule} from '@angular/flex-layout';
+import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
@@ -72,6 +73,8 @@ import { MatDialogModule} from '@angular/material/dialog';
     ActasVistaComponent,
     PlanGestionComponent,
     DialogComponent,
+    FilterProyectoPipe,
+    EntradaspdpComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ import { MatDialogModule} from '@angular/material/dialog';
     HttpClientModule,
     //---------------------
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,  
     MatInputModule,
     NgxSpinnerModule,
@@ -99,7 +103,9 @@ import { MatDialogModule} from '@angular/material/dialog';
     MatExpansionModule,
     MDBBootstrapModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    FlexLayoutModule,
+   
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}

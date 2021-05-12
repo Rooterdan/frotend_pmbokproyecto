@@ -77,8 +77,8 @@ export class EntradasComponent implements OnInit {
 
   public crearReunion(ProyectoId: number) {
     console.log('--------- public crearReunion(');
-    this.reunion = new Reunion(0, "Reunion Generica", "Sin descripción", ProyectoId, 1);
-
+    this.reunion = new Reunion(0, "Reunion Generica", "Sin descripción", ProyectoId, 3);
+    console.log(this.reunion);
     this.reunionService.save(this.reunion).subscribe(
       data => {
         console.log('data de reuniones para EL ACTA****');

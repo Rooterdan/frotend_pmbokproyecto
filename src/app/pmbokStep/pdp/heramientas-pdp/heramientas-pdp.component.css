@@ -1,0 +1,31 @@
+.mat-card {
+    background-color: rgb(202, 198, 198);
+    min-width: 60%;
+    max-width: 80%;
+    padding: 5%;
+}
+
+.mat-card-title {
+    text-align: center;
+}
+
+.mat-card-actions {
+    text-align: center;
+}
+
+.mat-form-field {
+    display: flex;
+}
+
+.mat-grid-list {
+    background: rgb(243, 237, 237);
+    border: green;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.centrado {
+    /*display: inline-block;*/
+    float: left;
+    width: 50%;
+}
