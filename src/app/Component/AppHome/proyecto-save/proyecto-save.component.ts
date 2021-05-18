@@ -7,9 +7,9 @@ import { Proyecto } from 'src/app/domain/proyectos';
 import { tipoProyecto } from 'src/app/domain/tipo_proyecto';
 import { ProyectosService } from 'src/app/service/proyectos.service';
 import { TipoProyectoService } from 'src/app/service/tipo-proyecto.service';
-import { DialogComponent } from '../dialog/dialog.component';
-import { MisProyectosComponent } from '../home/mis-proyectos/mis-proyectos.component';
-import { ProyectosComponent } from '../home/proyectos/proyectos.component';
+import { DialogComponent } from '../../AppDialog/dialog.component';
+import { MisProyectosComponent } from '../mis-proyectos/mis-proyectos.component';
+import { ProyectosComponent } from '../proyectos/proyectos.component';
 
 @Component({
   selector: 'app-proyecto-save',

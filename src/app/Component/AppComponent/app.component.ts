@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthGuard } from './guard/auth.guard';
-import { AuthLoginService } from './service/auth-login.service';
+import { AuthLoginService } from 'src/app/service/auth-login.service';
 
+//import { AuthGuard } from './guard/auth.guard';
+
+
+ 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

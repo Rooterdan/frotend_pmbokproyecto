@@ -1,30 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActaComponent } from './Component/acta/acta.component';
-import { DireccionProyectoComponent } from './Component/direccion-proyecto/direccion-proyecto.component';
-import { HomeComponent } from './Component/home/home.component';
-import { MisProyectosComponent } from './Component/home/mis-proyectos/mis-proyectos.component';
-import { ProyectosComponent } from './Component/home/proyectos/proyectos.component';
-import { LoginComponent } from './Component/login/login.component';
-import { ParticipacionComponent } from './Component/participacion/participacion.component';
-import { ProyectoSaveComponent } from './Component/proyecto-save/proyecto-save.component';
-import { RegisterComponent } from './Component/register/register.component';
-import { SeguimientoProyectoComponent } from './Component/seguimiento-proyecto/seguimiento-proyecto.component';
+import { DireccionProyectoComponent } from './Component/AppHome/direccion-proyecto/direccion-proyecto.component';
+import { HomeComponent } from './Component/AppHome/Home/home.component';
+import { MisProyectosComponent } from './Component/AppHome/mis-proyectos/mis-proyectos.component';
+import { ProyectosComponent } from './Component/AppHome/proyectos/proyectos.component';
+import { LoginComponent } from './Component/AppAuth/login/login.component';
+import { ProyectoSaveComponent } from './Component/AppHome/proyecto-save/proyecto-save.component';
+import { RegisterComponent } from './Component/AppAuth/register/register.component';
+import { SeguimientoProyectoComponent } from './Component/AppHome/seguimiento-proyecto/seguimiento-proyecto.component';
 
 
 import { AuthGuard } from './guard/auth.guard';
-import { ActasComponent } from './pmbokStep/actas/actas.component';
-import { EntradasComponent } from './pmbokStep/actas/entradas/entradas.component';
-import { CasoNegocioComponent } from './pmbokStep/actas/caso-negocio/caso-negocio.component';
-import { HerramientasActaComponent } from './pmbokStep/actas/herramientas-acta/herramientas-acta.component';
+import { ActasComponent } from './Component/AppPmbokStep/actas/actas.component';
+import { EntradasComponent } from './Component/AppPmbokStep/actas/entradas/entradas.component';
+import { CasoNegocioComponent } from './Component/AppPmbokStep/actas/caso-negocio/caso-negocio.component';
+import { HerramientasActaComponent } from './Component/AppPmbokStep/actas/herramientas-acta/herramientas-acta.component';
 import { PlanGestioBeneficio } from './domain/plangestionbeneficio';
 
-import { ActasVistaComponent } from './presentacion/actas/actas-vista/actas-vista.component';
-import { EntradaComponent } from './presentacion/actas/entrada/entrada.component';
-import { HerramientasComponent } from './presentacion/actas/herramientas/herramientas.component';
-import { PlanGestionComponent } from './presentacion/actas/plan-gestion/plan-gestion.component';
-import { CasoNegociosComponent } from './presentacion/actas/caso-negocios/caso-negocios.component';
-import { EntradaspdpComponent } from './pmbokStep/pdp/entradaspdp/entradaspdp.component';
+import { ActasVistaComponent } from './Component/AppPresentacion/actas/actas-vista/actas-vista.component';
+import { EntradaComponent } from './Component/AppPresentacion/actas/entrada/entrada.component';
+import { HerramientasComponent } from './Component/AppPresentacion/actas/herramientas/herramientas.component';
+import { PlanGestionComponent } from './Component/AppPresentacion/actas/plan-gestion/plan-gestion.component';
+import { CasoNegociosComponent } from './Component/AppPresentacion/actas/caso-negocios/caso-negocios.component';
+import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
 
 
 
@@ -34,11 +32,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'participacion', component: ParticipacionComponent, canActivate: [AuthGuard] },
   { path: 'seguimiento-proyecto', component: SeguimientoProyectoComponent, canActivate: [AuthGuard] },
   { path: 'direccion', component: DireccionProyectoComponent, canActivate: [AuthGuard] },
   { path: 'proyecto-save', component: ProyectoSaveComponent, canActivate: [AuthGuard] },
-  { path: 'acta', component: ActaComponent, canActivate: [AuthGuard] },
   { path: 'misproyectos', component: MisProyectosComponent, canActivate: [AuthGuard] },
   { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   /**

@@ -3,11 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
  
 
 import { Router } from '@angular/router'; 
-import { AppComponent } from 'src/app/app.component';
+import { AppComponent } from 'src/app/Component/AppComponent/app.component';
 
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComponent } from '../../AppDialog/dialog.component';
  
 
 @Component({

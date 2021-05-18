@@ -80,14 +80,15 @@ export class PlanGestionComponent implements OnInit {
     Se debe tener previamente cargado el ID del acta
     para hacer un FindByAI
     */
-    console.log('->>>>> buscarherramientasPorActa');
+    //console.log('->>>>> buscarherramientasPorActa');
     var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
-    console.log('->>>>>',idproyecto);
+    //console.log('->>>>>',idproyecto);
     this.planService.findplanGestionDelActa(idproyecto).subscribe(
       data => {
-        console.log('->>>>> buscarherramientasPorActa');
-        console.log(data[0]);
-        this.datosPlan = data[0];
+        //console.log('->>>>> buscarherramientasPorActa');
+        console.log(data);
+        this.datosPlan = data;
+        console.log(this.datosPlan)
       },
 
       err => {

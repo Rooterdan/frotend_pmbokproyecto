@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
  import { Router } from '@angular/router';
 import { Usuario } from 'src/app/domain/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
-import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComponent } from '../../AppDialog/dialog.component';
 
 @Component({
   selector: 'app-register',
