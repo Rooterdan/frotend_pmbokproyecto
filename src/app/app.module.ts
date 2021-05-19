@@ -9,7 +9,6 @@ import { LoginComponent } from './Component/AppAuth/login/login.component';
 import { RegisterComponent } from './Component/AppAuth/register/register.component';
 import { HomeComponent } from './Component/AppHome/Home/home.component';
 import { ProyectoSaveComponent } from './Component/AppHome/proyecto-save/proyecto-save.component';
-import { DireccionProyectoComponent } from './Component/AppHome/direccion-proyecto/direccion-proyecto.component';
 import { SeguimientoProyectoComponent } from './Component/AppHome/seguimiento-proyecto/seguimiento-proyecto.component';
 import { ProyectosComponent } from './Component/AppHome/proyectos/proyectos.component';
 import { MisProyectosComponent } from './Component/AppHome/mis-proyectos/mis-proyectos.component';
@@ -31,11 +30,10 @@ import { HerramientasComponent } from './Component/AppPresentacion/actas/herrami
 import { CasoNegociosComponent } from './Component/AppPresentacion/actas/caso-negocios/caso-negocios.component';
 import { ActasVistaComponent } from './Component/AppPresentacion/actas/actas-vista/actas-vista.component';
 import { PlanGestionComponent } from './Component/AppPresentacion/actas/plan-gestion/plan-gestion.component';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
-import { PdpComponent } from './Component/AppPdp/pdp.component';
 import { HeramientasPdpComponent } from './Component/AppPmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
  
 import { MatCardModule} from '@angular/material/card';
@@ -55,15 +53,19 @@ import { MatDialogModule} from '@angular/material/dialog';
  
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
+import { PdpComponent } from './Component/AppPmbokStep/pdp/pdp.component';
+import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salidas-procesos-pdp/salidas-procesos-pdp.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    PdpComponent,
+    EntradaspdpComponent,
+    HeramientasPdpComponent,
     HomeComponent,
     ProyectoSaveComponent,
-    DireccionProyectoComponent,
     SeguimientoProyectoComponent,
     ProyectosComponent,
     MisProyectosComponent,
@@ -78,7 +80,6 @@ import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/e
     ActasVistaComponent,
     PlanGestionComponent,
 
-    PdpComponent,
     EntradaspdpComponent,
     HeramientasPdpComponent,
   
@@ -87,6 +88,7 @@ import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/e
  
     FilterProyectoPipe,
     EntradaspdpComponent,
+    SalidasProcesosPdpComponent,
  
   ],
   imports: [
