@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
       
       setTimeout(() => {
         observer.next([
-          { label: 'Proyectos', content: 'Proyectos de otros usuarios' },
-          { label: 'Mis Proyectos', content: 'Participacion en proyecto' },
-          { label: 'crear proyecto', content: 'crear proyecto' },
+          { label: 'Mis proyectos', content: 'Participacion en proyecto' },
+          { label: 'Todos los proyectos', content: 'Proyectos de otros usuarios' },
+          { label: 'Crear proyecto', content: 'Crear proyecto' },
         ]);
       }, 1000);
     });

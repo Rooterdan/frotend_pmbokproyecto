@@ -35,7 +35,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 
 
-import { PdpComponent } from './Component/AppStepPdp/pdp.component';
+import { PdpComponent } from './Component/AppPdp/pdp.component';
 import { HeramientasPdpComponent } from './Component/AppPmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
  
 import { MatCardModule} from '@angular/material/card';

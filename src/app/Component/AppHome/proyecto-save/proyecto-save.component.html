@@ -2,7 +2,7 @@
  
 	<div class="container-right" >
 		<div class="login-form-container">
-			<h1>CREA TU PROYECTO AHORA</h1>
+			<h1>Crea tu proyecto ahora </h1>
 			<div class ="div-row"> 
 				<input type="email"  class="input-field" placeholder="Nombre del proyecto"  [(ngModel)]="proyecto.nombre" name="nombre" required/>
 			</div>
@@ -13,7 +13,7 @@
 			</div> 
 
 	<div class ="div-row">
-      <label class="select"> TIPO DE PROYECTO
+      <label class="select"> Tipo de proyecto
             <select id="slct" required="required"  [(ngModel)]="proyecto.tipo_id">
             <option *ngFor="let tipo of tipos" [value]="tipo.tipo_id"> {{tipo.clasificacion}} </option>
 
