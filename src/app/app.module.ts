@@ -30,12 +30,13 @@ import { HerramientasComponent } from './Component/AppPresentacion/actas/herrami
 import { CasoNegociosComponent } from './Component/AppPresentacion/actas/caso-negocios/caso-negocios.component';
 import { ActasVistaComponent } from './Component/AppPresentacion/actas/actas-vista/actas-vista.component';
 import { PlanGestionComponent } from './Component/AppPresentacion/actas/plan-gestion/plan-gestion.component';
-import { MatButtonModule } from '@angular/material/button';
 
 
 
 import { HeramientasPdpComponent } from './Component/AppPmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
  
+
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule} from '@angular/material/card';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -50,11 +51,15 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
  
+
 import { FlexLayoutModule} from '@angular/flex-layout';
 import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
 import { PdpComponent } from './Component/AppPmbokStep/pdp/pdp.component';
 import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salidas-procesos-pdp/salidas-procesos-pdp.component';
+ 
+
  
 @NgModule({
   declarations: [
@@ -89,7 +94,7 @@ import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salida
     FilterProyectoPipe,
     EntradaspdpComponent,
     SalidasProcesosPdpComponent,
- 
+
   ],
   imports: [
     BrowserModule,
@@ -120,6 +125,9 @@ import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salida
     MatDialogModule,
     MatButtonModule,
     FlexLayoutModule,
+
+    MatMenuModule,
+
    
   ],
   providers: [

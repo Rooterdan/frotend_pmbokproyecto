@@ -8,23 +8,29 @@
 			</div>
 
 			<div class ="div-row">
-        
 				<textarea name="descripcion" cols="37" placeholder="Descripcion breve de tu proyecto" rows="4" [(ngModel)]="proyecto.descripcion"  class="input-field"  required >  </textarea>
 			</div> 
 
-	<div class ="div-row">
-      <label class="select"> Tipo de proyecto
-            <select id="slct" required="required"  [(ngModel)]="proyecto.tipo_id">
-            <option *ngFor="let tipo of tipos" [value]="tipo.tipo_id"> {{tipo.clasificacion}} </option>
+			<div class ="div-row">
 
-            </select>
+				<label class="select"  > Tipo de proyecto  
+					<select id="slct" class="minimal" required="required"  [(ngModel)]="proyecto.tipo_id" matSuffix>
+						<option *ngFor="let tipo of tipos" [value]="tipo.tipo_id" > {{tipo.clasificacion}} 
+						
+						</option>
+					<mat-icon>keyboard_arrow_down</mat-icon>
 
-            <span style="left:-30px">
-            <mat-icon>keyboard_arrow_down</mat-icon>
-            </span>
-      </label>
-						</div> 
-          <button (click)="guardarNuevoProyecto()" type="button" class="btn">Crear proyecto </button>
-		</div> 
+					</select>
 
+				 
+				</label>
+
+				<div> 
+					<button (click)="guardarNuevoProyecto()" type="button" class="btn">Crear proyecto </button>
+				</div> 
+			</div> 
+
+		</div>
 	</div>
+</div>
+ 

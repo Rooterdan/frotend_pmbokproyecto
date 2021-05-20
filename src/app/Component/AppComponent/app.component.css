@@ -1,19 +1,41 @@
 .mat-toolbar{
-    background-color:rgba(64, 122, 247, 0.919);
+    background-color:rgba(249, 109, 109, 0.919);
     height: 50px;
     justify-content: space-between;
-  }   
+    border-bottom-right-radius:12px;
+    border-bottom-left-radius: 12px; 
+    border-radius:12px;
+    position: relative;
+    width:98%;
+    margin:10px;
+    top:5px;
+}   
 
  
 .bloqueBotonesRigth{
   
-    display: flex;
-    justify-content: center;
-     
-    width: 300px;
+ 
+    justify-content: end;
 
 }
+ 
 
-.buttonLogout{
-    margin-right: 8px;
+.buttonLogout:hover{
+    background-color: rgb(215, 237, 234);
+}
+
+ 
+
+.mat-button{
+    background-color: beige;
+}
+
+
+.mat-menu-content {
+    padding: 30px;
+}
+
+::ng-deep .mat-menu-panel {
+   margin-top: 2px;
+   
 }

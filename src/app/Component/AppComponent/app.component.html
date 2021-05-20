@@ -9,20 +9,41 @@
 <body>
 
 <div  *ngIf="isAuth()">
- <mat-toolbar >
+   <mat-toolbar >
 
-  <div  class="bloqueBotonesLeft">
-  <a routerLink="/home" mat-raised-button> GestionAPP </a>
-  </div> 
+    <div  class="bloqueBotonesLeft">
+       <a routerLink="/home" mat-raised-button> GestionAPP </a>
+    </div> 
 
-  <div class="bloqueBotonesRigth">
-    <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()"  mat-raised-button color="link"> {{ nombreUsuario }} </button>
-    <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()"  mat-raised-button color="warn"> Salir </button>
-  </div>
+    <div class="bloqueBotonesRigth">
+    
+        <button class="bottonMenu"  [matMenuTriggerFor]="beforeMenu" mat-raised-button  matSuffix  >
+         <mat-icon>account_circle</mat-icon>   {{ nombreUsuario }} 
 
-  </mat-toolbar>
+                <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+      
+            
+        <mat-menu  #beforeMenu="matMenu" xPosition="before">
+
+                  <button routerLink="/login" class="buttonLogout" matPrefix (click)="singOut()"  mat-menu-item>                  
+                    <mat-icon>settings</mat-icon>Configuracion
+                  </button>
+
+                  <button routerLink="/login" class="buttonLogout" style="" (click)="singOut()" mat-menu-item> 
+                  <mat-icon>keyboard_backspace</mat-icon>  Salir 
+                  </button>
+
+        </mat-menu>
+    </div>
+
+   </mat-toolbar >
+
 
 </div>
+
+
+<!--/.Navbar-->
 
 <router-outlet></router-outlet>
 
