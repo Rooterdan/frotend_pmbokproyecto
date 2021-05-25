@@ -23,27 +23,22 @@ export class EntradactaService {
     }
   */
 
-      
-    public valorIdEntraActa(idProyecto: number): Observable<any> {
-      //let header=this.createTokenHeader();
-      console.log(this.url + 'getEntradaIdActa/' + idProyecto);
-      
-      return this.httpClient.get(this.url + 'getEntradaIdActa/' + idProyecto);
-    }
 
-    
-    public validarValoresActa(idProyecto: number): Observable<any> {
-      //let header=this.createTokenHeader();
-      console.log(this.url + 'validarActa/' + idProyecto);
-      
-      return this.httpClient.get(this.url + 'validarActa/' + idProyecto);
-    } 
-    public validarActa(idProyecto: number): Observable<any> {
-      //let header=this.createTokenHeader();
-      console.log(this.url + 'getIdActa/' + idProyecto);
-      
-      return this.httpClient.get(this.url + 'getIdActa/' + idProyecto);
-    }
+  public valorIdEntraActa(idProyecto: number): Observable<any> {
+    console.log(this.url + 'getEntradaIdActa/' + idProyecto);
+    return this.httpClient.get(this.url + 'getEntradaIdActa/' + idProyecto);
+  }
+
+  public validarValoresActa(idProyecto: number): Observable<any> {
+    console.log(this.url + 'validarActa/' + idProyecto);
+    return this.httpClient.get(this.url + 'validarActa/' + idProyecto);
+  }
+
+  public validarActa(idProyecto: number): Observable<any> {   // REVISAR
+    console.log("Error en validarActa");
+    console.log(this.url + 'getIdActa/' + idProyecto);
+    return this.httpClient.get(this.url + 'getIdActa/' + idProyecto);
+  }
 
   public findAll(): Observable<any> {
     //let header=this.createTokenHeader();
@@ -54,18 +49,19 @@ export class EntradactaService {
     //let header=this.createTokenHeader();
     return this.httpClient.get(this.url + 'finById/' + identrada);
   }
-  public findEntradaDelActa(idProyecto:number):Observable<any>{
+
+  public findEntradaDelActa(idProyecto: number): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'entradaDelActa/'+idProyecto);
+    return this.httpClient.get(this.url + 'entradaDelActa/' + idProyecto);
   }
 
   public save(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
     console.log('-------------------');
-    console.log(entradacta.acuerdos);
-    console.log(entradacta.factores);
-    console.log(entradacta.activosprocesos);
-    console.log(entradacta.identrada);
+    console.log("entradacta.acuerdo  =" + entradacta.acuerdos);
+    console.log("entradacta.factores  =" + entradacta.factores);
+    console.log("entradacta.activosprocesos  =" + entradacta.activosprocesos);
+    console.log("entradacta.identrada "+ entradacta.identrada);
     console.log('-------------------');
     return this.httpClient.post(this.url + 'save', entradacta);
   }

@@ -5,6 +5,34 @@
     </ngx-spinner>
 </div>
 
+
+<ng-template #DataCaso>
+            <div >
+                <p>  Metas de acta del proyecto  <button [disabled] = "metas ? null : 'disabled'"  (click)="updateCasoNegocio()"> Guardar fase</button> </p>
+                <textarea    style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="casoMegocio.metas"  placeholder="Metas..."> {{casoMegocio.metas}} </textarea>
+            </div> 
+
+            <div> 
+                <p> Objetivos para el acta del proyecto  <button> Guardar </button> </p>
+                <textarea   style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="casoMegocio.objetivos"  matInput placeholder="Objetivos..."> {{casoMegocio.objetivos}} </textarea>
+            </div>
+
+            <div>
+                <p> Incidentes para el acta del proyecto <button> Guardar </button> </p>
+                <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="casoMegocio.incidentes"  matInput placeholder="Incidentes..."> {{casoMegocio.incidentes}} </textarea>
+            </div>
+
+            <div>
+                <p> Oportunidades para el acta del proyecto <button> Guardar </button> </p>
+                <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="casoMegocio.oportunidades"  matInput placeholder="Oportunidades..."> {{casoMegocio.oportunidades}} </textarea>
+            </div>
+
+            <div> 
+                <button (click)="guardarCasoNegocio()"> Guardar caso de negocio </button>
+            </div>
+</ng-template>    
+
+<!-- 
 <ng-template #DataCaso>
 
     <mat-grid-list cols="2" rowHeight="2:2">
@@ -241,4 +269,6 @@
             </mat-card-actions>
         </p>
     </mat-card>
-</div>-->
+</div>
+
+-->

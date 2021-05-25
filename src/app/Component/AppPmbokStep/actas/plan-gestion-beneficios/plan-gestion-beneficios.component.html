@@ -6,7 +6,38 @@
 
 
 </div>
+<ng-template #DataEntrada>
+    <div >
+        <p>  Acciones el acta del proyecto <button  > Guardar fase</button> </p>
+        <textarea    style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="planObje.acciones"  placeholder="Acciones..."> {{planObje.acciones}} </textarea>
+    </div> 
 
+    <div> 
+        <p> Componentes para el acta del proyecto  <button> Guardar </button> </p>
+        <textarea   style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.componentes"  matInput placeholder="Componentes..."> {{planObje.acciones}} </textarea>
+    </div>
+
+    <div>
+        <p> Productos para el acta del proyecto <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.prodcutos"  matInput placeholder="Productos..."> {{planObje.prodcutos}} </textarea>
+    </div>
+
+    <div>
+        <p> Servicios para el acta del proyecto <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.servicios" matInput placeholder="Servicios..."> {{planObje.servicios}} </textarea>
+    </div>
+
+    <div>
+        <p> Resultado esperados para el acta del proyecto <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.resultado" matInput placeholder="Resultado..."> {{planObje.resultado}} </textarea>
+    </div>
+
+    <div> 
+        <button (click)="guardarPlan()"> Guardar plan de gestion </button>
+    </div>
+</ng-template>
+
+<!-- 
 <ng-template #DataEntrada>
 
 
@@ -150,6 +181,26 @@
 
     </mat-grid-list>
 </ng-template>
+
+-->
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <div class="centrado">
     <mat-card>

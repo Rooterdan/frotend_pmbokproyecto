@@ -28,29 +28,33 @@ export class CasoNegocioComponent implements OnInit {
     public router: Router,
     public casoServices: CasonegocioService,
     public entradactaService: EntradactaService,
-    public spinnerService : NgxSpinnerService
+    public spinnerService : NgxSpinnerService,
+    public casoNegocioService:CasonegocioService
 
-  ) { }
+  ) {    
+}
 
   ngOnInit(): void {
     this.spinnerService.show();
     this.cargaEnable = true;
+
     setTimeout(() => {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
-      
+      this.buscarCasoDeNegocioPorEntrada();
+
     }, 2000);
     
     this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0);
 
   }
   public guardarCasoNegocio() {
-    console.log(this.casoMegocio.metas);
-    console.log(this.casoMegocio.objetivos);
-    console.log(this.casoMegocio.incidentes);
+
+   
     console.log(this.casoMegocio.oportunidades);
     let x  = localStorage.getItem("entradaActaId");
+
     var idActa = Number(x);
     this.casoMegocio.idEntradaActa = idActa;
     this.casoServices.save(this.casoMegocio).subscribe(
@@ -58,8 +62,10 @@ export class CasoNegocioComponent implements OnInit {
         console.log('3');
         console.log(ok);
         window.alert("Nueva acta guardada ");
+
+
         window.location.reload();
-        this.router.navigate(['/seguimiento-proyecto']);
+        
 
       },
       err => {
@@ -69,6 +75,47 @@ export class CasoNegocioComponent implements OnInit {
       }
     );
   }
+
+
+
+
+  public buscarCasoDeNegocioPorEntrada() {
+ 
+   console.log('->>>>>buscarCasoDeNegocioPorEntrada');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    console.log('->>>>>',idproyecto);
+
+
+    this.casoNegocioService.findherramientaDelActa(idproyecto).subscribe(
+      data => {
+ 
+        if(data[0] != null){
+          this.casoMegocio = data[0];
+          console.table(this.casoMegocio);  
+        }
+         },
+
+      err => {
+        console.log(err.error.error);
+        window.alert(err.error.error);
+
+      }
+    );
+   
+  
+}
+
+
+  public updateCasoNegocio(){
+    this.casoNegocioService.update(this.casoMegocio).subscribe(
+      data => {
+        this.casoMegocio = data;
+      }, err => {
+        console.log(err.error.error);
+      }
+    )   
+  }
+
 
 
   public guardarmetas() {

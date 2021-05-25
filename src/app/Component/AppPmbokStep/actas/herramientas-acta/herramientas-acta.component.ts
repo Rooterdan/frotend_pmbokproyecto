@@ -27,7 +27,9 @@ export class HerramientasActaComponent implements OnInit {
     public router: Router,
     public herrmientasServices: HerramientasactaService,
     public entradactaService: EntradactaService,
-    public spinnerService : NgxSpinnerService
+    public spinnerService : NgxSpinnerService,
+    public herramientasService: HerramientasactaService
+
 
   ) { }
 
@@ -38,6 +40,7 @@ export class HerramientasActaComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
+      this.buscarherramientasPorActa();
       
     }, 2000);
     this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0);
@@ -50,14 +53,16 @@ export class HerramientasActaComponent implements OnInit {
     let x = localStorage.getItem("idactas");
     var idActa = Number(x);
     this.herramientasObje.idactas = idActa;
+    var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
+
     if (idActa > 0) {
       this.herrmientasServices.save(this.herramientasObje).subscribe(
         ok => {
-          console.log(ok);
+          variable.herramientasValidate = true;
+          localStorage.setItem("datosActa", JSON.stringify(variable) );
           window.alert("Nueva Herramientas del acta guardado  ");
           window.location.reload();
-          this.router.navigate(['/seguimiento-proyecto']);
-
+ 
         },
         err => {
           console.log(err.error.error);
@@ -72,6 +77,27 @@ export class HerramientasActaComponent implements OnInit {
 
   }
 
+
+  public buscarherramientasPorActa() {
+  
+    console.log('->>>>> buscarherramientasPorActa');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    console.log('->>>>>',idproyecto);
+    this.herramientasService.findherramientaDelActa(idproyecto).subscribe(
+      data => {
+        console.log(data);
+        if(data[0]!=null){
+          this.herramientasObje = data[0];
+        }
+      },
+
+      err => {
+        console.log(err.error.error);
+        window.alert('Herramientas ' + err.error.error);
+
+      }
+    );
+  }
 
 
 

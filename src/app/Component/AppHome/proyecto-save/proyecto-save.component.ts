@@ -97,7 +97,7 @@ export class ProyectoSaveComponent implements OnInit {
         //this.router.navigate(['/home']);
         setTimeout(() => {
             window.location.reload();
-        }, 5000);
+        }, 1500);
 
 
 

@@ -29,7 +29,9 @@ export class PlanGestionBeneficiosComponent implements OnInit {
     public router: Router,
     public planesService: PlangestionbeneficioService,
     public entradactaService: EntradactaService,
-    public spinnerService : NgxSpinnerService
+    public spinnerService : NgxSpinnerService,
+    public planService:PlangestionbeneficioService
+
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class PlanGestionBeneficiosComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
+      this.buscarherramientasPorActa();
       
     }, 2000);
     
@@ -51,6 +54,7 @@ export class PlanGestionBeneficiosComponent implements OnInit {
     console.log(this.planObje.prodcutos);
     console.log(this.planObje.servicios);
     console.log(this.planObje.resultado);
+    var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
 
     let x  = localStorage.getItem("entradaActaId");
     var idActa = Number(x);
@@ -59,12 +63,16 @@ export class PlanGestionBeneficiosComponent implements OnInit {
       console.log( this.planObje);
       this.planesService.save(this.planObje).subscribe(
         ok => {
-          console.log('------------**');
-          console.log(ok);
-          window.alert("Nuevo Plan de Gestión se ha grabado ");
+           
+          console.table(ok);
+          var datosSacados = localStorage.getItem("datosActa") || {};
+          window.alert("Nuevo Plan de Gestión se ha grabado  " +  datosSacados);
+
+          variable.planValidate = true;
+          localStorage.setItem("datosActa", JSON.stringify(variable) );
+
           window.location.reload();
-          this.router.navigate(['/seguimiento-proyecto']);
-  
+   
         },
         err => {
           console.log(err.error.error);
@@ -77,6 +85,30 @@ export class PlanGestionBeneficiosComponent implements OnInit {
     }
 
 
+  }
+
+
+  public buscarherramientasPorActa() {
+    //Se debe tener previamente cargado el ID del acta  para hacer un FindByAI
+
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    //console.log('->>>>>',idproyecto);
+    this.planService.findplanGestionDelActa(idproyecto).subscribe(
+      data => {
+        //console.log('->>>>> buscarherramientasPorActa');
+       // console.log(data);
+       if(data[0]!=null){
+        this.planObje = data[0];
+        console.table(this.planObje);
+        }
+      },
+
+      err => {
+        console.log(err.error.error);
+        window.alert('Plan gestion Beneficios ' + err.error.error);
+
+      }
+    );
   }
 
 

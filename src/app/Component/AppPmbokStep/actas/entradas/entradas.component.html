@@ -4,10 +4,33 @@
     <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
         <p style="font-size: 20px; color: white">Cargando... </p>
     </ngx-spinner>
-
-
 </div>
+ 
+<ng-template #DataEntrada>
 
+    <div >
+        <p>  Acuerdos para el acta del proyecto  <button [disabled] = "acuerdosEnable ? null : 'disabled'" (click)="updateEntrada()"> Guardar fase</button> </p>
+        <textarea   [(ngModel)]="entradaActa.acuerdos"  style="resize: both;" cols="90" rows="10" style="resize: both;"   placeholder="Entradas....">{{entradaActa.acuerdos}}</textarea>
+    </div> 
+
+    <div> 
+        <p> Factores ambientales para el acta del proyecto  <button> Guardar </button> </p>
+        <textarea  [(ngModel)]="entradaActa.factores" style="resize: both;" cols="90" rows="10" style="resize: both;"  matInput placeholder="Acuerdos....">{{entradaActa.factores}}</textarea>
+    </div>
+
+    <div>
+        <p> Procesos activos para el acta del proyecto  <button> Guardar </button> </p>
+        <textarea [(ngModel)]="entradaActa.activosprocesos" style="resize: both;" cols="90" rows="10" style="resize: both;"  matInput placeholder="Factores....">{{entradaActa.activosprocesos}}</textarea>
+    </div>
+
+    <div> 
+        <button (click)="guardarActa()"> Guardar acta </button>
+    </div>
+
+
+</ng-template>
+
+<!-- 
 <ng-template #DataEntrada>
     <mat-grid-list cols="2" rowHeight="2:2">
         <mat-grid-tile>
@@ -31,36 +54,36 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-
-                        <button (click)="guardarAcuerdos()" mat-button>GUARDAR</button>
+                         <button (click)="guardarAcuerdos()" mat-button>GUARDAR</button>
                     </mat-card-actions>
                 </p>
             </mat-card>
         </mat-grid-tile>
+
+
 
         <mat-grid-tile>
             <mat-card>
                 <p>
                     <mat-card-title>Factores ambientales para el acta del proyecto </mat-card-title>
                     <mat-card-content>
-                        <div *ngIf="factoresEnable; else Notfactores">
-                            <textarea cols="60" rows="20" style="resize: both;" cols="60" rows="20" style="resize: both;" [(ngModel)]="entradaActa.factores" matInput placeholder="Factores...."></textarea>
-                        </div>
+                            <div *ngIf="factoresEnable; else Notfactores">
+                                <textarea cols="60" rows="20" style="resize: both;" cols="60" rows="20" style="resize: both;" [(ngModel)]="entradaActa.factores" matInput placeholder="Factores...."></textarea>
+                            </div>
 
-                        <ng-template #Notfactores>
-                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="entradas....">{{entradaActa.factores}}</textarea>
-                        </ng-template>
+                            <ng-template #Notfactores>
+                                <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="entradas....">{{entradaActa.factores}}</textarea>
+                            </ng-template>
                     </mat-card-content>
                     <mat-card-actions>
 
 
-                        <button (click)="guardarFactores()" mat-button>GUARDAR</button>
+                    <button (click)="guardarFactores()" mat-button>GUARDAR</button>
                     </mat-card-actions>
                 </p>
             </mat-card>
-
-
         </mat-grid-tile>
+
 
         <mat-grid-tile>
             <mat-card>
@@ -68,9 +91,8 @@
                     <mat-card-title>Procesos activos para el acta del proyecto</mat-card-title>
                     <mat-card-content>
 
-
                         <div *ngIf="activosEnable; else Notactivosprocesos">
-                            <textarea cols="60" rows="20" style="resize: both;" cols="60" rows="20" style="resize: both;" [(ngModel)]="entradaActa.activosprocesos" matInput placeholder="Procesos...."></textarea>
+                            <textarea cols="60" rows="20" style="resize: both;" cols="60" rows="20" style="resize: both;" [(ngModel)]="entradaActa.activosprocesos"  class="input-field" matInput placeholder="Procesos...."></textarea>
                         </div>
 
                         <ng-template #Notactivosprocesos>
@@ -84,13 +106,13 @@
                     </mat-card-content>
 
                     <mat-card-actions>
-
                         <button (click)="guardarActivos()" mat-button>GUARDAR</button>
                     </mat-card-actions>
                 </p>
             </mat-card>
-
         </mat-grid-tile>
+
+
         <mat-grid-tile>
             <mat-card>
                 <p>
@@ -103,9 +125,10 @@
                 </p>
             </mat-card>
         </mat-grid-tile>
+
     </mat-grid-list>
 </ng-template>
-
+-->
 
  
 

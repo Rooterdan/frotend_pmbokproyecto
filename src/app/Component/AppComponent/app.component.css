@@ -1,14 +1,14 @@
 .mat-toolbar{
-    background-color:rgba(249, 109, 109, 0.919);
+    background-color:rgb(85, 129, 223);
     height: 50px;
     justify-content: space-between;
     border-bottom-right-radius:12px;
     border-bottom-left-radius: 12px; 
     border-radius:12px;
     position: relative;
-    width:98%;
-    margin:10px;
-    top:5px;
+    width:99%;
+    margin:6px;
+    top:2px;
 }   
 
  

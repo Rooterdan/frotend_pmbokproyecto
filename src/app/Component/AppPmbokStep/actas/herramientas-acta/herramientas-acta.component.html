@@ -6,6 +6,33 @@
 
 
 </div>
+
+<ng-template #DataEntrada>
+    <div >
+        <p> Juicio de expertos el acta del proyecto  <button> Guardar fase</button> </p>
+        <textarea    style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos"  placeholder="Juicio de expertos..."> {{herramientasObje.juicioexpertos}} </textarea>
+    </div> 
+
+    <div> 
+        <p> Recopilacion de datos para el acta del proyecto  <button> Guardar </button> </p>
+        <textarea   style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos"  matInput placeholder="Recopilacion de datos...">{{herramientasObje.recopilaciondatos}} </textarea>
+    </div>
+
+    <div>
+        <p> Habilidades del grupo para el acta del proyecto <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasObje.habilidades"  matInput placeholder=" Habilidades del grupo..."> {{herramientasObje.habilidades}} </textarea>
+    </div>
+
+    <div>
+        <p> Herramientas de reuniones implementadas para el acta del proyecto< <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasObje.herramientareuniones"  matInput placeholder="Herramientas de reuniones...">{{herramientasObje.herramientareuniones}}</textarea>
+    </div>
+
+    <div> 
+        <button (click)="guardarHerramientas()"> Guardar herramientas </button>
+    </div>
+</ng-template>    
+<!--
 <ng-template #DataEntrada>
 
     <mat-grid-list cols="2" rowHeight="2:2">
@@ -119,6 +146,20 @@
         </mat-grid-tile>
     </mat-grid-list>
 </ng-template>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- 

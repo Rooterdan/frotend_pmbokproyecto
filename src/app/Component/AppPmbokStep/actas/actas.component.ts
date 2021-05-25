@@ -19,16 +19,15 @@ export class ActasComponent implements OnInit {
   public casoVista: boolean = false;
   public planVista: boolean = false;
   public herramientaVista: boolean = false;
+  
 
-
-  constructor(
-    public entradaDeActaServices:EntradactaService,
-    ) { }
+  constructor(public entradaDeActaServices:EntradactaService) {}
 
   ngOnInit(): void {
-    console.log('***ngOnInit ActasComponent');
+   // console.log('***ngOnInit ActasComponent');
     this.RevisarAvances();
-    
+    this.checkStatusEntrada(); // Este realmente cambia el estado 
+
   }
 
   public disableOpciones() {
@@ -46,19 +45,19 @@ export class ActasComponent implements OnInit {
 
   }
   public entradaM(): void {
-    this.falseTotal();
+   // this.falseTotal();
     this.entradaVista = true;
   }
   public casoM(): void {
-    this.falseTotal();
+  //  this.falseTotal();
     this.casoVista = true;
   }
   public planM(): void {
-    this.falseTotal();
+  //  this.falseTotal();
     this.planVista = true;
   }
   public herramientaM(): void {
-    this.falseTotal();
+   // this.falseTotal();
     this.herramientaVista = true;
   }
 
@@ -69,26 +68,37 @@ export class ActasComponent implements OnInit {
     this.herramientaVista = false;
 
   }
-  public RevisarAvances():void{    
+
+  public checkStatusEntrada(){
+
+    var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
+   // console.log("datos cargados al onInitcompont Actas");
+   // console.table(variable);
+    if(variable){
+      this.entrada = variable.entradactaValidate;
+      this.caso = variable.casoNegocioValidate;
+      this.plan = variable.planValidate;
+      this.herramienta = variable.herramientasValidate;
+    }
+  }
+
+  public async RevisarAvances(){    
     var datos = JSON.parse(localStorage.getItem('datosActa') || '{}');
-   
+    //window.alert("Caso negocio Validate :" +datos.casoNegocioValidate + " Entrada Validate :" + datos.entradactaValidate);
     if( datos.acta){
-      console.log('********************* public RevisarAvances():void{'  );
-      console.log(datos.casoNegocioValidate);
-      console.log(datos.entradactaValidate);
-      console.log(datos.herramientasValidate);
-      console.log(datos.planValidate);
+     // console.log('************** public RevisarAvances():void{'  );
+     // console.table(datos);
       this.entrada= datos.entradactaValidate;
       this.caso = datos.casoNegocioValidate;
       this.plan = datos.planValidate;
       this.herramienta = datos.herramientasValidate;
-
+        
 
       let x = localStorage.getItem("idproyecto");
       var idProyecto = Number(x);
-      this.entradaDeActaServices.validarActa(idProyecto).subscribe(
+      await this.entradaDeActaServices.validarActa(idProyecto).subscribe(
         data=>{
-          console.log('ID DE LA REUNION ES ->', data);
+         // console.log('ID DE LA REUNION ES ->', data);
           
           var idActa=data;
           localStorage.setItem("idactas", idActa);
@@ -96,11 +106,13 @@ export class ActasComponent implements OnInit {
       );
       
       if(datos.entradactaValidate){
-        console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
+        //console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
+      
         this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
           data=>{
-            console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
-            
+        //    console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
+             window.alert("entro en datos.entradactaValidate ((DATA)) " + data );
+
             var idEntradaActa=data;
             localStorage.setItem("entradaActaId", idEntradaActa);
           }

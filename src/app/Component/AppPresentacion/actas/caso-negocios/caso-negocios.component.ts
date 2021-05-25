@@ -71,10 +71,7 @@ export class CasoNegociosComponent implements OnInit {
     }
 
   public buscarCasoDeNegocioPorEntrada() {
-    /*
-    Se debe tener previamente cargado el ID del acta
-    para hacer un FindByAI
-    */
+  
     console.log('->>>>>buscarCasoDeNegocioPorEntrada');
     var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
     console.log('->>>>>',idproyecto);
@@ -93,5 +90,9 @@ export class CasoNegociosComponent implements OnInit {
 
       }
     );
-  }
+  
+  }  
+
+
 }
+

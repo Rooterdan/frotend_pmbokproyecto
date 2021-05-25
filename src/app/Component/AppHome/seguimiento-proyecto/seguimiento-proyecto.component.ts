@@ -28,6 +28,12 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   public panelOpenState = false;
 
+    /*
+    acta
+    casoNegocioValidate
+    entradactaValidate
+    herramientasValidate
+    planValidate*/
   constructor(public entradaDeActaServices: EntradactaService) { }
 
   ngOnInit(): void {
@@ -36,27 +42,13 @@ export class SeguimientoProyectoComponent implements OnInit {
   }
 
   public revisarEstados() {
-    /*
-    acta
-    casoNegocioValidate
-    entradactaValidate
-    herramientasValidate
-    planValidate*/
+  
     var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
-    //console.log(JSON.parse());
+  
     console.log(data);
-    console.log(data.acta);
-    console.log(data.casoNegocioValidate);
-    console.log(data.entradactaValidate);
-    console.log(data.herramientasValidate);
-    console.log(data.planValidate);
-    if (data.acta == true &&
-      data.casoNegocioValidate == true &&
-      data.entradactaValidate == true &&
-      data.herramientasValidate == true &&
-      data.planValidate == true) {
+     
+    if (data.acta  &&  data.casoNegocioValidate  && data.entradactaValidate  &&  data.herramientasValidate &&  data.planValidate) {
       this.actaDeConstitucionDelProyecto = true;
-
     }
   }
 
@@ -86,21 +78,11 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   public checkEstadoActa() {
     var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
-    //console.log(JSON.parse());
-    /*console.log(data);
-    console.log(data.acta);
-    console.log(data.casoNegocioValidate);
-    console.log(data.entradactaValidate);
-    console.log(data.herramientasValidate);
-    console.log(data.planValidate);*/
-    if (data.acta == true &&
-      data.casoNegocioValidate == true &&
-      data.entradactaValidate == true &&
-      data.herramientasValidate == true &&
+
+    if (data.acta == true && data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&
       data.planValidate == true) {
+        
         this.checkEstadoActaActivo=true;
-
-
     }
   }
 

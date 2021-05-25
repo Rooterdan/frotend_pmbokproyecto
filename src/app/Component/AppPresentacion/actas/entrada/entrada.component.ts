@@ -68,8 +68,6 @@ export class EntradaComponent implements OnInit {
   }
   public buscarEntradaPorActa() {
     //revisar bien la variable
-
-
     console.log('->>>>> buscarEntradaPorActa');
     var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
     console.log('->>>>>',idproyecto);

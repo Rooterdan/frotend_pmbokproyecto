@@ -81,13 +81,13 @@ export class PlanGestionComponent implements OnInit {
     para hacer un FindByAI
     */
     //console.log('->>>>> buscarherramientasPorActa');
-    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '');
+    var idproyecto = JSON.parse(localStorage.getItem('idproyecto') || '{}');
     //console.log('->>>>>',idproyecto);
     this.planService.findplanGestionDelActa(idproyecto).subscribe(
       data => {
         //console.log('->>>>> buscarherramientasPorActa');
         console.log(data);
-        this.datosPlan = data;
+        this.datosPlan = data[0];
         console.log(this.datosPlan)
       },
 
