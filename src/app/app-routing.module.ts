@@ -70,6 +70,14 @@ const routes: Routes = [
    { path: 'Pdp', component: PdpComponent},
    { path: 'pdp/entradasPdp', component: EntradaspdpComponent },
    { path: 'pdp/herramientasPdp', component: HeramientasPdpComponent },
+   /**
+   *  PGA
+   * 
+   */
+    { path: 'Pga', component: PdpComponent},
+    { path: 'Pga/entradasPdp', component: EntradaspdpComponent },
+    { path: 'Pga/herramientasPdp', component: HeramientasPdpComponent },
+ 
 
 ];
 

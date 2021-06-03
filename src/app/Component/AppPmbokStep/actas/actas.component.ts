@@ -19,14 +19,14 @@ export class ActasComponent implements OnInit {
   public casoVista: boolean = false;
   public planVista: boolean = false;
   public herramientaVista: boolean = false;
-  
 
-  constructor(public entradaDeActaServices:EntradactaService) {}
+
+  constructor(public entradaDeActaServices: EntradactaService) { }
 
   ngOnInit(): void {
-   // console.log('***ngOnInit ActasComponent');
+    // console.log('***ngOnInit ActasComponent');
     this.RevisarAvances();
-    this.checkStatusEntrada(); // Este realmente cambia el estado 
+    this.checkStatusEntrada(); // Cambiar Estado de las Consultas
 
   }
 
@@ -34,30 +34,30 @@ export class ActasComponent implements OnInit {
     if (
       localStorage.getItem('idactas') == null &&
       localStorage.getItem('idreunion') == null &&
-      localStorage.getItem('entradaActaId') == null 
+      localStorage.getItem('entradaActaId') == null
     ) {
       return true
 
-    }else{
+    } else {
       return false;
     }
 
 
   }
   public entradaM(): void {
-   // this.falseTotal();
+    // this.falseTotal();
     this.entradaVista = true;
   }
   public casoM(): void {
-  //  this.falseTotal();
+    //  this.falseTotal();
     this.casoVista = true;
   }
   public planM(): void {
-  //  this.falseTotal();
+    //  this.falseTotal();
     this.planVista = true;
   }
   public herramientaM(): void {
-   // this.falseTotal();
+    // this.falseTotal();
     this.herramientaVista = true;
   }
 
@@ -69,12 +69,13 @@ export class ActasComponent implements OnInit {
 
   }
 
-  public checkStatusEntrada(){
-
+  public checkStatusEntrada() {
+    console.log('\n \n public checkStatusEntrada() {');
     var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
-   // console.log("datos cargados al onInitcompont Actas");
-   // console.table(variable);
-    if(variable){
+    
+    if (variable) {
+      console.log('condicional');
+      
       this.entrada = variable.entradactaValidate;
       this.caso = variable.casoNegocioValidate;
       this.plan = variable.planValidate;
@@ -82,45 +83,50 @@ export class ActasComponent implements OnInit {
     }
   }
 
-  public async RevisarAvances(){    
+  public async RevisarAvances() {
+    console.log('public async RevisarAvances(){    ');
+
     var datos = JSON.parse(localStorage.getItem('datosActa') || '{}');
-    //window.alert("Caso negocio Validate :" +datos.casoNegocioValidate + " Entrada Validate :" + datos.entradactaValidate);
-    if( datos.acta){
-     // console.log('************** public RevisarAvances():void{'  );
-     // console.table(datos);
-      this.entrada= datos.entradactaValidate;
+    // Se valida si ya se ha grabado un acta 
+    if (datos.acta) {
+      // Se procede a revisar los datos del acta para activar o desactivar las entrada de datos
+      // se buscar que si la Entrada del Acta, aun no se ha llenado, los demas componentes NO se puedes diligenciar 
+      this.entrada = datos.entradactaValidate;
       this.caso = datos.casoNegocioValidate;
       this.plan = datos.planValidate;
       this.herramienta = datos.herramientasValidate;
-        
 
       let x = localStorage.getItem("idproyecto");
       var idProyecto = Number(x);
       await this.entradaDeActaServices.validarActa(idProyecto).subscribe(
-        data=>{
-         // console.log('ID DE LA REUNION ES ->', data);
-          
-          var idActa=data;
-          localStorage.setItem("idactas", idActa);
-        }
-      );
-      
-      if(datos.entradactaValidate){
-        //console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
-      
-        this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
-          data=>{
-        //    console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
-             window.alert("entro en datos.entradactaValidate ((DATA)) " + data );
+        data => {
+          // console.log('ID DE LA REUNION ES ->', data);
 
-            var idEntradaActa=data;
+          var idActa = data;
+          localStorage.setItem("idactas", idActa);
+          console.log('SE GRABA EL ID DEL ACTA; SE BUSCO CON BASE AL ID DEL PROYECTO');
+          console.log(idActa);
+        },
+      );
+
+      if (datos.entradactaValidate) {
+        //console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
+
+        this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
+          data => {
+            //    console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
+            window.alert("entro en datos.entradactaValidate ((DATA)) " + data);
+
+            var idEntradaActa = data;
             localStorage.setItem("entradaActaId", idEntradaActa);
-          }
-        );
+          },
+          error => {
+            console.error("Error en " + error);
+          });
       }
-      
+
 
     }
-    
+
   }
 }

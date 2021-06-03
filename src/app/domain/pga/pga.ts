@@ -1,7 +1,7 @@
-export class Pdp {
+export class Pga {
 
     constructor(
-        public idpdp: number,
+        public idpga: number,
         public idreuniones: number) {
 
     }

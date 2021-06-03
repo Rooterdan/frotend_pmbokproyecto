@@ -1,29 +1,51 @@
-
 <div *ngIf="cargaEnable; else DataEntrada">
 
     <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
         <p style="font-size: 20px; color: white">Cargando... </p>
     </ngx-spinner>
 </div>
- 
+
 <ng-template #DataEntrada>
 
-    <div >
-        <p>  Acuerdos para el acta del proyecto  <button [disabled] = "acuerdosEnable ? null : 'disabled'" (click)="updateEntrada()"> Guardar fase</button> </p>
-        <textarea   [(ngModel)]="entradaActa.acuerdos"  style="resize: both;" cols="90" rows="10" style="resize: both;"   placeholder="Entradas....">{{entradaActa.acuerdos}}</textarea>
-    </div> 
+    <div>
+        <div *ngIf="acuerdosEnable; else NotAcuerdos">
+            <p> Acuerdos para el acta del proyecto <button [disabled]="acuerdosEnable ? null : 'disabled'" (click)="guardarAcuerdos()"> Guardar fase</button> </p>
+            <textarea [(ngModel)]="entradaActa.acuerdos" style="resize: both;" cols="90" rows="10" style="resize: both;" placeholder="Entradas de la empresa....">{{entradaActa.acuerdos}}</textarea>
+        </div>
+        <ng-template #NotAcuerdos>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{entradaActa.acuerdos}}</textarea>
+        </ng-template>
 
-    <div> 
-        <p> Factores ambientales para el acta del proyecto  <button> Guardar </button> </p>
-        <textarea  [(ngModel)]="entradaActa.factores" style="resize: both;" cols="90" rows="10" style="resize: both;"  matInput placeholder="Acuerdos....">{{entradaActa.factores}}</textarea>
     </div>
 
     <div>
-        <p> Procesos activos para el acta del proyecto  <button> Guardar </button> </p>
-        <textarea [(ngModel)]="entradaActa.activosprocesos" style="resize: both;" cols="90" rows="10" style="resize: both;"  matInput placeholder="Factores....">{{entradaActa.activosprocesos}}</textarea>
+        <div *ngIf="factoresEnable; else Notfactores">
+            <p> Factores ambientales para el acta del proyecto
+                <button [disabled]="factoresEnable ? null : 'disabled'" (click)="guardarFactores()"> Guardar </button>
+            </p>
+            <textarea [(ngModel)]="entradaActa.factores" style="resize: both;" cols="90" rows="10" style="resize: both;" matInput placeholder="Factores Ambientales de la empresa....">{{entradaActa.factores}}</textarea>
+        </div>
+        <ng-template #Notfactores>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" matInput disabled>{{entradaActa.factores}}</textarea>
+        </ng-template>
+
     </div>
 
-    <div> 
+    <div>
+        <div *ngIf="activosEnable; else Notactivosprocesos">
+            <p> Procesos activos para el acta del proyecto
+                <button [disabled]="activosEnable ? null : 'disabled'" (click)="guardarActivos()"> Guardar </button>
+            </p>
+            <textarea [(ngModel)]="entradaActa.activosprocesos" style="resize: both;" cols="90" rows="10" style="resize: both;" matInput placeholder="Procesos de la empresa  ....">{{entradaActa.activosprocesos}}</textarea>
+        </div>
+        <ng-template #Notactivosprocesos>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" matInput disabled>{{entradaActa.activosprocesos}}</textarea>
+        </ng-template>
+
+
+    </div>
+
+    <div>
         <button (click)="guardarActa()"> Guardar acta </button>
     </div>
 
@@ -98,11 +120,12 @@
                         <ng-template #Notactivosprocesos>
                             <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="entradas....">{{entradaActa.activosprocesos}}</textarea>
                         </ng-template>
+                        (click)="guardarActivos()
 
 
                         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                         <mat-hint>Hint</mat-hint>
-
+                        
                     </mat-card-content>
 
                     <mat-card-actions>
@@ -129,7 +152,3 @@
     </mat-grid-list>
 </ng-template>
 -->
-
- 
-
- 

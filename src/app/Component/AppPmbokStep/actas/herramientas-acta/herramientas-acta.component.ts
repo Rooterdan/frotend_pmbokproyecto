@@ -100,8 +100,6 @@ export class HerramientasActaComponent implements OnInit {
   }
 
 
-
-
   public guardarjuicioexpertos() {
     console.log('juicioexpertos');
     this.juicioexpertos = false;

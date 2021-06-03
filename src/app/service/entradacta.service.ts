@@ -23,7 +23,6 @@ export class EntradactaService {
     }
   */
 
-
   public valorIdEntraActa(idProyecto: number): Observable<any> {
     console.log(this.url + 'getEntradaIdActa/' + idProyecto);
     return this.httpClient.get(this.url + 'getEntradaIdActa/' + idProyecto);

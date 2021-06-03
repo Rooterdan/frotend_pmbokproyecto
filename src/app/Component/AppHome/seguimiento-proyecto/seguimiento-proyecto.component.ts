@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntradactaService } from 'src/app/service/entradacta.service';
+import { PdpServicesService } from 'src/app/service/PdpService/pdp-services.service';
+import { PgaServiceService } from 'src/app/service/PgaService/pga-service.service';
 
 @Component({
   selector: 'app-seguimiento-proyecto',
@@ -15,57 +17,59 @@ export class SeguimientoProyectoComponent implements OnInit {
   public planParaLaDireccionDeProyectos: Boolean = false;
   public planificacionParaLaGestionDelAlcance: Boolean = false;
 
-  public checkEstadoActaVar:Boolean =false;
-  public checkEstadoPdpVar:Boolean =false;
-  public checkEstadoPgaVar:Boolean =false;
-  public checkEstadoPgcVar:Boolean =false;
-
-  public checkEstadoActaActivo:Boolean =false;
-  public checkEstadoPdpActivo:Boolean =false;
-  public checkEstadoPgaActivo:Boolean =false;
-  public checkEstadoPgcActivo:Boolean =false;
+  public checkEstadoActaActivo: Boolean = false;
+  public checkEstadoPdpActivo: Boolean = false;
+  public checkEstadoPgaActivo: Boolean = false;
+  public checkEstadoPgcActivo: Boolean = false;
 
 
   public panelOpenState = false;
 
-    /*
-    acta
-    casoNegocioValidate
-    entradactaValidate
-    herramientasValidate
-    planValidate*/
-  constructor(public entradaDeActaServices: EntradactaService) { }
+  /*
+  acta
+  casoNegocioValidate
+  entradactaValidate
+  herramientasValidate
+  planValidate*/
+  constructor(public entradaDeActaServices: EntradactaService,
+    public pgaServiceService: PgaServiceService,
+    public pdpServicesService: PdpServicesService
+
+  ) { }
 
   ngOnInit(): void {
-    this.referencia();
-    this.checkEstadoActa();
+    this.validarActa();
+    this.validarPDP();
+    this.ValidarPGA();
+
+
   }
 
-  public revisarEstados() {
-  
-    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
-  
-    console.log(data);
-     
-    if (data.acta  &&  data.casoNegocioValidate  && data.entradactaValidate  &&  data.herramientasValidate &&  data.planValidate) {
-      this.actaDeConstitucionDelProyecto = true;
-    }
-  }
-
-  async referencia() {
+  /*******************************************        */
+  async validarActa() {
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
     await this.entradaDeActaServices.validarValoresActa(idProyecto).subscribe(
       data => {
-        console.log('---------- referencia()');
-        console.log(data);
-
         localStorage.setItem('datosActa', JSON.stringify(data));
-        this.revisarEstados();
-        this.checkEstadoActa();
-
       },
       err => {
+        console.log('error en referencia ');
+        console.log(err);
+        console.log(err.err);
+      }
+    );
+
+  }
+  async validarPDP() {
+    console.log('----------  validarPDP() {()');
+    let x = localStorage.getItem("idproyecto");
+    var idProyecto = Number(x);
+
+    await this.pdpServicesService.validarPdp(idProyecto).subscribe(
+      data => {
+        localStorage.setItem('datosPDP', JSON.stringify(data));
+      }, err => {
         console.log('error en referencia ');
         console.log(err);
         console.log(err.err);
@@ -74,29 +78,71 @@ export class SeguimientoProyectoComponent implements OnInit {
     );
 
   }
+  async ValidarPGA() {
+    console.log(' ValidarPGA() { ');
+    let x = localStorage.getItem("idproyecto");
+    var idProyecto = Number(x);
+    await this.pgaServiceService.validarPga(idProyecto).subscribe(
+      data => {
+        localStorage.setItem('datosPGA', JSON.stringify(data));
+      }, err => {
+        console.log('error en referencia ');
+        console.log(err);
+        console.log(err.err);
 
+      }
+    );
+  }
+  /*******************************************        */
+  VerificarEstados() {
+    /*
+    actaDeConstitucionDelProyecto
+    planParaLaDireccionDeProyectos
+    planificacionParaLaGestionDelAlcance
+    
+    checkEstadoActaActivo
+    checkEstadoPdpActivo
+    checkEstadoPgaActivo
+    */
+    this.actaDeConstitucionDelProyecto = false;
+    this.planParaLaDireccionDeProyectos = false;
+    this.planificacionParaLaGestionDelAlcance = false;
 
-  public checkEstadoActa() {
-    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+    this.checkEstadoActaActivo = false;
+    this.checkEstadoPdpActivo = false;
+    this.checkEstadoPgaActivo = false;
 
-    if (data.acta == true && data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&
-      data.planValidate == true) {
-        
-        this.checkEstadoActaActivo=true;
+    var data1 = JSON.parse(localStorage.getItem('datosActa') || '{}');
+    var data2 = JSON.parse(localStorage.getItem('datosPDP') || '{}');
+    var data3 = JSON.parse(localStorage.getItem('datosPGA') || '{}');
+
+    if (data1.acta &&
+      data1.casoNegocioValidate &&
+      data1.entradactaValidate &&
+      data1.herramientasValidate &&
+      data1.planValidate
+    ) {
+      this.actaDeConstitucionDelProyecto = true;
+      this.checkEstadoActaActivo = true;
+      this.checkEstadoPdpActivo = false;
+      this.planParaLaDireccionDeProyectos = true;
+      if (data2.entradactaPdpValidate
+        && data2.herramientasPdpValidate
+        && data2.pdp) {
+        this.checkEstadoPdpActivo = true;
+        this.planParaLaDireccionDeProyectos = false;
+
+        if (
+          data3.entradactaPgaValidate &&
+          data3.herramientasPgaValidate &&
+          data3.pga
+        ) {
+          this.checkEstadoPgaActivo = false;
+          this.planificacionParaLaGestionDelAlcance = true;
+
+        }
+      }
     }
   }
-
-  public checkEstadoPdp() {
-
-  }
-
-  public checkEstadoPga() {
-
-  }
-
-  public checkEstadoPgc() {
-
-  }
-
 
 }

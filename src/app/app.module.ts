@@ -58,6 +58,9 @@ import { FlexLayoutModule} from '@angular/flex-layout';
 import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
 import { PdpComponent } from './Component/AppPmbokStep/pdp/pdp.component';
 import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salidas-procesos-pdp/salidas-procesos-pdp.component';
+import { PgaComponent } from './Component/AppPmbokStep/pga/pga.component';
+import { EntradaspgaComponent } from './Component/AppPmbokStep/pga/entradaspga/entradaspga.component';
+import { HerramientapgaComponent } from './Component/AppPmbokStep/pga/herramientapga/herramientapga.component';
  
 
  
@@ -94,6 +97,9 @@ import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salida
     FilterProyectoPipe,
     EntradaspdpComponent,
     SalidasProcesosPdpComponent,
+    PgaComponent,
+    EntradaspgaComponent,
+    HerramientapgaComponent,
 
   ],
   imports: [

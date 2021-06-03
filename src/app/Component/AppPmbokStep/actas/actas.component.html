@@ -122,109 +122,163 @@
 -->
 
 
-<div class="contenido-accordion"> 
-<mat-accordion class="example-headers-align" multi>
-    <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
-        <mat-expansion-panel class="panel"  >
-                <mat-expansion-panel-header>
-                <mat-panel-title>  Entradas del acta  </mat-panel-title>
+<div class="contenido-accordion">
+    <mat-accordion class="example-headers-align" multi>
+        <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Entradas del acta </mat-panel-title>
 
-                <mat-panel-description>  
-            
-                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
-                
-                <div *ngIf="entrada;else elseBlock">
-                <mat-icon style="margin-left:15px;color:green;"> done </mat-icon> 
-                </div> 
-                <ng-template #elseBlock>
-                <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
-                </ng-template>
+                <mat-panel-description>
 
-                
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+
+                    <div *ngIf="entrada;else elseBlockEntrada">
+
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlockEntrada>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
                 </mat-panel-description>
-                </mat-expansion-panel-header>
+            </mat-expansion-panel-header>
+            <div *ngIf="entrada;else elseBlockEntrada1">
 
                 <ng-template matExpansionPanelContent>
-                   <app-entradas></app-entradas>
                 </ng-template>
+
+            </div>
+            <ng-template #elseBlockEntrada1>
+                <ng-template matExpansionPanelContent>
+                    <app-entradas></app-entradas>
+                </ng-template>
+
+            </ng-template>
+
         </mat-expansion-panel>
 
 
-         <mat-expansion-panel class="panel"   >
-                <mat-expansion-panel-header>
-                <mat-panel-title>  Caso de negocio </mat-panel-title>
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Caso de negocio </mat-panel-title>
 
-                <mat-panel-description>  
-            
-                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
-                <div *ngIf="caso;else elseBlock">
-                <mat-icon style="margin-left:15px;color:green;"> done </mat-icon> 
-                </div> 
-                <ng-template #elseBlock>
-                <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
-                </ng-template>
-                
-                
+                <mat-panel-description>
+
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+                    <div *ngIf="caso;else elseBlockCaso">
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlockCaso>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
                 </mat-panel-description>
-                </mat-expansion-panel-header>
+            </mat-expansion-panel-header>
+
+            <div *ngIf="entrada;else elseBlockCaso1">
+                <!-- Esta segunda validacion que aplica para todos, es para corroborar si existe o no datos del modulo correspondiente   -->
+                <div *ngIf="caso;else elseBlockCaso2">
+                    <!-- si es TRUE, es decir que ya existe dato, por eso NO se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                    </ng-template>
+                </div>
+                <ng-template #elseBlockCaso2>
+                    <!-- si es FASLSE, es decir que NO existe dato, por eso SI se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                        <app-caso-negocio></app-caso-negocio>
+                    </ng-template>
+
+
+                </ng-template>
 
                 <ng-template matExpansionPanelContent>
-                  <app-caso-negocio></app-caso-negocio>
+                    <app-caso-negocio></app-caso-negocio>
                 </ng-template>
+
+            </div>
+            <ng-template #elseBlockCaso1>
+                <ng-template matExpansionPanelContent>
+
+                </ng-template>
+
+            </ng-template>
+
         </mat-expansion-panel>
 
 
 
-         <mat-expansion-panel class="panel"  >
-                <mat-expansion-panel-header>
-                <mat-panel-title>  Plan para la gestión de beneficios </mat-panel-title>
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Plan para la gestión de beneficios </mat-panel-title>
 
-                <mat-panel-description>  
-            
-                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
-                 <div *ngIf="plan;else elseBlock">
-                <mat-icon style="margin-left:15px;color:green;"> done </mat-icon> 
-                </div> 
-                <ng-template #elseBlock>
-                <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
-                </ng-template>
-                
-                
+                <mat-panel-description>
+
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+                    <div *ngIf="plan;else elseBlockPlan">
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlockPlan>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
                 </mat-panel-description>
-                </mat-expansion-panel-header>
+            </mat-expansion-panel-header>
 
+            <div *ngIf="entrada;else elseBlockPlan1">
                 <ng-template matExpansionPanelContent>
-                 <app-plan-gestion-beneficios></app-plan-gestion-beneficios>
+                    <app-plan-gestion-beneficios></app-plan-gestion-beneficios>
                 </ng-template>
+
+            </div>
+            <ng-template #elseBlockPlan1>
+                <ng-template matExpansionPanelContent>
+
+                </ng-template>
+            </ng-template>
+
         </mat-expansion-panel>
 
 
-         <mat-expansion-panel class="panel"  >
-                <mat-expansion-panel-header>
-                <mat-panel-title>  Herramientas Y técnicas </mat-panel-title>
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Herramientas Y técnicas </mat-panel-title>
 
-                <mat-panel-description>  
-            
-                <p style="margin-right:10px;margin-top:10px"> Estado  </p>
-                 <div *ngIf="herramienta;else elseBlock">
-                <mat-icon style="margin-left:15px;color:green;"> done </mat-icon> 
-                </div> 
-                <ng-template #elseBlock>
-                <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
-                </ng-template>
-                
-                
+                <mat-panel-description>
+
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+                    <div *ngIf="herramienta;else elseBlockHerramienta">
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlockHerramienta>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
                 </mat-panel-description>
-                </mat-expansion-panel-header>
+            </mat-expansion-panel-header>
 
+            <div *ngIf="entrada;else elseBlockHerramienta1">
                 <ng-template matExpansionPanelContent>
-                     <app-herramientas-acta></app-herramientas-acta>
+                    <app-herramientas-acta></app-herramientas-acta>
                 </ng-template>
+
+            </div>
+            <ng-template #elseBlockHerramienta1>
+                <ng-template matExpansionPanelContent>
+                </ng-template>
+
+            </ng-template>
+
+
         </mat-expansion-panel>
- 
 
- 
 
-</mat-accordion>
+
+
+    </mat-accordion>
 
 </div>
