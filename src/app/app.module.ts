@@ -61,12 +61,12 @@ import { SalidasProcesosPdpComponent } from './Component/AppPmbokStep/pdp/salida
 import { PgaComponent } from './Component/AppPmbokStep/pga/pga.component';
 import { EntradaspgaComponent } from './Component/AppPmbokStep/pga/entradaspga/entradaspga.component';
 import { HerramientapgaComponent } from './Component/AppPmbokStep/pga/herramientapga/herramientapga.component';
-import { EntradaPdpComponent } from './Component/AppPresentacion/pdp/entrada-pdp/entrada-pdp.component';
-import { VistaEntradaPdpComponent } from './Component/AppPresentacion/pdp/EntradasPdp/vista-entrada-pdp/vista-entrada-pdp.component';
-import { VistaHerramientaPdpComponent } from './Component/AppPresentacion/pdp/EntradasPdp/vista-herramienta-pdp/vista-herramienta-pdp.component';
+
 import { VistaEntradaPgaComponent } from './Component/AppPresentacion/pga/vista-entrada-pga/vista-entrada-pga.component';
 import { VistaHerramientaPgaComponent } from './Component/AppPresentacion/pga/vista-herramienta-pga/vista-herramienta-pga.component';
- 
+import { VistaEntradaPdpComponent } from './Component/AppPresentacion/pdp/vista-entrada-pdp/vista-entrada-pdp.component';
+import { VistaHerramientaPdpComponent } from './Component/AppPresentacion/pdp/vista-herramienta-pdp/vista-herramienta-pdp.component';
+
 
  
 @NgModule({
@@ -105,7 +105,7 @@ import { VistaHerramientaPgaComponent } from './Component/AppPresentacion/pga/vi
     PgaComponent,
     EntradaspgaComponent,
     HerramientapgaComponent,
-    EntradaPdpComponent,
+    
     VistaEntradaPdpComponent,
     VistaHerramientaPdpComponent,
     VistaEntradaPgaComponent,
