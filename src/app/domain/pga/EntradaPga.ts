@@ -6,8 +6,9 @@ export class EntradaPga {
         public objetivocalidad: String,
         public ciclo: String,
         public enfoque: String,
-        public activosprocesos: String
-        ) {
+        public activosprocesos: String,
+        public idpga: number
+    ) {
 
     }
 }

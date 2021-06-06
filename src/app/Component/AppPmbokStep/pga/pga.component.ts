@@ -8,7 +8,7 @@ import { PgaServiceService } from 'src/app/service/PgaService/pga-service.servic
 })
 export class PgaComponent implements OnInit {
 
-
+  public pga: boolean = false;
   public entrada: boolean = false;
   public herramienta: boolean = false;
 
@@ -20,7 +20,58 @@ export class PgaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.checkStatusHerramienta();
+
   }
+
+
+  public async checkStatusHerramienta() {
+    console.log('PGA COMPONENTES');
+    console.log(',\n public async RevisarAvances() {');
+
+
+    var datos = JSON.parse(localStorage.getItem('datosPGA') || '{}');
+    if (datos.pga &&
+      datos.entradactaPgaValidate
+
+    ) {
+      console.log('11111');
+      this.pga = true;
+      this.entrada = true;
+      this.buscarIdPga();
+      if (datos.entradactaPgaValidate) {
+        this.herramientaVista = true;
+        console.log('333');
+
+      }
+
+    } else {
+      console.log('2222');
+
+      this.entradaVista = true;
+      this.herramientaVista = false;
+    }
+  }
+
+  public async buscarIdPga() {
+    console.log('public async buscarIdPga(){');
+    let x = localStorage.getItem("idproyecto");
+    var idProyecto = Number(x);
+    await this.pgaServiceService.findIdPgaForIdProyecto(idProyecto).subscribe(
+      data => {
+        console.log(data);
+        console.log();
+        localStorage.setItem('idPga', data.idga);
+        
+      }, err => {
+        window.alert('Plan gestion Beneficios ' + err.error.error);
+      }
+    );
+
+
+  }
+
+
   public entradaM(): void {
     this.entradaVista = true;
   }
@@ -32,46 +83,6 @@ export class PgaComponent implements OnInit {
     this.entradaVista = true;
   }
 
-  /*
-  public async RevisarAvances(){    
-    var datos = JSON.parse(localStorage.getItem('datosPGA') || '{}');
-    //window.alert("Caso negocio Validate :" +datos.casoNegocioValidate + " Entrada Validate :" + datos.entradactaValidate);
-    if( datos.acta){
-     // console.log('************** public RevisarAvances():void{'  );
-     // console.table(datos);
-  
-      this.entrada= datos.entradactaPgaValidate;
-      this.herramienta = datos.herramientasPgaValidate;
-        
 
-      let x = localStorage.getItem("idproyecto");
-      var idProyecto = Number(x);
-      await this.pgaServiceService.validarPdp(idProyecto).subscribe(
-        data=>{
-         // console.log('ID DE LA REUNION ES ->', data);
-          
-          var idActa=data;
-          localStorage.setItem("idactas", idActa);
-        }
-      );
-      
-      if(datos.entradactaValidate){
-        //console.log('EXTRAER SI TIENE ENTRADA DEL ACTA YA FULL');
-      
-        this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
-          data=>{
-        //    console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
-             window.alert("entro en datos.entradactaValidate ((DATA)) " + data );
-
-            var idEntradaActa=data;
-            localStorage.setItem("entradaActaId", idEntradaActa);
-          }
-        );
-      }
-      
-
-    }
-    
-  }*/
 
 }

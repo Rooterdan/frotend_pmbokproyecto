@@ -34,6 +34,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('datosActa');
+    localStorage.removeItem('datosPDP');
+    localStorage.removeItem('datosPGA');
+    localStorage.removeItem('idproyecto');
+    localStorage.removeItem('idPga');
+    
+
   }
 
 

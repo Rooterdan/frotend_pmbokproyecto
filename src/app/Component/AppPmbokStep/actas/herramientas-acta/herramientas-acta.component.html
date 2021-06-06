@@ -8,30 +8,57 @@
 </div>
 
 <ng-template #DataEntrada>
-    <div >
-        <p> Juicio de expertos el acta del proyecto  <button> Guardar fase</button> </p>
-        <textarea    style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos"  placeholder="Juicio de expertos..."> {{herramientasObje.juicioexpertos}} </textarea>
-    </div> 
+    <div>
+        <div *ngIf="juicioexpertos; else Notjuicioexpertos">
+            <p> Juicio de expertos el acta del proyecto <button (click)="guardarjuicioexpertos()"> Guardar fase</button> </p>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos" placeholder="Juicio de expertos..."> {{herramientasObje.juicioexpertos}} </textarea>
+        </div>
+        <ng-template #Notjuicioexpertos>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{herramientasObje.juicioexpertos}} </textarea>
+        </ng-template>
 
-    <div> 
-        <p> Recopilacion de datos para el acta del proyecto  <button> Guardar </button> </p>
-        <textarea   style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos"  matInput placeholder="Recopilacion de datos...">{{herramientasObje.recopilaciondatos}} </textarea>
     </div>
 
     <div>
-        <p> Habilidades del grupo para el acta del proyecto <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasObje.habilidades"  matInput placeholder=" Habilidades del grupo..."> {{herramientasObje.habilidades}} </textarea>
+        <div *ngIf="recopilaciondatos; else Notrecopilaciondatos">
+            <p> Recopilacion de datos para el acta del proyecto <button (click)="guardarrecopilaciondatos()"> Guardar </button> </p>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="Recopilacion de datos...">{{herramientasObje.recopilaciondatos}} </textarea>
+        </div>
+        <ng-template #Notrecopilaciondatos>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{herramientasObje.recopilaciondatos}} </textarea>
+        </ng-template>
+
     </div>
 
     <div>
-        <p> Herramientas de reuniones implementadas para el acta del proyecto< <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasObje.herramientareuniones"  matInput placeholder="Herramientas de reuniones...">{{herramientasObje.herramientareuniones}}</textarea>
+        <div *ngIf="habilidades; else Nothabilidades">
+            <p> Habilidades del grupo para el acta del proyecto
+                <button (click)="guardarhabilidades()"> Guardar </button> </p>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.habilidades" matInput placeholder=" Habilidades del grupo..."> {{herramientasObje.habilidades}} </textarea>
+        </div>
+        <ng-template #Nothabilidades>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{herramientasObje.habilidades}} </textarea>
+        </ng-template>
+
     </div>
 
-    <div> 
+    <div>
+        <div *ngIf="herramientareuniones; else Notherramientareuniones">
+            <p> Herramientas de reuniones implementadas para el acta del proyecto
+                <button (click)="guardarherramientareuniones()"> Guardar </button>
+            </p>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="Herramientas de reuniones...">{{herramientasObje.herramientareuniones}}</textarea>
+        </div>
+        <ng-template #Notherramientareuniones>
+            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{herramientasObje.herramientareuniones}}</textarea>
+        </ng-template>
+
+    </div>
+
+    <div>
         <button (click)="guardarHerramientas()"> Guardar herramientas </button>
     </div>
-</ng-template>    
+</ng-template>
 <!--
 <ng-template #DataEntrada>
 
@@ -94,9 +121,9 @@
                             <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasObje.habilidades" matInput placeholder="habilidades...."></textarea>
                         </div>
 
-                        <ng-template #Nothabilidades>
+                        <ng-template #Nothabilidades>           
                             <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="habilidades....">{{herramientasObje.habilidades}}</textarea>
-                        </ng-template>
+                        </ng-template> 
 
 
                     </mat-card-content>

@@ -24,6 +24,15 @@ export class PdpServicesService {
   public savePdp(pdp: Pdp): Observable<any> {
     return this.httpClient.post(this.url + 'savePdp', pdp);
   }
+  public savePdpPorIdProyecto(id: number): Observable<any> {
+    console.log(this.url + 'savePdpPorIdProyecto/' + id);
+
+    return this.httpClient.get(this.url + 'savePdpPorIdProyecto/' + id);
+  }
+  
+  public BuscarPdpPorIdProyecto(id: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarPdpPorIdProyecto/' + id);
+  }
 
   public saveHerramientasPdp(herramientaspdp: Herramientas): Observable<any> {
     return this.httpClient.post(this.url + 'saveHerramientasPdp', herramientaspdp);

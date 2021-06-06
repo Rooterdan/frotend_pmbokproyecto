@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PgaHerramientas } from 'src/app/domain/pga/PgaHerramientas';
 import { PgaServiceService } from 'src/app/service/PgaService/pga-service.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-herramientapga',
   templateUrl: './herramientapga.component.html',
@@ -20,10 +22,21 @@ export class HerramientapgaComponent implements OnInit {
   public cargaEnable: boolean = true;
   constructor(
     public router: Router,
-    public pgaService: PgaServiceService
+    public pgaService: PgaServiceService,
+    public spinnerService: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    console.log('asdasds');
+    this.spinnerService.show();
+    this.cargaEnable = true;
+    setTimeout(() => {
+      console.log('cargando');
+      this.spinnerService.hide();
+      this.cargaEnable = false;
+
+    }, 2000);
+    this.herramientasPGA = new PgaHerramientas(0, "", "", 0);
   }
   /*
   public guardarHerramientas() {
@@ -64,5 +77,37 @@ export class HerramientapgaComponent implements OnInit {
     this.analisis = false;
   }
 
+  public guardarHerramientasPga() {
+    console.log('public guardarHerramientasPga(){');
+    let x = localStorage.getItem("idPga");
+    var idPga = Number(x);
+    if (idPga) {
+      console.log('si tiene ');
+      this.herramientasPGA.idpdp = idPga;
+      console.log(this.herramientasPGA);
+      this.guardarHerramientas();
+
+
+
+    } else {
+      console.log('NO tiene ');
+
+    }
+  }
+
+  public async guardarHerramientas(){
+    console.log('\n public async guardarHerramientas(){');
+    
+    await this.pgaService.saveHerramientasPga(this.herramientasPGA).subscribe(
+      data=>{
+        console.log('GRabando data de Herramientas PGA');
+        console.log(data);
+        
+        this.router.navigate(['/seguimiento-proyecto']);
+        
+      }
+    );
+
+  }
 
 }

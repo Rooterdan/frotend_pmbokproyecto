@@ -16,6 +16,15 @@ export class PgaServiceService {
   public validarPga(id: number): Observable<any> {
     return this.httpClient.get(this.url + 'validarPga/' + id);
   }
+  public findIdPgaForIdProyecto(id: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarPgaPorIdProyecto/' + id);
+  }
+
+  // Guardar el pga con base al ID del proyecto // despues de esta consulta, se procede a guardar los objetvos con la info de Entrada y herramientas
+  public savePgaPorIdProyecto(id: number): Observable<any> {
+    return this.httpClient.get(this.url + 'savePgaPorIdProyecto/' + id);
+  }
+  
 
   /*  Servicios de Guardado */
   public savePga(pga: Pga): Observable<any> {

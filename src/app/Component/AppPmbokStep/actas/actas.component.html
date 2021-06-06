@@ -147,6 +147,10 @@
             <div *ngIf="entrada;else elseBlockEntrada1">
 
                 <ng-template matExpansionPanelContent>
+                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                    <H3>MÑSDMÑLMSÑLDKM</H3>
                 </ng-template>
 
             </div>
@@ -167,6 +171,7 @@
                 <mat-panel-description>
 
                     <p style="margin-right:10px;margin-top:10px"> Estado </p>
+
                     <div *ngIf="caso;else elseBlockCaso">
                         <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
                     </div>
@@ -183,6 +188,9 @@
                 <div *ngIf="caso;else elseBlockCaso2">
                     <!-- si es TRUE, es decir que ya existe dato, por eso NO se permite el acceso a los componentes   -->
                     <ng-template matExpansionPanelContent>
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
                     </ng-template>
                 </div>
                 <ng-template #elseBlockCaso2>
@@ -212,6 +220,7 @@
 
         <mat-expansion-panel class="panel">
             <mat-expansion-panel-header>
+
                 <mat-panel-title> Plan para la gestión de beneficios </mat-panel-title>
 
                 <mat-panel-description>
@@ -229,9 +238,22 @@
             </mat-expansion-panel-header>
 
             <div *ngIf="entrada;else elseBlockPlan1">
-                <ng-template matExpansionPanelContent>
-                    <app-plan-gestion-beneficios></app-plan-gestion-beneficios>
+                <!-- Esta segunda validacion que aplica para todos, es para corroborar si existe o no datos del modulo correspondiente   -->
+                <div *ngIf="plan;else elseBlockPlan2">
+                    <!-- si es TRUE, es decir que ya existe dato, por eso NO se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                    </ng-template>
+                </div>
+                <ng-template #elseBlockPlan2>
+                    <!-- si es FASLSE, es decir que NO existe dato, por eso SI se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                        <app-plan-gestion-beneficios></app-plan-gestion-beneficios>
+                    </ng-template>
                 </ng-template>
+                <!--  ******************   -->
 
             </div>
             <ng-template #elseBlockPlan1>
@@ -262,13 +284,28 @@
             </mat-expansion-panel-header>
 
             <div *ngIf="entrada;else elseBlockHerramienta1">
-                <ng-template matExpansionPanelContent>
-                    <app-herramientas-acta></app-herramientas-acta>
+                <div *ngIf="herramienta;else elseBlockHerramienta2">
+                    <!-- si es TRUE, es decir que ya existe dato, por eso NO se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+
+                    </ng-template>
+                </div>
+                <ng-template #elseBlockHerramienta2>
+                    <!-- si es FASLSE, es decir que NO existe dato, por eso SI se permite el acceso a los componentes   -->
+                    <ng-template matExpansionPanelContent>
+                        <app-herramientas-acta></app-herramientas-acta>
+                    </ng-template>
                 </ng-template>
+                <!--  ******************   -->
+
 
             </div>
             <ng-template #elseBlockHerramienta1>
                 <ng-template matExpansionPanelContent>
+
                 </ng-template>
 
             </ng-template>

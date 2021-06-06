@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EntradaPga } from 'src/app/domain/pga/EntradaPga';
+import { Pga } from 'src/app/domain/pga/pga';
+import { PgaServiceService } from 'src/app/service/PgaService/pga-service.service';
 
 @Component({
   selector: 'app-entradaspga',
@@ -11,6 +13,7 @@ import { EntradaPga } from 'src/app/domain/pga/EntradaPga';
 export class EntradaspgaComponent implements OnInit {
 
   public entradasPga !: EntradaPga;
+  public pga !: Pga;
 
   public messages: string[] = [""];
   public cargaEnable: boolean = true;
@@ -23,7 +26,8 @@ export class EntradaspgaComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public spinnerService: NgxSpinnerService
+    public spinnerService: NgxSpinnerService,
+    public pgaServiceService: PgaServiceService
 
   ) { }
 
@@ -35,28 +39,68 @@ export class EntradaspgaComponent implements OnInit {
       this.cargaEnable = false;
 
     }, 2000);
-    this.entradasPga = new EntradaPga(0, "", "", "", "", "");
+    this.entradasPga = new EntradaPga(0, "", "", "", "", "", 0);
   }
 
 
+  // Metodo de guardado
+  async guardarEntradasPdp() {
+    // Se crea El pga primero, y se almacen, con el id PGA se puede guardar la entrada y posteriormente la herramienta
+    console.log('async guardarEntradasPdp(){');
+
+    let x = localStorage.getItem("idproyecto");
+    var idProyecto = Number(x);
+    console.log('public guardarEntradasPdp(): \n \n');
+    console.log('this.pgaServiceService.savePgaPorIdProyecto(idProyecto).subscribe( \n \n');
+    
+    this.pgaServiceService.savePgaPorIdProyecto(idProyecto).subscribe(
+      data => {
+        // console.log('ID DE LA REUNION ES ->', data);
+        console.log(data);
+        var idpga = data.idga;
+        localStorage.setItem("idPga", idpga);
+        console.log('SE GRABA EL ID DEL idPdp; SE BUSCO CON BASE AL ID DEL PROYECTO');
+        //console.log(idPdp);
+        this.entradasPga.idpga   = idpga;
+        console.log('*** \n ', this.entradasPga);
+        this.guardarEntradaPGA();
+        
+
+      }
+    );
+
+  }
+  public async guardarEntradaPGA() {
+    console.log('public async guardarEntradaPGA() {');
+    console.log(this.entradasPga);
+    
+    
+    await this.pgaServiceService.saveEntradasPga(this.entradasPga).subscribe(
+      data => {
+        // console.log('ID DE LA REUNION ES ->', data);
+        console.log(data);
+        window.alert('Entradas del Plan Para la Direccion del proyecto Han sido guardados');
+        this.router.navigate(['/seguimiento-proyecto']);
+      });
+  }
   public estandaresM(): void {
-     this.estandares = false;
+    this.estandares = false;
   }
 
   public objetivocalidadM(): void {
-     this.objetivocalidad = false;
+    this.objetivocalidad = false;
   }
 
   public cicloM(): void {
-     this.ciclo = false;
+    this.ciclo = false;
   }
 
   public enfoqueM(): void {
-     this.enfoque = false;
+    this.enfoque = false;
   }
 
   public activosprocesosM(): void {
-     this.activosprocesos = false;
+    this.activosprocesos = false;
   }
 
 

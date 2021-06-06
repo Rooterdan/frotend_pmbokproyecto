@@ -1,1 +1,82 @@
-<p>herramientapga works!</p>
+<div *ngIf="cargaEnable; else DataCaso">
+
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Cargando... </p>
+    </ngx-spinner>
+
+
+</div>
+
+<ng-template #DataCaso>
+
+    <mat-grid-list cols="2" rowHeight="2:2">
+        <!--   JUICIO DE EXPERTOS-->
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>juicioexpertos </mat-card-title>
+                    <mat-card-content>
+
+
+                        <div *ngIf="juicioexpertos; else Notjuicioexpertos">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasPGA.juicioexpertos" matInput placeholder="juicioexpertos...."></textarea>
+                        </div>
+
+                        <ng-template #Notjuicioexpertos>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="juicioexpertos....">{{herramientasPGA.juicioexpertos}}</textarea>
+                        </ng-template>
+
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="juicioexpertosM()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <!--   ANALISIS-->
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>analisis </mat-card-title>
+                    <mat-card-content>
+
+                        <div *ngIf="analisis; else Notanalisis">
+                            <textarea cols="60" rows="20" style="resize: both;" [(ngModel)]="herramientasPGA.analisis" matInput placeholder="recopilaciondatos...."></textarea>
+                        </div>
+
+                        <ng-template #Notanalisis>
+                            <textarea cols="60" rows="20" style="resize: both;" disabled matInput placeholder="analisis....">{{herramientasPGA.analisis}}</textarea>
+                        </ng-template>
+
+                    </mat-card-content>
+
+                    <mat-card-actions>
+
+                        <button (click)="analisisM()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+        <!--   OPCION DE -->
+        <mat-grid-tile>
+            <mat-card>
+                <p>
+                    <mat-card-title>Guardar informacion del De las herramientas para PGA</mat-card-title>
+                    <mat-card-subtitle>La información que se almacenará será editada con autorización </mat-card-subtitle>
+
+                    <mat-card-actions>
+
+                        <button (click)="guardarHerramientasPga()" mat-button>GUARDAR</button>
+                    </mat-card-actions>
+                </p>
+            </mat-card>
+        </mat-grid-tile>
+
+
+
+
+    </mat-grid-list>
+</ng-template>

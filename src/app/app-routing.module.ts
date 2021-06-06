@@ -12,20 +12,25 @@ import { SeguimientoProyectoComponent } from './Component/AppHome/seguimiento-pr
 import { AuthGuard } from './guard/auth.guard';
 
 /* AppPmbokStep ACTAS */
-import { ActasComponent }            from './Component/AppPmbokStep/actas/actas.component';
-import { EntradasComponent }         from './Component/AppPmbokStep/actas/entradas/entradas.component';
+import { ActasComponent } from './Component/AppPmbokStep/actas/actas.component';
+import { EntradasComponent } from './Component/AppPmbokStep/actas/entradas/entradas.component';
 import { HerramientasActaComponent } from './Component/AppPmbokStep/actas/herramientas-acta/herramientas-acta.component';
-import { CasoNegocioComponent }      from './Component/AppPmbokStep/actas/caso-negocio/caso-negocio.component';
+import { CasoNegocioComponent } from './Component/AppPmbokStep/actas/caso-negocio/caso-negocio.component';
 /* AppPresentacion ACTAS */
-import { ActasVistaComponent }   from './Component/AppPresentacion/actas/actas-vista/actas-vista.component';
-import { EntradaComponent }      from './Component/AppPresentacion/actas/entrada/entrada.component';
+import { ActasVistaComponent } from './Component/AppPresentacion/actas/actas-vista/actas-vista.component';
+import { EntradaComponent } from './Component/AppPresentacion/actas/entrada/entrada.component';
 import { HerramientasComponent } from './Component/AppPresentacion/actas/herramientas/herramientas.component';
 import { CasoNegociosComponent } from './Component/AppPresentacion/actas/caso-negocios/caso-negocios.component';
-import { PlanGestionComponent }  from './Component/AppPresentacion/actas/plan-gestion/plan-gestion.component';
+import { PlanGestionComponent } from './Component/AppPresentacion/actas/plan-gestion/plan-gestion.component';
 /* AppPresentacion PDP */
-import { EntradaspdpComponent }      from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
-import { HeramientasPdpComponent }   from './Component/AppPmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
-import { PdpComponent }              from './Component/AppPmbokStep/pdp/pdp.component';
+import { EntradaspdpComponent } from './Component/AppPmbokStep/pdp/entradaspdp/entradaspdp.component';
+import { HeramientasPdpComponent } from './Component/AppPmbokStep/pdp/heramientas-pdp/heramientas-pdp.component';
+import { PdpComponent } from './Component/AppPmbokStep/pdp/pdp.component';
+
+/* AppPresentacion PDP */
+import { EntradaspgaComponent } from './Component/AppPmbokStep/pga/entradaspga/entradaspga.component';
+import { HerramientapgaComponent } from './Component/AppPmbokStep/pga/herramientapga/herramientapga.component';
+import { PgaComponent } from './Component/AppPmbokStep/pga/pga.component';
 
 
 const routes: Routes = [
@@ -33,7 +38,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  
+
   { path: 'misproyectos', component: MisProyectosComponent, canActivate: [AuthGuard] },
   { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   { path: 'proyecto-save', component: ProyectoSaveComponent, canActivate: [AuthGuard] },
@@ -41,10 +46,10 @@ const routes: Routes = [
   /**
    * actas de inicion
    */
-  { path: 'Actas', component: ActasComponent},
-  { path: 'actas/entradas', component: EntradasComponent},
+  { path: 'Actas', component: ActasComponent },
+  { path: 'actas/entradas', component: EntradasComponent },
   { path: 'actas/entradas/caso-negocio', component: CasoNegocioComponent },
-  { path: 'actas/herramientas', component: HerramientasActaComponent},
+  { path: 'actas/herramientas', component: HerramientasActaComponent },
   //{ path: 'actas/entradas/plan-gestion-beneficio', component: PlanGestioBeneficio },
 
   /**
@@ -61,23 +66,23 @@ const routes: Routes = [
    * Fin actas de inicion
    */
 
-   { path: 'seguimiento-proyecto', component: SeguimientoProyectoComponent, canActivate: [AuthGuard] },
+  { path: 'seguimiento-proyecto', component: SeguimientoProyectoComponent, canActivate: [AuthGuard] },
 
   /**
    *  PDP
    * 
    */
-   { path: 'Pdp', component: PdpComponent},
-   { path: 'pdp/entradasPdp', component: EntradaspdpComponent },
-   { path: 'pdp/herramientasPdp', component: HeramientasPdpComponent },
-   /**
-   *  PGA
-   * 
-   */
-    { path: 'Pga', component: PdpComponent},
-    { path: 'Pga/entradasPdp', component: EntradaspdpComponent },
-    { path: 'Pga/herramientasPdp', component: HeramientasPdpComponent },
- 
+  { path: 'Pdp', component: PdpComponent },
+  { path: 'pdp/entradasPdp', component: EntradaspdpComponent },
+  { path: 'pdp/herramientasPdp', component: HeramientasPdpComponent },
+  /**
+  *  PGA
+  * 
+  */
+  { path: 'Pga', component: PgaComponent },
+  { path: 'Pga/entradasPdp', component: EntradaspgaComponent },
+  { path: 'Pga/herramientasPga', component: HerramientapgaComponent },
+
 
 ];
 
