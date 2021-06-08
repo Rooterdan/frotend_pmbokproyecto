@@ -33,7 +33,6 @@ export class PdpComponent implements OnInit {
         console.log('TODO FULL NO HAY MAS DATOS PERMITIDOS');
         this.entradaVista = datos.entradactaPdpValidate;
         this.herramientaVista = datos.herramientasPdpValidate;
-
       }
 
 

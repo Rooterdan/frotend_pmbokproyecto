@@ -1,3 +1,4 @@
+<!-- 
 <div class="contenido-accordion">
     <mat-accordion class="example-headers-align" multi>
 
@@ -22,17 +23,14 @@
             <div *ngIf="entrada;else elseBlockEntrada1">
 
                 <ng-template matExpansionPanelContent>
-                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
-                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
-                    <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
+                   
                 </ng-template>
 
             </div>
             <ng-template #elseBlockEntrada1>
                 <ng-template matExpansionPanelContent>
                     <app-entradaspga></app-entradaspga>
-                    <!--  componeente para -->
-                </ng-template>
+                 </ng-template>
 
             </ng-template>
 
@@ -60,29 +58,83 @@
 
             <div *ngIf="pga;else elseBlockHerramienta1">
                 <div *ngIf="herramienta;else elseBlockHerramienta2">
-                    <!-- si es TRUE, es decir que ya existe dato, por eso NO se permite el acceso a los componentes   -->
-                    <ng-template matExpansionPanelContent>
-                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
-                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
-                        <!--   ESPACIO PARA COMPONENTE DE LA VISTA -->
-
+                     <ng-template matExpansionPanelContent>
+                     
                     </ng-template>
                 </div>
                 <ng-template #elseBlockHerramienta2>
-                    <!-- si es FASLSE, es decir que NO existe dato, por eso SI se permite el acceso a los componentes   -->
-                    <ng-template matExpansionPanelContent>
+                     <ng-template matExpansionPanelContent>
                         <app-herramientapga></app-herramientapga>
-                        <!--  componeente para -->
-                    </ng-template>
+                     </ng-template>
                 </ng-template>
-                <!--  ******************   -->
-            </div>
+             </div>
             <ng-template #elseBlockHerramienta1>
                 <ng-template matExpansionPanelContent>
 
                 </ng-template>
 
             </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>
+
+-->
+
+
+<div class="contenido-accordion">
+    <mat-accordion class="example-headers-align" multi>
+        <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
+        <mat-expansion-panel class="panel">
+
+                <mat-expansion-panel-header>
+                   <mat-panel-title> Entradas PGA </mat-panel-title>
+                    <mat-panel-description>
+
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+
+                    <div *ngIf="entrada;else elseBlock">
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlock>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
+                </mat-panel-description>
+               </mat-expansion-panel-header>
+
+              <ng-template matExpansionPanelContent>
+                <app-entradaspga></app-entradaspga>
+            </ng-template>
+
+        </mat-expansion-panel>
+
+
+  
+
+        <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Herramientas y tecnicas PGA </mat-panel-title>
+
+                <mat-panel-description>
+
+                    <p style="margin-right:10px;margin-top:10px"> Estado </p>
+                    <div *ngIf="herramienta;else elseBlockHerramienta">
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                    </div>
+                    <ng-template #elseBlockHerramienta>
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                    </ng-template>
+
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+ 
+            <ng-template matExpansionPanelContent>
+                <app-herramientapga></app-herramientapga>
+            </ng-template>
+
         </mat-expansion-panel>
     </mat-accordion>
 

@@ -10,7 +10,7 @@
     <div>
         <div *ngIf="acuerdosEnable; else NotAcuerdos">
             <p> Acuerdos para el acta del proyecto <button [disabled]="acuerdosEnable ? null : 'disabled'" (click)="guardarAcuerdos()"> Guardar fase</button> </p>
-            <textarea [(ngModel)]="entradaActa.acuerdos" style="resize: both;" cols="90" rows="10" style="resize: both;" placeholder="Entradas de la empresa....">{{entradaActa.acuerdos}}</textarea>
+            <textarea [(ngModel)]="entradaActa.acuerdos" style="resize: both;" cols="90" rows="10" style="resize: both;" placeholder="Acuerdos del proyecto....">{{entradaActa.acuerdos}}</textarea>
         </div>
         <ng-template #NotAcuerdos>
             <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{entradaActa.acuerdos}}</textarea>

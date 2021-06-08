@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl:'http://localhost:9090/api/'
-  //apiUrl:'https://frontend-pmbok.herokuapp.com/',
+  //apiUrl:'https://basetesis.herokuapp.com/api/',
 };
 
 /*

@@ -80,7 +80,8 @@ export class EntradaspgaComponent implements OnInit {
         // console.log('ID DE LA REUNION ES ->', data);
         console.log(data);
         window.alert('Entradas del Plan Para la Direccion del proyecto Han sido guardados');
-        this.router.navigate(['/seguimiento-proyecto']);
+        window.location.reload();
+        //this.router.navigate(['/seguimiento-proyecto']);
       });
   }
   public estandaresM(): void {

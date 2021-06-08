@@ -57,12 +57,18 @@ export class CasoNegocioComponent implements OnInit {
 
     var idActa = Number(x);
     this.casoMegocio.idEntradaActa = idActa;
+    var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
+
     this.casoServices.save(this.casoMegocio).subscribe(
       ok => {
         console.log('3');
         console.log(ok);
-        window.alert("Nueva acta guardada ");
+     //   window.alert("Nueva acta guardada ");
 
+        var datosSacados = localStorage.getItem("datosActa") || {};
+      //  window.alert("Nuevo Plan de Gestión se ha grabado  " +  datosSacados);
+        variable.casoNegocioValidate = true;
+        localStorage.setItem("datosActa", JSON.stringify(variable) );
 
         window.location.reload();
         

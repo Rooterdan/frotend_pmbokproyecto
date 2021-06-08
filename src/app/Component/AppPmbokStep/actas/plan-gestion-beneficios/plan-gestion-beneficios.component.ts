@@ -66,7 +66,7 @@ export class PlanGestionBeneficiosComponent implements OnInit {
            
           console.table(ok);
           var datosSacados = localStorage.getItem("datosActa") || {};
-          window.alert("Nuevo Plan de Gestión se ha grabado  " +  datosSacados);
+          //window.alert("Nuevo Plan de Gestión se ha grabado  " +  datosSacados);
 
           variable.planValidate = true;
           localStorage.setItem("datosActa", JSON.stringify(variable) );

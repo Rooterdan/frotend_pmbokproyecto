@@ -43,15 +43,10 @@ export class SeguimientoProyectoComponent implements OnInit {
   ngOnInit(): void {
 
     // Validan si ya se cumplio el registo de datos por cada uno de los modulos
-    this.spinnerService.show();
-    setTimeout(() => {
-      console.log('cargando');
-      this.validarActa();
-
-      // ***************************
-
-      this.spinnerService.hide();
-    }, 2000);
+    this.checkEstadoActa();
+    this.validarPDP();
+    this.ValidarPGA();
+  
   }
 
   /*******************************************        */
@@ -61,7 +56,8 @@ export class SeguimientoProyectoComponent implements OnInit {
     await this.entradaDeActaServices.validarValoresActa(idProyecto).subscribe(
       data => {
         localStorage.setItem('datosActa', JSON.stringify(data));
-        this.validarPDP();
+        //this.checkEstadoActa();
+       // this.validarPDP();
       },
       err => {
         console.log('error en referencia ');
@@ -72,6 +68,20 @@ export class SeguimientoProyectoComponent implements OnInit {
 
 
   }
+
+  public checkEstadoActa() {
+
+    this.validarActa();
+
+    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+
+    if (data.acta == true && data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&
+      data.planValidate == true) {
+        
+        this.checkEstadoActaActivo=true;
+    }
+  }
+
   async validarPDP() {
     console.log('----------  validarPDP() {()');
     let x = localStorage.getItem("idproyecto");
@@ -111,15 +121,6 @@ export class SeguimientoProyectoComponent implements OnInit {
   /*******************************************        */
   VerificarEstados() {
     /*
-    actaDeConstitucionDelProyecto
-    planParaLaDireccionDeProyectos
-    planificacionParaLaGestionDelAlcance
-    
-    checkEstadoActaActivo
-    checkEstadoPdpActivo
-    checkEstadoPgaActivo
-    */
-
     this.actaDeConstitucionDelProyecto = false;
     this.planParaLaDireccionDeProyectos = false;
     this.planificacionParaLaGestionDelAlcance = false;
@@ -127,6 +128,7 @@ export class SeguimientoProyectoComponent implements OnInit {
     this.checkEstadoActaActivo = false;
     this.checkEstadoPdpActivo = false;
     this.checkEstadoPgaActivo = false;
+    */
 
     var data1 = JSON.parse(localStorage.getItem('datosActa') || '{}');
     var data2 = JSON.parse(localStorage.getItem('datosPDP') || '{}');
@@ -139,8 +141,11 @@ export class SeguimientoProyectoComponent implements OnInit {
       data1.planValidate
     ) {
       console.log('datosActa FULL');
-      
-      this.actaDeConstitucionDelProyecto = true;
+ 
+      if (data1.acta  &&  data1.casoNegocioValidate  && data1.entradactaValidate  &&  data1.herramientasValidate &&  data1.planValidate) {
+        this.actaDeConstitucionDelProyecto = true;
+      }
+      //this.actaDeConstitucionDelProyecto = true;
       this.checkEstadoActaActivo = true;
       this.checkEstadoPdpActivo = false;
       
@@ -165,5 +170,8 @@ export class SeguimientoProyectoComponent implements OnInit {
       }
     }
   }
+
+
+
 
 }

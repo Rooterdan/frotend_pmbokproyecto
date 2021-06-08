@@ -50,7 +50,7 @@ export class EntradasComponent implements OnInit {
       this.buscarEntradaPorActa();
 
 
-    }, 2000);
+    }, 1200);
 
     this.entradaActa = new EntradaActa(0, 0, "", "", "");
 
@@ -116,12 +116,11 @@ export class EntradasComponent implements OnInit {
           localStorage.setItem("idactas", data.idactas);
 
           var variable = JSON.parse(localStorage.getItem("datosActa") || '{}');
-
           variable.entradactaValidate = true;
-
           localStorage.setItem("datosActa", JSON.stringify(variable));
-
+          
           this.crearEntrada(data.idactas);
+
         },
         err => {
           console.log('erroe en craciones del ACTA', err.error.error);
@@ -146,8 +145,9 @@ export class EntradasComponent implements OnInit {
           console.log('data de ENTRADA DEL ACTA');
           console.log(data);
           this.grabarEntrada(data.identrada);
-          window.alert("Nueva acta guardada ");
+          //window.alert("Nueva acta guardada ");
 
+          
 
           window.location.reload();
           //  this.router.navigate(['/seguimiento-proyecto']);
@@ -180,6 +180,8 @@ export class EntradasComponent implements OnInit {
           console.log('Se encontro la entrada del acta con base al ID PROYECTO = ',data[0]);
           
           this.entradaActa = data[0];
+
+         // window.alert(data[0].acuerdos);
         }
       },
       err => {

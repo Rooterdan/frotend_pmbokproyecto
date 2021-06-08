@@ -21,12 +21,13 @@ export class ActasComponent implements OnInit {
   public herramientaVista: boolean = false;
 
 
-  constructor(public entradaDeActaServices: EntradactaService) { }
+  constructor(public entradaDeActaServices: EntradactaService) {  }
 
   ngOnInit(): void {
     // console.log('***ngOnInit ActasComponent');
     this.RevisarAvances();
-    this.checkStatusEntrada(); // Cambiar Estado de las Consultas
+    this.checkStatusEntrada(); // Este realmente cambia el estado 
+
 
   }
 
@@ -61,13 +62,7 @@ export class ActasComponent implements OnInit {
     this.herramientaVista = true;
   }
 
-  public falseTotal(): void {
-    this.entradaVista = false;
-    this.casoVista = false;
-    this.planVista = false;
-    this.herramientaVista = false;
-
-  }
+  
 
   public checkStatusEntrada() {
     console.log('\n \n public checkStatusEntrada() {');
@@ -82,6 +77,8 @@ export class ActasComponent implements OnInit {
       this.herramienta = variable.herramientasValidate;
     }
   }
+
+
 
   public async RevisarAvances() {
     console.log('public async RevisarAvances(){    ');
@@ -101,11 +98,9 @@ export class ActasComponent implements OnInit {
       await this.entradaDeActaServices.validarActa(idProyecto).subscribe(
         data => {
           // console.log('ID DE LA REUNION ES ->', data);
-
           var idActa = data;
-          localStorage.setItem("idactas", idActa);
-          console.log('SE GRABA EL ID DEL ACTA; SE BUSCO CON BASE AL ID DEL PROYECTO');
-          console.log(idActa);
+          localStorage.setItem("idactas", idActa); // console.log('SE GRABA EL ID DEL ACTA; SE BUSCO CON BASE AL ID DEL PROYECTO');
+
         },
       );
 
@@ -115,7 +110,7 @@ export class ActasComponent implements OnInit {
         this.entradaDeActaServices.valorIdEntraActa(idProyecto).subscribe(
           data => {
             //    console.log('ID DE LA ENTRADA DEL ACTA ES  ES ->', data);
-            window.alert("entro en datos.entradactaValidate ((DATA)) " + data);
+           // window.alert("entro en datos.entradactaValidate ((DATA)) " + data);
 
             var idEntradaActa = data;
             localStorage.setItem("entradaActaId", idEntradaActa);

@@ -7,7 +7,36 @@
 
 </div>
 
+
 <ng-template #DataCaso>
+
+    <div >
+        <p> Estandares pga </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="entradasPga.estandares"    placeholder="Estandares ..."> {{entradasPga.estandares}} </textarea>
+    </div> 
+
+    <div> 
+        <p> Objetivo calidad <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.objetivocalidad"  matInput placeholder="Objetivos pga ..."> {{entradasPga.objetivocalidad}} </textarea>
+    </div>
+ 
+    <div>
+        <p> Ciclos pga <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.ciclo"  matInput placeholder="Procesos ..."> {{entradasPga.ciclo}} </textarea>
+    </div>
+
+    <div>
+        <p> Procesos activos pga <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.activosprocesos"  matInput placeholder="Procesos ..."> {{entradasPga.activosprocesos}} </textarea>
+    </div>
+
+    <div> 
+        <button (click)="guardarEntradasPdp()"> Guardar entrada pga </button>
+    </div>
+
+</ng-template>  
+
+<!-- <ng-template #DataCaso>
 
     <mat-grid-list cols="2" rowHeight="2:2">
         <mat-grid-tile>
@@ -35,7 +64,6 @@
                 </p>
             </mat-card>
         </mat-grid-tile>
-        <!--   objetivocalidad-->
         <mat-grid-tile>
             <mat-card>
                 <p>
@@ -59,7 +87,6 @@
                 </p>
             </mat-card>
         </mat-grid-tile>
-        <!--    CICLO-->
         <mat-grid-tile>
             <mat-card>
                 <p>
@@ -85,7 +112,6 @@
             </mat-card>
         </mat-grid-tile>
 
-        <!--  ENFOQUE-->
 
         <mat-grid-tile>
             <mat-card>
@@ -112,7 +138,6 @@
             </mat-card>
         </mat-grid-tile>
 
-        <!--    activos procesos-->
 
         <mat-grid-tile>
             <mat-card>
@@ -139,7 +164,6 @@
             </mat-card>
         </mat-grid-tile>
 
-        <!-- BOTON GUARDAR -->
         <mat-grid-tile>
             <mat-card>
                 <p>
@@ -159,3 +183,5 @@
 
     </mat-grid-list>
 </ng-template>
+
+-->

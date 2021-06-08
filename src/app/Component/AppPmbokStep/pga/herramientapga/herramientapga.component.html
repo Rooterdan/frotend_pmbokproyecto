@@ -7,11 +7,31 @@
 
 </div>
 
+
+<ng-template #DataCaso>
+
+    <div >
+        <p> Juicios de expertos  pga </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasPGA.juicioexpertos"   placeholder="Juicios de expertos ..."> {{herramientasPGA.juicioexpertos}} </textarea>
+    </div> 
+
+    <div> 
+        <p> Analisis <button> Guardar </button> </p>
+        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasPGA.analisis"  matInput placeholder="Recopilacion de datos ..."> {{herramientasPGA.analisis}} </textarea>
+    </div>
+
+    <div> 
+        <button (click)="guardarHerramientasPga()"> Guardar entrada pga </button>
+    </div>
+
+</ng-template>  
+
+
+<!-- 
 <ng-template #DataCaso>
 
     <mat-grid-list cols="2" rowHeight="2:2">
-        <!--   JUICIO DE EXPERTOS-->
-        <mat-grid-tile>
+         <mat-grid-tile>
             <mat-card>
                 <p>
                     <mat-card-title>juicioexpertos </mat-card-title>
@@ -36,8 +56,7 @@
                 </p>
             </mat-card>
         </mat-grid-tile>
-        <!--   ANALISIS-->
-        <mat-grid-tile>
+         <mat-grid-tile>
             <mat-card>
                 <p>
                     <mat-card-title>analisis </mat-card-title>
@@ -60,8 +79,7 @@
                 </p>
             </mat-card>
         </mat-grid-tile>
-        <!--   OPCION DE -->
-        <mat-grid-tile>
+         <mat-grid-tile>
             <mat-card>
                 <p>
                     <mat-card-title>Guardar informacion del De las herramientas para PGA</mat-card-title>
@@ -80,3 +98,6 @@
 
     </mat-grid-list>
 </ng-template>
+-->
+
+

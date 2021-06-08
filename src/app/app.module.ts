@@ -66,6 +66,8 @@ import { VistaEntradaPgaComponent } from './Component/AppPresentacion/pga/vista-
 import { VistaHerramientaPgaComponent } from './Component/AppPresentacion/pga/vista-herramienta-pga/vista-herramienta-pga.component';
 import { VistaEntradaPdpComponent } from './Component/AppPresentacion/pdp/vista-entrada-pdp/vista-entrada-pdp.component';
 import { VistaHerramientaPdpComponent } from './Component/AppPresentacion/pdp/vista-herramienta-pdp/vista-herramienta-pdp.component';
+import { VistaPdpComponent } from './Component/AppPresentacion/pdp/vista-pdp/vista-pdp.component';
+import { VistaPgaComponent } from './Component/AppPresentacion/pga/vista-pga/vista-pga.component';
 
 
  
@@ -110,6 +112,8 @@ import { VistaHerramientaPdpComponent } from './Component/AppPresentacion/pdp/vi
     VistaHerramientaPdpComponent,
     VistaEntradaPgaComponent,
     VistaHerramientaPgaComponent,
+    VistaPdpComponent,
+    VistaPgaComponent,
 
   ],
   imports: [

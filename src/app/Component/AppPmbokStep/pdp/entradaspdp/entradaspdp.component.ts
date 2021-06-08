@@ -33,11 +33,35 @@ export class EntradaspdpComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
-
-    }, 2000);
-    this.entradasPDP = new Entradas(0, 0, "", "", "");
+     // this.buscarPdp();
+    }, 1300);
+    this.entradasPDP = new Entradas(0 , "", "", "", 0);
 
   }
+
+  public buscarPdp(){
+
+    let x = localStorage.getItem("idproyecto");
+    var idProyecto = Number(x);
+    console.log('public buscarPpd by proyecto(){');
+    if(idProyecto != null || idProyecto <0 ){
+      
+      this.pdpServicesService.BuscarPdpPorIdProyecto(idProyecto).subscribe(
+        data => {
+         this.pdp = data;
+         localStorage.setItem("idPdp", data.idpdp);
+
+         // window.alert(data.idpdp);
+        }
+      );  
+        window.alert("Despues del servicio ") ; 
+       // this.buscarEntradaPorActa();
+    }
+    
+  }
+
+
+
   async guardarEntradasPdp() {
 
     let x = localStorage.getItem("idproyecto");
@@ -59,6 +83,8 @@ export class EntradaspdpComponent implements OnInit {
 
 
   }
+
+
   async guardarEntrada() {
     await this.pdpServicesService.saveEntradasPdp(this.entradasPDP).subscribe(
       data => {
@@ -68,6 +94,36 @@ export class EntradaspdpComponent implements OnInit {
         this.router.navigate(['/seguimiento-proyecto']);
       });
   }
+
+  public buscarEntradaPorActa() {
+    //revisar bien la variable
+    console.log('->>>>> buscarEntradaPorActa');
+    var idpdp = localStorage.getItem('idPdp');
+    var idN = Number(idpdp);
+    window.alert(idN);
+    console.log('->>>>>ID DEL PROYECTO ES: ', idN);
+
+    this.pdpServicesService.findByIdEntradasPdp(idN).subscribe(
+      data => {
+        window.alert("entro");
+
+         window.alert(data[0]);
+        console.log('Se encontro la entrada del acta con base al ID PROYECTO = ',data);
+        if (data[0] != null) {
+          console.log('Se encontro la entrada del acta con base al ID PROYECTO = ',data[0]);
+     
+          this.entradasPDP = data;
+        }
+      },
+      err => {
+        console.log(err.error.error);
+        window.alert(err.error.error);
+
+      }
+    );
+  }
+
+
   public guardarotrosprocesos() {
     console.log(" guardarotrosprocesos(){");
     this.otrosprocesos = false;

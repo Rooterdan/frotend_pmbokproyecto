@@ -102,8 +102,9 @@ export class HerramientapgaComponent implements OnInit {
       data=>{
         console.log('GRabando data de Herramientas PGA');
         console.log(data);
-        
-        this.router.navigate(['/seguimiento-proyecto']);
+        window.location.reload();
+
+        //this.router.navigate(['/seguimiento-proyecto']);
         
       }
     );
