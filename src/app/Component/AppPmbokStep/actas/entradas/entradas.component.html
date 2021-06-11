@@ -7,48 +7,48 @@
 
 <ng-template #DataEntrada>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="acuerdosEnable; else NotAcuerdos">
-            <p> Acuerdos para el acta del proyecto <button [disabled]="acuerdosEnable ? null : 'disabled'" (click)="guardarAcuerdos()"> Guardar fase</button> </p>
-            <textarea [(ngModel)]="entradaActa.acuerdos" style="resize: both;" cols="90" rows="10" style="resize: both;" placeholder="Acuerdos del proyecto....">{{entradaActa.acuerdos}}</textarea>
+            <p> Acuerdos para el acta del proyecto  </p>
+            <textarea [(ngModel)]="entradaActa.acuerdos"  placeholder="Acuerdos del proyecto....">{{entradaActa.acuerdos}}</textarea>
         </div>
         <ng-template #NotAcuerdos>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{entradaActa.acuerdos}}</textarea>
+            <textarea  disabled>{{entradaActa.acuerdos}}</textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="factoresEnable; else Notfactores">
             <p> Factores ambientales para el acta del proyecto
-                <button [disabled]="factoresEnable ? null : 'disabled'" (click)="guardarFactores()"> Guardar </button>
+               <!-- <button [disabled]="factoresEnable ? null : 'disabled'" (click)="guardarFactores()"> Guardar </button> -->
             </p>
-            <textarea [(ngModel)]="entradaActa.factores" style="resize: both;" cols="90" rows="10" style="resize: both;" matInput placeholder="Factores Ambientales de la empresa....">{{entradaActa.factores}}</textarea>
+            <textarea [(ngModel)]="entradaActa.factores" matInput placeholder="Factores Ambientales de la empresa....">{{entradaActa.factores}}</textarea>
         </div>
         <ng-template #Notfactores>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" matInput disabled>{{entradaActa.factores}}</textarea>
+            <textarea matInput disabled>{{entradaActa.factores}}</textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="activosEnable; else Notactivosprocesos">
-            <p> Procesos activos para el acta del proyecto
-                <button [disabled]="activosEnable ? null : 'disabled'" (click)="guardarActivos()"> Guardar </button>
-            </p>
-            <textarea [(ngModel)]="entradaActa.activosprocesos" style="resize: both;" cols="90" rows="10" style="resize: both;" matInput placeholder="Procesos de la empresa  ....">{{entradaActa.activosprocesos}}</textarea>
+            <p> Procesos activos para el acta del proyecto </p>
+            <textarea [(ngModel)]="entradaActa.activosprocesos" matInput placeholder="Procesos de la empresa  ....">{{entradaActa.activosprocesos}}</textarea>
         </div>
         <ng-template #Notactivosprocesos>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" matInput disabled>{{entradaActa.activosprocesos}}</textarea>
+            <textarea  matInput disabled>{{entradaActa.activosprocesos}}</textarea>
         </ng-template>
 
 
     </div>
 
-    <div>
+    <div *ngIf="entradaActa.identrada == 0 ;else elseBlockActas">
         <button (click)="guardarActa()"> Guardar acta </button>
     </div>
-
+    <ng-template #elseBlockActas>
+        <button (click)="updateEntrada()"> Actualizar acta </button>
+    </ng-template>
 
 </ng-template>
 

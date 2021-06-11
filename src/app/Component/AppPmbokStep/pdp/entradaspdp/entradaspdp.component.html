@@ -12,26 +12,29 @@
 
 <ng-template #DataCaso>
 
-    <div >
+    <div class="camposdiv">
         <p> Otros procesos </p>
-        <textarea    style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="entradasPDP.otrosprocesos"    placeholder="Datos ..."> {{entradasPDP.otrosprocesos}} </textarea>
+        <textarea    [(ngModel)]="entradasPDP.otrosprocesos"    placeholder="Datos ..."> {{entradasPDP.otrosprocesos}} </textarea>
     </div> 
 
-    <div> 
-        <p> Factores ambientales pdp <button> Guardar </button> </p>
-        <textarea   style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPDP.factoresambientales"  matInput placeholder="Factores ..."> {{entradasPDP.factoresambientales}} </textarea>
+    <div class="camposdiv"> 
+        <p> Factores ambientales pdp   </p>
+        <textarea   [(ngModel)]="entradasPDP.factoresambientales"  matInput placeholder="Factores ..."> {{entradasPDP.factoresambientales}} </textarea>
     </div>
 
-    <div>
-        <p> Procesos activos pdp <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPDP.activosprocesos"  matInput placeholder="Procesos ..."> {{entradasPDP.activosprocesos}} </textarea>
+    <div class="camposdiv">
+        <p> Procesos activos pdp  </p>
+        <textarea    [(ngModel)]="entradasPDP.activosprocesos"  matInput placeholder="Procesos ..."> {{entradasPDP.activosprocesos}} </textarea>
     </div>
 
   
 
-    <div> 
+    <div *ngIf="!entradasPDP.identradapdp;else elseBlockPGA">
         <button (click)="guardarEntradasPdp()"> Guardar entrada pdp </button>
     </div>
+    <ng-template #elseBlockPGA>
+        <button (click)="updateEntradaPdp()"> Actualizar entrada pdp </button>
+    </ng-template>
 
 </ng-template>    
 

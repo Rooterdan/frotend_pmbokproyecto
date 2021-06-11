@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanGestioBeneficio } from 'src/app/domain/plangestionbeneficio';
-import { PlangestionbeneficioService } from 'src/app/service/plangestionbeneficio.service';
+import { PlangestionbeneficioService } from 'src/app/service/Actas/plangestionbeneficio.service';
 
 @Component({
   selector: 'app-plan-gestion',

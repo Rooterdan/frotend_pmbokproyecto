@@ -123,9 +123,9 @@
 
 
 <div class="contenido-accordion">
-    <mat-accordion class="example-headers-align" multi>
+    <mat-accordion class="example-headers-align" multi >
         <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel"   >
 
                 <mat-expansion-panel-header>
                    <mat-panel-title> Entradas del acta </mat-panel-title>
@@ -151,7 +151,7 @@
         </mat-expansion-panel>
 
 
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel" [disabled] = "!entrada ? 'disabled': null">
             <mat-expansion-panel-header>
                 <mat-panel-title> Caso de negocio </mat-panel-title>
 
@@ -181,7 +181,7 @@
 
 
 
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel" [disabled] = "!entrada ? 'disabled': null">
             <mat-expansion-panel-header>
 
                 <mat-panel-title> Plan para la gestión de beneficios </mat-panel-title>
@@ -207,7 +207,7 @@
         </mat-expansion-panel>
 
 
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel" [disabled] = "!entrada ? 'disabled': null">
             <mat-expansion-panel-header>
                 <mat-panel-title> Herramientas Y técnicas </mat-panel-title>
 

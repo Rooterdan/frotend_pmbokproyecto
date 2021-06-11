@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CasoNegocio } from 'src/app/domain/casonegocio';
-import { CasonegocioService } from 'src/app/service/casonegocio.service';
-import { EntradactaService } from 'src/app/service/entradacta.service';
+import { CasonegocioService } from 'src/app/service/Actas/casonegocio.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -116,6 +116,8 @@ export class CasoNegocioComponent implements OnInit {
     this.casoNegocioService.update(this.casoMegocio).subscribe(
       data => {
         this.casoMegocio = data;
+        window.alert("actualizo el caso de negocio");
+        window.location.reload();
       }, err => {
         console.log(err.error.error);
       }

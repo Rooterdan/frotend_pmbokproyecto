@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/domain/proyectos';
 import { tipoProyecto } from 'src/app/domain/tipo_proyecto';
 import { ProyectosService } from 'src/app/service/proyectos.service';
-import { TipoProyectoService } from 'src/app/service/tipo-proyecto.service';
+import { TipoProyectoService } from 'src/app/service/Proyecto/tipo-proyecto.service';
 
 @Component({
   selector: 'app-proyectos',

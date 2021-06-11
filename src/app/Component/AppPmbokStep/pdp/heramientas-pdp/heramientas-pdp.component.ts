@@ -37,7 +37,7 @@ export class HeramientasPdpComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
-
+      this.buscarHerramientasPdp();
     }, 2000);
     this.herramientasPdp = new Herramientas(0, "", "", "", "", 0);
 
@@ -53,7 +53,7 @@ export class HeramientasPdpComponent implements OnInit {
       // sI NO EXISTE EL IP PDP NO SE GRABARÁ LA HERRAMIENT DEL PDP
       let x = localStorage.getItem("idproyecto");
       var idproyecto = Number(x);
-      await this.servicesPdp.BuscarPdpPorIdProyecto(idproyecto).subscribe(
+      await this.servicesPdp.BuscarHerramientasPdpPorIdDelProyecto(idproyecto).subscribe(
         data => {
           console.log(data.idpdp);
           localStorage.setItem('idPdp', data.idpdp);
@@ -64,18 +64,47 @@ export class HeramientasPdpComponent implements OnInit {
 
   }
 
+  buscarHerramientasPdp(){
+    var id = localStorage.getItem("idPdp");
+    var idproyecto =  JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    if(id != null ){
+      this.servicesPdp.BuscarHerramientasPdpPorIdDelProyecto(idproyecto).subscribe (
+        data => {
+          if(data != null){
+          this.herramientasPdp = data ;
+          }
+        });
+   
+    }
+  }
+
+
+
+  public updateHerramientaPdp(){
+    this.servicesPdp.updateHerramientasPdp(this.herramientasPdp).subscribe(
+        data => {
+            this.herramientasPdp = data;
+        }
+    );
+  }
+
   public  async guardarHerramientasPdp() {
     console.log('public guardarHerramientasPdp() {');
     this.revisarIdpdp();
+    var updateDataPDP = JSON.parse(localStorage.getItem("datosPDP") || '{}');
+
     let x = localStorage.getItem("idPdp");
     var idpdp = Number(x);
     this.herramientasPdp.idpdp = idpdp;
-    console.log(this.herramientasPdp);
     await this.servicesPdp.saveHerramientasPdp(this.herramientasPdp).subscribe(
       data => {
         console.log(data);
         localStorage.setItem('idPdp', data.idpdp);
-        this.router.navigate(['/seguimiento-proyecto']);
+     
+        updateDataPDP.herramientasPdpValidate = true;
+        localStorage.setItem("datosPDP", JSON.stringify(updateDataPDP) );
+        window.location.reload();
+      //  this.router.navigate(['/seguimiento-proyecto']);
       }
     );
 

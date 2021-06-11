@@ -27,17 +27,45 @@ export class HerramientapgaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('asdasds');
+    
     this.spinnerService.show();
     this.cargaEnable = true;
     setTimeout(() => {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
-
+     
+      this.buscarHerramientasPda();
     }, 2000);
     this.herramientasPGA = new PgaHerramientas(0, "", "", 0);
   }
+
+
+  buscarHerramientasPda(){
+    var id = localStorage.getItem("idPdp");
+    var idproyecto =  JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    if(id != null ){
+      this.pgaService.BuscarHerramientasPGAPorIdDelProyecto(idproyecto).subscribe (
+        data => {
+          if(data != null){
+          this.herramientasPGA = data ;
+          }
+        });
+   
+    }
+  }
+
+
+  public updateHerramientaPga(){
+    this.pgaService.updateHerramientasPga(this.herramientasPGA).subscribe(
+        data => {
+            this.herramientasPGA = data;
+             window.alert('Actualizo entradas pga');
+            window.location.reload();
+        }
+    );
+  }
+
   /*
   public guardarHerramientas() {
     console.log(this.herramientasPGA.idherramientapga);

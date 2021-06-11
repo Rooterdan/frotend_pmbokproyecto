@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HerramientasActa } from 'src/app/domain/herramientasactas';
-import { EntradactaService } from 'src/app/service/entradacta.service';
-import { HerramientasactaService } from 'src/app/service/herramientasacta.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
+import { HerramientasactaService } from 'src/app/service/Actas/herramientasacta.service';
 
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -42,9 +42,12 @@ export class HerramientasActaComponent implements OnInit {
       this.cargaEnable = false;
       this.buscarherramientasPorActa();
       
-    }, 2000);
+    }, 1300 );
     this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0);
   }
+
+
+
   public guardarHerramientas() {
     console.log(this.herramientasObje.juicioexpertos);
     console.log(this.herramientasObje.recopilaciondatos);
@@ -99,6 +102,19 @@ export class HerramientasActaComponent implements OnInit {
     );
   }
 
+
+  public updateHerramienta() {
+    this.herramientasService.update(this.herramientasObje).subscribe(
+      data => {
+        console.log('data ->>>', data);
+        this.herramientasObje = data;
+        window.alert("actualizo entradas del acta");
+        window.location.reload();
+
+      }, err => {
+        console.log(err.error.error);
+      });
+  }
 
   public guardarjuicioexpertos() {
     console.log('juicioexpertos');

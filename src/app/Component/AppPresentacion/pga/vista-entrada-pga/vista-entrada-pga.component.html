@@ -12,7 +12,7 @@
                     </mat-expansion-panel-header>
     
                     <ng-template matExpansionPanelContent>
-                                                Estandar 1 
+                        {{entradaPga.estandares}}
     
                     </ng-template>
             </mat-expansion-panel>
@@ -29,7 +29,8 @@
                 </mat-expansion-panel-header>
     
                 <ng-template matExpansionPanelContent>
-                     entr
+                    {{entradaPga.objetivocalidad}}
+
     
                 </ng-template>
             </mat-expansion-panel>
@@ -48,10 +49,29 @@
                     </mat-expansion-panel-header>
     
                     <ng-template matExpansionPanelContent>
-                        cc 
+                        {{entradaPga.ciclo}}
  
                     </ng-template>
             </mat-expansion-panel>
+
+
+            <mat-expansion-panel class="panel">
+                <mat-expansion-panel-header>
+                <mat-panel-title>  Enfoque </mat-panel-title>
+
+                <mat-panel-description>  
+            
+          
+                
+                </mat-panel-description>
+
+                </mat-expansion-panel-header>
+
+                <ng-template matExpansionPanelContent>
+                    {{entradaPga.enfoque}}
+
+                </ng-template>
+        </mat-expansion-panel>
     
             <mat-expansion-panel class="panel">
                 <mat-expansion-panel-header>
@@ -66,7 +86,7 @@
                 </mat-expansion-panel-header>
 
                 <ng-template matExpansionPanelContent>
-                    Activos 1  
+                    {{entradaPga.activosprocesos}}
 
                 </ng-template>
         </mat-expansion-panel>

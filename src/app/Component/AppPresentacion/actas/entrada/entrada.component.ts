@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntradactaService } from 'src/app/service/entradacta.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
 import { EntradaActa } from 'src/app/domain/entradacta'
 
 @Component({

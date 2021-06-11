@@ -1,7 +1,7 @@
 <div class="contenido-accordion">
     <mat-accordion class="example-headers-align" multi>
 
-        <mat-expansion-panel class="panel" [disabled]="!actaDeConstitucionDelProyecto ? 'disabled': null">
+        <mat-expansion-panel class="panel" [disabled]="!checkEstadoActaActivo ? 'disabled': null">
             <mat-expansion-panel-header>
                 <mat-panel-title> Acta de constitucion de proyecto </mat-panel-title>
 
@@ -20,7 +20,7 @@
                     <!--  **************************************************************************** -->
 
 
-                    <button mat-raised-button [disabled]="actaDeConstitucionDelProyecto ? 'disabled': null" style="margin-left:350px" color="primary" routerLink="/Actas"> INGRESAR </button>
+                    <button mat-raised-button [disabled]="checkEstadoActaActivo ? 'disabled': null" style="margin-left:350px" color="primary" routerLink="/Actas"> INGRESAR </button>
 
                 </mat-panel-description>
             </mat-expansion-panel-header>
@@ -40,14 +40,17 @@
                     <p style="margin-right:10px;margin-top:10px"> Estado </p>
                     <!--  **************************************************************************** -->
                     <!--  **************************************************************************** -->
-                    <div *ngIf="checkEstadoPdpActivo;else elseBlockPDP">
-                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
-                        <button mat-raised-button style="margin-left:350px" [disabled]="checkEstadoPdpActivo ? 'disabled': null" color="primary" routerLink="/Pdp"> INGRESAR </button>
+                    <div *ngIf="!checkEstadoPdpActivo;else elseBlockPDP">
+                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+
+                        <button mat-raised-button style="margin-left:350px" [disabled]=" !checkEstadoActaActivo ? 'disabled': null" color="primary" routerLink="/Pdp"> INGRESAR </button>
 
                     </div>
                     <ng-template #elseBlockPDP>
-                        <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
-                        <button mat-raised-button style="margin-left:350px" [disabled]="!actaDeConstitucionDelProyecto ? 'disabled': null" color="primary" routerLink="/Pdp"> INGRESAR </button>
+                        <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+
+                        <button mat-raised-button style="margin-left:350px" [disabled]=" checkEstadoActaActivo ? 'disabled': null" color="primary" routerLink="/Pdp"> INGRESAR </button>
+
                     </ng-template>
                     <!--  **************************************************************************** -->
                     <!--  **************************************************************************** -->
@@ -62,7 +65,7 @@
                             <app-vista-pdp></app-vista-pdp>
             </ng-template>
         </mat-expansion-panel>
-
+  
         <mat-expansion-panel class="panel" [disabled]="!checkEstadoPgaActivo ? 'disabled': null">
             <mat-expansion-panel-header>
                 <mat-panel-title> Planificacion para la gestion del alcance </mat-panel-title>
@@ -73,17 +76,20 @@
                     <!--  **************************************************************************** -->
                     <div *ngIf="checkEstadoPgaActivo;else elseBlockPGA">
                         <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
+                        <button mat-raised-button style="margin-left:350px" [disabled]="checkEstadoPdpActivo ? 'disabled': null" color="primary" routerLink="/Pga"> INGRESAR </button>
                     </div>
+
                     <ng-template #elseBlockPGA>
                         <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
+                        <button mat-raised-button style="margin-left:350px"  [disabled]="!checkEstadoPdpActivo ? 'disabled': null" color="primary" routerLink="/Pga"> INGRESAR </button>
+
                     </ng-template>
                     <!--  **************************************************************************** -->
                     <!--  **************************************************************************** -->
 
             
 
-                    <button mat-raised-button  style="margin-left:350px"  [disabled]="!checkEstadoPdpActivo ? 'disabled': null" routerLink="/Pga" color="primary"> INGRESAR </button>
-
+ 
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
@@ -91,7 +97,7 @@
                 <app-vista-pga></app-vista-pga>              
             </ng-template>
         </mat-expansion-panel>
-
+<!--
         <mat-expansion-panel class="panel" disabled>
             <mat-expansion-panel-header>
                 <mat-panel-title> Planificacion de Gestion del Cronograma </mat-panel-title>
@@ -129,7 +135,7 @@
     </mat-accordion>
 
 </div>
-
+-->
 <!-- 
 <div class="table">
     <div class="table-cell"> Fase </div>

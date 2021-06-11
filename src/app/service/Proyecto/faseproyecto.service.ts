@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FaseProyecto } from 'src/app/domain/faseproyecto';
 import { environment } from 'src/environments/environment';
-import { Rol } from '../domain/roles';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
-export class RolesService {
-  private url:string=environment.apiUrl+'api/rol/'
+export class FaseproyectoService {
+
+  private url:string=environment.apiUrl+'api/faseproyecto/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -28,23 +29,23 @@ export class RolesService {
     return this.httpClient.get(this.url+'findAll');
   }
 
-  public findById(idrol:number):Observable<any>{
+  public findById(idfase:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+idrol);
+    return this.httpClient.get(this.url+'findById/'+idfase);
   }
 
-  public save(roles:Rol):Observable<any>{
+  public save(faseproyecto:FaseProyecto):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',roles);
+    return this.httpClient.post(this.url+'save',faseproyecto);
   }
 
-  public update(roles:Rol):Observable<any>{
+  public update(faseproyecto:FaseProyecto):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',roles);
+    return this.httpClient.put(this.url+'update',faseproyecto);
   }
 
-  public delete(idrol:number):Observable<any>{
+  public delete(idfase:number):Observable<any>{
    // let header=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+idrol);
+    return this.httpClient.delete(this.url+'delete/'+idfase);
   }
 }

@@ -82,7 +82,7 @@
 -->
 
 
-<div class="contenido-accordion">
+<div class="contenido-accordion" style="margin-top:35px">
     <mat-accordion class="example-headers-align" multi>
         <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
         <mat-expansion-panel class="panel">
@@ -113,17 +113,17 @@
 
   
 
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel"  [disabled] = "!entrada ? 'disabled': null">
             <mat-expansion-panel-header>
                 <mat-panel-title> Herramientas y tecnicas PGA </mat-panel-title>
 
                 <mat-panel-description>
 
                     <p style="margin-right:10px;margin-top:10px"> Estado </p>
-                    <div *ngIf="herramienta;else elseBlockHerramienta">
+                    <div *ngIf="herramienta;else elseBloqueHerramienta">
                         <mat-icon style="margin-left:15px;color:green;"> done </mat-icon>
                     </div>
-                    <ng-template #elseBlockHerramienta>
+                    <ng-template #elseBloqueHerramienta>
                         <mat-icon style="margin-left:10px;color:red">report_problem</mat-icon>
                     </ng-template>
 

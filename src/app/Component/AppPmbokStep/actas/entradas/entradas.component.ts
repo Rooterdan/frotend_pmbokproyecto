@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { EntradactaService } from 'src/app/service/entradacta.service';
-import { ReunionService } from 'src/app/service/reunion.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
+import { ReunionService } from 'src/app/service/Proyecto/reunion.service';
 import { EntradaActa } from 'src/app/domain/entradacta';
 import { Reunion } from 'src/app/domain/reunion';
 import { Actas } from 'src/app/domain/actas';
 import { Router } from '@angular/router';
 import { ActasService } from 'src/app/service/actas.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { DialogComponent } from 'src/app/Component/AppDialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-entradas',
@@ -35,7 +37,9 @@ export class EntradasComponent implements OnInit {
     public reunionService: ReunionService,
     public actaService: ActasService,
     public spinnerService: NgxSpinnerService,
-    public entradaService: EntradactaService
+    public entradaService: EntradactaService,
+    public dialog:MatDialog,
+
   ) { }
 
   ngOnInit(): void {
@@ -166,6 +170,10 @@ export class EntradasComponent implements OnInit {
     }
   }
 
+  public abrirModal(nameError:String,titleModule:String){
+    this.dialog.open(DialogComponent, { data : { typeError : nameError, title:titleModule}});
+  }
+
 
   public buscarEntradaPorActa() {
     //revisar bien la variable
@@ -197,10 +205,15 @@ export class EntradasComponent implements OnInit {
     this.entradaService.update(this.entradaActa).subscribe(
       data => {
         console.log('data ->>>', data);
-
+        this.entradaActa = data;
+        window.alert("actualizo entradas del acta");
+        this.dialog.closeAll();
       }, err => {
         console.log(err.error.error);
       });
+
+
+      window.location.reload();
   }
 
   public grabarEntrada(identrada: any) {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { EntradaActa } from '../domain/entradacta';
+import { EntradaActa } from '../../domain/entradacta';
 
 @Injectable({
   providedIn: 'root'
@@ -51,23 +51,20 @@ export class EntradactaService {
 
   public findEntradaDelActa(idProyecto: number): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url + 'entradaDelActa/' + idProyecto);
+    return this.httpClient.get(this.url + 'findEntradaDelActa/' + idProyecto);
   }
 
   public save(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
-    console.log('-------------------');
-    console.log("entradacta.acuerdo  =" + entradacta.acuerdos);
-    console.log("entradacta.factores  =" + entradacta.factores);
-    console.log("entradacta.activosprocesos  =" + entradacta.activosprocesos);
-    console.log("entradacta.identrada "+ entradacta.identrada);
-    console.log('-------------------');
+
     return this.httpClient.post(this.url + 'save', entradacta);
   }
 
   public update(entradacta: EntradaActa): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url + 'update', entradacta);
+    console.log("UPDATE ENTRADA ")
+    console.table(entradacta);
+    return this.httpClient.put(this.url + 'updateEntradaActa', entradacta);
   }
 
   public delete(identrada: number): Observable<any> {

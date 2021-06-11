@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CasoNegocio } from '../domain/casonegocio';
+import { HerramientasActa } from '../../domain/herramientasactas';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CasonegocioService {
-
-  private url:string=environment.apiUrl+'CasoNegocio/'
+export class HerramientasactaService {
+  private url:string=environment.apiUrl+'herramientasActa/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -29,28 +28,29 @@ export class CasonegocioService {
     return this.httpClient.get(this.url+'findAll');
   }
 
-  public findById(id_caso_negocio:number):Observable<any>{
+  public findById(idherramienta:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'finById/'+id_caso_negocio);
+    return this.httpClient.get(this.url+'finById/'+idherramienta);
   }
+
   public findherramientaDelActa(idProyecto:number):Observable<any>{
     //let header=this.createTokenHeader();
-    console.log("se fue con el id",idProyecto)
-    return this.httpClient.get(this.url+'casoNegocioDelActa/'+idProyecto);
+    return this.httpClient.get(this.url+'findHerramientaDelActa/'+idProyecto);
   }
 
-  public save(casonegocio:CasoNegocio):Observable<any>{
+
+  public save(herramientasactas:HerramientasActa):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',casonegocio);
+    return this.httpClient.post(this.url+'save',herramientasactas);
   }
 
-  public update(casonegocio:CasoNegocio):Observable<any>{
+  public update(herramientasactas:HerramientasActa):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',casonegocio);
+    return this.httpClient.put(this.url+'updateHerramientasAcata',herramientasactas);
   }
 
-  public delete(id_caso_negocio:number):Observable<any>{
+  public delete(idherramienta:number):Observable<any>{
    // let header=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+id_caso_negocio);
+    return this.httpClient.delete(this.url+'delete/'+idherramienta);
   }
 }

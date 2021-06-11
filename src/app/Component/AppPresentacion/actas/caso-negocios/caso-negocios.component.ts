@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CasoNegocio } from 'src/app/domain/casonegocio';
-import { CasonegocioService } from 'src/app/service/casonegocio.service';
+import { CasonegocioService } from 'src/app/service/Actas/casonegocio.service';
 @Component({
   selector: 'app-caso-negocios',
   templateUrl: './caso-negocios.component.html',

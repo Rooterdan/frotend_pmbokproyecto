@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HerramientasActa } from 'src/app/domain/herramientasactas';
-import { HerramientasactaService } from 'src/app/service/herramientasacta.service';
+import { HerramientasactaService } from 'src/app/service/Actas/herramientasacta.service';
 
 @Component({
   selector: 'app-herramientas',

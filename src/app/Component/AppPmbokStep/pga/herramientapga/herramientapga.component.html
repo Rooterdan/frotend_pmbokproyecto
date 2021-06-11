@@ -4,25 +4,27 @@
         <p style="font-size: 20px; color: white">Cargando... </p>
     </ngx-spinner>
 
-
 </div>
 
 
 <ng-template #DataCaso>
 
-    <div >
+    <div class="camposdiv">
         <p> Juicios de expertos  pga </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasPGA.juicioexpertos"   placeholder="Juicios de expertos ..."> {{herramientasPGA.juicioexpertos}} </textarea>
+        <textarea  [(ngModel)]="herramientasPGA.juicioexpertos"   placeholder="Juicios de expertos ..."> {{herramientasPGA.juicioexpertos}} </textarea>
     </div> 
 
-    <div> 
-        <p> Analisis <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasPGA.analisis"  matInput placeholder="Recopilacion de datos ..."> {{herramientasPGA.analisis}} </textarea>
+    <div class="camposdiv">  <p> Analisis   </p>
+        <textarea  [(ngModel)]="herramientasPGA.analisis"  matInput placeholder="Recopilacion de datos ..."> {{herramientasPGA.analisis}} </textarea>
     </div>
 
-    <div> 
-        <button (click)="guardarHerramientasPga()"> Guardar entrada pga </button>
+  
+    <div *ngIf="!herramientasPGA.idherramientapga;else elseBlockPGA">
+        <button (click)="guardarHerramientasPga()"> Guardar herramientas pga </button>
     </div>
+    <ng-template #elseBlockPGA>
+        <button (click)="updateHerramientaPga()"> Actualizar herramientas pga </button>
+    </ng-template>
 
 </ng-template>  
 

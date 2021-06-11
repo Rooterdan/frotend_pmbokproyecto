@@ -33,6 +33,7 @@ export class EntradaspdpComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
+      this.buscarEntradaPdp();
      // this.buscarPdp();
     }, 1300);
     this.entradasPDP = new Entradas(0 , "", "", "", 0);
@@ -54,12 +55,22 @@ export class EntradaspdpComponent implements OnInit {
          // window.alert(data.idpdp);
         }
       );  
-        window.alert("Despues del servicio ") ; 
+      //  window.alert("Despues del servicio ") ; 
        // this.buscarEntradaPorActa();
     }
     
   }
 
+  public updateEntradaPdp(){
+    this.pdpServicesService.updateEntradasPdp(this.entradasPDP).subscribe(
+        data => {
+            this.entradasPDP = data;
+            window.alert("actualizo entrada pdp "); 
+            window.location.reload();
+
+        }
+    );
+  }
 
 
   async guardarEntradasPdp() {
@@ -67,15 +78,19 @@ export class EntradaspdpComponent implements OnInit {
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
     console.log('public guardarEntradasPdp(){');
+    var updateDataPDP = JSON.parse(localStorage.getItem("datosPDP") || '{}');
+
     await this.pdpServicesService.savePdpPorIdProyecto(idProyecto).subscribe(
       data => {
         // console.log('ID DE LA REUNION ES ->', data);
         var idPdp = data.idpdp;
+        updateDataPDP.entradactaPdpValidate = true;
+        localStorage.setItem("datosActa", JSON.stringify(updateDataPDP) );
         localStorage.setItem("idPdp", idPdp);
-        console.log('SE GRABA EL ID DEL idPdp; SE BUSCO CON BASE AL ID DEL PROYECTO');
+        //.log('SE GRABA EL ID DEL idPdp; SE BUSCO CON BASE AL ID DEL PROYECTO');
         //console.log(idPdp);
         this.entradasPDP.idpdp = idPdp;
-        console.log('*** \n ', this.entradasPDP);
+        //console.log('*** \n ', this.entradasPDP);
         this.guardarEntrada();
 
 
@@ -86,12 +101,15 @@ export class EntradaspdpComponent implements OnInit {
 
 
   async guardarEntrada() {
+
     await this.pdpServicesService.saveEntradasPdp(this.entradasPDP).subscribe(
       data => {
         // console.log('ID DE LA REUNION ES ->', data);
         console.log(data);
         window.alert('Entradas del Plan Para la Direccion del proyecto Han sido guardados');
-        this.router.navigate(['/seguimiento-proyecto']);
+   
+        window.location.reload();
+
       });
   }
 
@@ -100,14 +118,12 @@ export class EntradaspdpComponent implements OnInit {
     console.log('->>>>> buscarEntradaPorActa');
     var idpdp = localStorage.getItem('idPdp');
     var idN = Number(idpdp);
-    window.alert(idN);
+    //window.alert(idN);
     console.log('->>>>>ID DEL PROYECTO ES: ', idN);
 
     this.pdpServicesService.findByIdEntradasPdp(idN).subscribe(
       data => {
-        window.alert("entro");
-
-         window.alert(data[0]);
+        
         console.log('Se encontro la entrada del acta con base al ID PROYECTO = ',data);
         if (data[0] != null) {
           console.log('Se encontro la entrada del acta con base al ID PROYECTO = ',data[0]);
@@ -123,6 +139,19 @@ export class EntradaspdpComponent implements OnInit {
     );
   }
 
+  buscarEntradaPdp(){
+    var id = localStorage.getItem("idPdp");
+    var idproyecto =  JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    if(id != null ){
+      this.pdpServicesService.BuscarPdpPorIdProyecto(idproyecto).subscribe (
+        data => {
+          if(data != null){
+          this.entradasPDP = data ;
+          }
+        });
+   
+    }
+  }
 
   public guardarotrosprocesos() {
     console.log(" guardarotrosprocesos(){");

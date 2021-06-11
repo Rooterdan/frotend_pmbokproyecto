@@ -1,31 +1,34 @@
-.mat-card {
-    background-color: rgb(202, 198, 198);
-    min-width: 60%;
-    max-width: 80%;
-    padding: 5%;
+textarea {
+    resize:both;
+    height: 10em;
+    width: 45em;
+ 
+    outline: none;
+    background-color: rgb(249, 250, 248);
+
+    border-radius: 7px;
+    border: 1px solid rgb(168, 168, 168);
+ }
+
+textarea:focus {
+    outline: 3px solid transparent;
+    border: 2px solid rgb(255, 160, 105);
+
 }
 
-.mat-card-title {
-    text-align: center;
+.camposdiv{
+    margin-top: 40px;
 }
 
-.mat-card-actions {
-    text-align: center;
+p{
+    font-size: 15px;
+    font-family: Arial;  
 }
 
-.mat-form-field {
-    display: flex;
-}
 
-.mat-grid-list {
-    background: rgb(243, 237, 237);
-    border: green;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
+button {
+    width: 105px;
+    height: 40px;
+    border-radius: 7px;
 
-.centrado {
-    /*display: inline-block;*/
-    float: left;
-    width: 50%;
 }

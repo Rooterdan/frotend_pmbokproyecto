@@ -1,10 +1,10 @@
-<div class="contenido-accordion">
+<div class="contenido-accordion" >
     <mat-accordion class="example-headers-align" multi>
         <!-- [disabled] = "!entrada ? 'disabled': null"  caso plan  herramienta -->
-        <mat-expansion-panel class="panel">
+        <mat-expansion-panel class="panel" >
 
-                <mat-expansion-panel-header>
-                   <mat-panel-title> Entradas del acta </mat-panel-title>
+                <mat-expansion-panel-header  >
+                   <mat-panel-title> Entradas del PDP </mat-panel-title>
                     <mat-panel-description>
 
                     <p style="margin-right:10px;margin-top:10px"> Estado </p>
@@ -29,8 +29,8 @@
 
   
 
-        <mat-expansion-panel class="panel">
-            <mat-expansion-panel-header>
+        <mat-expansion-panel class="panel" [disabled] = "!entrada ? 'disabled': null" >
+            <mat-expansion-panel-header >
                 <mat-panel-title> Herramientas y tecnicas PDP </mat-panel-title>
 
                 <mat-panel-description>

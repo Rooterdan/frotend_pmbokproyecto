@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { EntradactaService } from 'src/app/service/entradacta.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
 
 @Component({
   selector: 'app-actas',

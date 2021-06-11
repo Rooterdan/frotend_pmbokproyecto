@@ -30,9 +30,6 @@ export class PdpServicesService {
     return this.httpClient.get(this.url + 'savePdpPorIdProyecto/' + id);
   }
   
-  public BuscarPdpPorIdProyecto(id: number): Observable<any> {
-    return this.httpClient.get(this.url + 'BuscarPdpPorIdProyecto/' + id);
-  }
 
   public saveHerramientasPdp(herramientaspdp: Herramientas): Observable<any> {
     return this.httpClient.post(this.url + 'saveHerramientasPdp', herramientaspdp);
@@ -54,5 +51,28 @@ export class PdpServicesService {
   public findByIdEntradasPdp(id: number): Observable<any> {
     return this.httpClient.get(this.url + 'BuscarEntradasPdp/' + id);
   }/* FIN Servicios de consulta */
+
+
+
+
+
+  public BuscarPdpPorIdProyecto(idproyecto: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarEntradasPdpPorIdDelProyecto/' + idproyecto);
+  }
+
+  public BuscarHerramientasPdpPorIdDelProyecto(idproyecto: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarHerramientasPdpPorIdDelProyecto/' + idproyecto);
+  }
+
+
+  public updateEntradasPdp(entradaPdp: Entradas): Observable<any> {
+    return this.httpClient.put(this.url + 'updateEntradaPDP', entradaPdp);
+  }
+
+
+  public updateHerramientasPdp(herramientasPdp: Herramientas): Observable<any> {
+    return this.httpClient.put(this.url + 'updateHerramientaPDP', herramientasPdp);
+  }
+
 
 }

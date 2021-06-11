@@ -7,66 +7,71 @@
 
 </div>
 <ng-template #DataEntrada>
-    <div>
+    <div class="camposdiv">
         <div *ngIf="acciones; else Notacciones">
-            <p> Acciones el acta del proyecto <button (click)="guardaracciones()"> Guardar</button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.acciones" placeholder="Acciones..."> {{planObje.acciones}} </textarea>
+            <p> Acciones el acta del proyecto </p>
+            <textarea [(ngModel)]="planObje.acciones" placeholder="Acciones..."> {{planObje.acciones}} </textarea>
         </div>
         <ng-template #Notacciones>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{planObje.acciones}} </textarea>
+            <textarea   disabled> {{planObje.acciones}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="componentes; else Notcomponentes">
-            <p> Componentes para el acta del proyecto <button (click)="guardarcomponentes()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.componentes" matInput placeholder="Componentes..."> {{planObje.acciones}} </textarea>
+            <p> Componentes para el acta del proyecto </p>
+            <textarea [(ngModel)]="planObje.componentes" matInput placeholder="Componentes..."> {{planObje.acciones}} </textarea>
         </div>
         <ng-template #Notcomponentes>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{planObje.acciones}} </textarea>
+            <textarea   disabled> {{planObje.acciones}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="prodcutos; else Notprodcutos">
-            <p> Productos para el acta del proyecto <button (click)="guardarprodcutos()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.prodcutos" matInput placeholder="Productos..."> {{planObje.prodcutos}} </textarea>
+            <p> Productos para el acta del proyecto </p>
+            <textarea [(ngModel)]="planObje.prodcutos" matInput placeholder="Productos..."> {{planObje.prodcutos}} </textarea>
         </div>
         <ng-template #Notprodcutos>
 
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{planObje.prodcutos}} </textarea>
+            <textarea disabled> {{planObje.prodcutos}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="servicios; else Notservicios">
-            <p> Servicios para el acta del proyecto <button (click)="guardarservicios()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.servicios" matInput placeholder="servicios..."> {{planObje.servicios}} </textarea>
+            <p> Servicios para el acta del proyecto</p>
+            <textarea [(ngModel)]="planObje.servicios" matInput placeholder="servicios..."> {{planObje.servicios}} </textarea>
         </div>
         <ng-template #Notservicios>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{planObje.servicios}} </textarea>
+            <textarea disabled> {{planObje.servicios}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
 
         <div *ngIf="resultado; else Notresultado">
-            <p> Resultado esperados para el acta del proyecto <button (click)="guardarresultado()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="planObje.resultado" matInput placeholder="Resultado..."> {{planObje.resultado}} </textarea>
+            <p> Resultado esperados para el acta del proyecto </p>
+            <textarea [(ngModel)]="planObje.resultado" matInput placeholder="Resultado..."> {{planObje.resultado}} </textarea>
         </div>
         <ng-template #Notresultado>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{planObje.resultado}} </textarea>
+            <textarea disabled> {{planObje.resultado}} </textarea>
         </ng-template>
 
     </div>
+    
 
-    <div>
+    <div *ngIf="!planObje.id_plan_gb;else elseBlockherram">
         <button (click)="guardarPlan()"> Guardar plan de gestion </button>
     </div>
+    <ng-template #elseBlockherram>
+        <button (click)="updatePlan()"> Actualizar plan de gestion </button>
+    </ng-template>
+
 </ng-template>
 
 <!-- 

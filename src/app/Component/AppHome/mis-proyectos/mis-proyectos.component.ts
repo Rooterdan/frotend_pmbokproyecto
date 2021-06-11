@@ -5,9 +5,9 @@ import { Proyecto } from 'src/app/domain/proyectos';
 import { tipoProyecto } from 'src/app/domain/tipo_proyecto';
 import { validarActa } from 'src/app/domain/validarActa';
 import { ActasService } from 'src/app/service/actas.service';
-import { EntradactaService } from 'src/app/service/entradacta.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
 import { ProyectosService } from 'src/app/service/proyectos.service';
-import { TipoProyectoService } from 'src/app/service/tipo-proyecto.service';
+import { TipoProyectoService } from 'src/app/service/Proyecto/tipo-proyecto.service';
 
 @Component({
   selector: 'app-mis-proyectos',

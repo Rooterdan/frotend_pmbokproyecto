@@ -12,27 +12,39 @@
 
     <div >
         <p> Estandares pga </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="entradasPga.estandares"    placeholder="Estandares ..."> {{entradasPga.estandares}} </textarea>
+        <textarea  [(ngModel)]="entradasPga.estandares"  placeholder="Estandares ..."> {{entradasPga.estandares}} </textarea>
     </div> 
 
-    <div> 
-        <p> Objetivo calidad <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.objetivocalidad"  matInput placeholder="Objetivos pga ..."> {{entradasPga.objetivocalidad}} </textarea>
+    <div class="camposdiv"> 
+        <p> Objetivo calidad  </p>
+        <textarea  [(ngModel)]="entradasPga.objetivocalidad"  matInput placeholder="Objetivos pga ..."> {{entradasPga.objetivocalidad}} </textarea>
     </div>
  
-    <div>
-        <p> Ciclos pga <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.ciclo"  matInput placeholder="Procesos ..."> {{entradasPga.ciclo}} </textarea>
+    <div class="camposdiv">
+        <p> Ciclos pga  </p>
+        <textarea  [(ngModel)]="entradasPga.ciclo"  matInput placeholder="Ciclos ..."> {{entradasPga.ciclo}} </textarea>
     </div>
 
-    <div>
-        <p> Procesos activos pga <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="entradasPga.activosprocesos"  matInput placeholder="Procesos ..."> {{entradasPga.activosprocesos}} </textarea>
+
+    <div  class="camposdiv">
+        <p> Enfoques  </p>
+        <textarea   [(ngModel)]="entradasPga.enfoque"  matInput placeholder="Enfoque ..."> {{entradasPga.enfoque}} </textarea>
+    </div>
+
+    <div class="camposdiv">
+        <p> Procesos activos pga  </p>
+        <textarea  [(ngModel)]="entradasPga.activosprocesos"  matInput placeholder="Procesos ..."> {{entradasPga.activosprocesos}} </textarea>
     </div>
 
     <div> 
-        <button (click)="guardarEntradasPdp()"> Guardar entrada pga </button>
     </div>
+
+    <div *ngIf="!entradasPga.identradapga;else elseBlockPGA">
+        <button (click)="guardarEntradasPdp()"> Guardar entrada pdp </button>
+    </div>
+    <ng-template #elseBlockPGA>
+        <button (click)="updateEntradaPga()"> Actualizar entrada pga </button>
+    </ng-template>
 
 </ng-template>  
 

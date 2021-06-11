@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SubGrupo } from 'src/app/domain/subgrupo';
 import { environment } from 'src/environments/environment';
-import { Grupo } from '../domain/grupo';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
-export class GrupoService {
-  private url:string=environment.apiUrl+'api/grupo/'
+export class SubgrupoService {
+  
+  private url:string=environment.apiUrl+'api/subgrupo/'
   
 
   constructor(public httpClient:HttpClient) { }
@@ -28,23 +29,23 @@ export class GrupoService {
     return this.httpClient.get(this.url+'findAll');
   }
 
-  public findById(idgrupo:number):Observable<any>{
+  public findById(id_sub_grupo:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+idgrupo);
+    return this.httpClient.get(this.url+'findById/'+id_sub_grupo);
   }
 
-  public save(grupo:Grupo):Observable<any>{
+  public save(subgrupo:SubGrupo):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',grupo);
+    return this.httpClient.post(this.url+'save',subgrupo);
   }
 
-  public update(grupo:Grupo):Observable<any>{
+  public update(subgrupo:SubGrupo):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',grupo);
+    return this.httpClient.put(this.url+'update',subgrupo);
   }
 
-  public delete(idgrupo:number):Observable<any>{
+  public delete(id_sub_grupo:number):Observable<any>{
    // let header=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+idgrupo);
+    return this.httpClient.delete(this.url+'delete/'+id_sub_grupo);
   }
 }

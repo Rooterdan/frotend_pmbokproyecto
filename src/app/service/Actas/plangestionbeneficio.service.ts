@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PlanGestioBeneficio } from '../domain/plangestionbeneficio';
+import { PlanGestioBeneficio } from '../../domain/plangestionbeneficio';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class PlangestionbeneficioService {
 
   public findplanGestionDelActa(idProyecto:number):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url+'planGestionDelActa/'+idProyecto);
+    return this.httpClient.get(this.url+'findPlanGestionDelActa/'+idProyecto);
   }
   public save(plangestionbeneficio:PlanGestioBeneficio):Observable<any>{
     //let header=this.createTokenHeader();
@@ -46,7 +46,7 @@ export class PlangestionbeneficioService {
 
   public update(plangestionbeneficio:PlanGestioBeneficio):Observable<any>{
     //let header=this.createTokenHeader();
-    return this.httpClient.put(this.url+'update',plangestionbeneficio);
+    return this.httpClient.put(this.url+'updatePlanGestionBeneficio',plangestionbeneficio);
   }
 
   public delete(id_plan_gb:number):Observable<any>{

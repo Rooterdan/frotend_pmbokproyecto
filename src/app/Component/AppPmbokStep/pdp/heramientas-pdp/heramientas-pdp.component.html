@@ -15,30 +15,35 @@
 
 <ng-template #DataCaso>
 
-    <div >
+    <div class="camposdiv">
         <p> Juicio expertos pdp </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;"  [(ngModel)]="herramientasPdp.juicioexpertos"    placeholder="Datos ..."> {{herramientasPdp.juicioexpertos}} </textarea>
+        <textarea [(ngModel)]="herramientasPdp.juicioexpertos"    placeholder="Datos ..."> {{herramientasPdp.juicioexpertos}} </textarea>
     </div> 
 
-    <div> 
-        <p> Recopilacion datos pdp <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasPdp.recopilaciondatos"  matInput placeholder="Factores ..."> {{herramientasPdp.recopilaciondatos}} </textarea>
+    <div class="camposdiv"> 
+        <p> Recopilacion datos pdp   </p>
+        <textarea  [(ngModel)]="herramientasPdp.recopilaciondatos"  matInput placeholder="Recopilacion ..."> {{herramientasPdp.recopilaciondatos}} </textarea>
     </div>
 
-    <div>
-        <p> Habilidades  pdp <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasPdp.habilidades"  matInput placeholder="Procesos ..."> {{herramientasPdp.habilidades}} </textarea>
+    <div class="camposdiv">
+        <p> Habilidades  pdp  </p>
+        <textarea [(ngModel)]="herramientasPdp.habilidades"  matInput placeholder="Habilidades ..."> {{herramientasPdp.habilidades}} </textarea>
     </div>
 
   
-    <div>
-        <p> Herramientas reuniones  pdp <button> Guardar </button> </p>
-        <textarea  style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasPdp.herramientareuniones"  matInput placeholder="Procesos ..."> {{herramientasPdp.herramientareuniones}} </textarea>
+    <div class="camposdiv">
+        <p> Herramientas reuniones  pdp  </p>
+        <textarea [(ngModel)]="herramientasPdp.herramientareuniones"  matInput placeholder="Herramientas ..."> {{herramientasPdp.herramientareuniones}} </textarea>
     </div>
+    
+ 
 
-    <div> 
+    <div *ngIf="!herramientasPdp.idherramienta;else elseBlockPGA">
         <button (click)="guardarHerramientasPdp()"> Guardar herramientas pdp </button>
     </div>
+    <ng-template #elseBlockPGA>
+        <button (click)="updateHerramientaPdp()"> Actualizar herramientas pdp </button>
+    </ng-template>
 
 </ng-template>  
 

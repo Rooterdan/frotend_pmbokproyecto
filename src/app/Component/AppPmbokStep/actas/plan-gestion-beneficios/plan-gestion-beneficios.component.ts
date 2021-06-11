@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanGestioBeneficio } from 'src/app/domain/plangestionbeneficio';
 import { Router } from '@angular/router';
-import { EntradactaService } from 'src/app/service/entradacta.service';
-import { PlangestionbeneficioService } from 'src/app/service/plangestionbeneficio.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
+import { PlangestionbeneficioService } from 'src/app/service/Actas/plangestionbeneficio.service';
 
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -111,6 +111,19 @@ export class PlanGestionBeneficiosComponent implements OnInit {
     );
   }
 
+
+  public updatePlan() {
+    this.planService.update(this.planObje).subscribe(
+      data => {
+        console.log('data ->>>', data);
+        this.planObje = data;
+        window.alert('Plan gestion Beneficios actualizada');
+        window.location.reload();
+
+      }, err => {
+        console.log(err.error.error);
+      });
+  }
 
   public guardaracciones() {
     console.log('GUARDARacciones');

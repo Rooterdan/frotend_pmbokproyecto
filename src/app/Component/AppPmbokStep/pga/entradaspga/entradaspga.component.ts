@@ -37,11 +37,35 @@ export class EntradaspgaComponent implements OnInit {
       console.log('cargando');
       this.spinnerService.hide();
       this.cargaEnable = false;
-
+      this.buscarEntradaPda();
     }, 2000);
     this.entradasPga = new EntradaPga(0, "", "", "", "", "", 0);
   }
 
+
+  buscarEntradaPda(){
+    var id = localStorage.getItem("idPdp");
+    var idproyecto =  JSON.parse(localStorage.getItem('idproyecto') || '{}');
+    if(id != null ){
+      this.pgaServiceService.BuscarEntradasPGAPorIdDelProyecto(idproyecto).subscribe (
+        data => {
+          if(data != null){
+          this.entradasPga = data ;
+          }
+        });
+   
+    }
+  }
+
+  public updateEntradaPga(){
+    this.pgaServiceService.updateEntradasPga(this.entradasPga).subscribe(
+        data => {
+            this.entradasPga = data;
+            window.alert('Actualizo entradas pga');
+            window.location.reload();
+        }
+    );
+  }
 
   // Metodo de guardado
   async guardarEntradasPdp() {

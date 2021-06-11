@@ -8,56 +8,62 @@
 </div>
 
 <ng-template #DataEntrada>
-    <div>
+    <div class="camposdiv">
         <div *ngIf="juicioexpertos; else Notjuicioexpertos">
-            <p> Juicio de expertos el acta del proyecto <button (click)="guardarjuicioexpertos()"> Guardar fase</button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.juicioexpertos" placeholder="Juicio de expertos..."> {{herramientasObje.juicioexpertos}} </textarea>
+            <p> Juicio de expertos el acta del proyecto  </p>
+            <textarea [(ngModel)]="herramientasObje.juicioexpertos" placeholder="Juicio de expertos..."> {{herramientasObje.juicioexpertos}} </textarea>
         </div>
         <ng-template #Notjuicioexpertos>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{herramientasObje.juicioexpertos}} </textarea>
+            <textarea   disabled> {{herramientasObje.juicioexpertos}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="recopilaciondatos; else Notrecopilaciondatos">
-            <p> Recopilacion de datos para el acta del proyecto <button (click)="guardarrecopilaciondatos()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="Recopilacion de datos...">{{herramientasObje.recopilaciondatos}} </textarea>
+            <p> Recopilacion de datos para el acta del proyecto  </p>
+            <textarea   [(ngModel)]="herramientasObje.recopilaciondatos" matInput placeholder="Recopilacion de datos...">{{herramientasObje.recopilaciondatos}} </textarea>
         </div>
         <ng-template #Notrecopilaciondatos>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{herramientasObje.recopilaciondatos}} </textarea>
+            <textarea   disabled>{{herramientasObje.recopilaciondatos}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv">
         <div *ngIf="habilidades; else Nothabilidades">
-            <p> Habilidades del grupo para el acta del proyecto
-                <button (click)="guardarhabilidades()"> Guardar </button> </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.habilidades" matInput placeholder=" Habilidades del grupo..."> {{herramientasObje.habilidades}} </textarea>
+            <p>Habilidades del grupo para el acta del proyecto </p>
+            <textarea   [(ngModel)]="herramientasObje.habilidades" matInput placeholder="Habilidades del grupo..."> {{herramientasObje.habilidades}} </textarea>
         </div>
         <ng-template #Nothabilidades>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled> {{herramientasObje.habilidades}} </textarea>
+            <textarea  disabled> {{herramientasObje.habilidades}} </textarea>
         </ng-template>
 
     </div>
 
-    <div>
+    <div class="camposdiv"> 
         <div *ngIf="herramientareuniones; else Notherramientareuniones">
-            <p> Herramientas de reuniones implementadas para el acta del proyecto
-                <button (click)="guardarherramientareuniones()"> Guardar </button>
-            </p>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="Herramientas de reuniones...">{{herramientasObje.herramientareuniones}}</textarea>
+            <p> Herramientas de reuniones implementadas para el acta del proyecto </p>
+            <textarea   [(ngModel)]="herramientasObje.herramientareuniones" matInput placeholder="Herramientas de reuniones...">{{herramientasObje.herramientareuniones}}</textarea>
         </div>
         <ng-template #Notherramientareuniones>
-            <textarea style="resize: both;" cols="90" rows="10" style="resize: both;" disabled>{{herramientasObje.herramientareuniones}}</textarea>
+            <textarea  disabled>{{herramientasObje.herramientareuniones}}</textarea>
         </ng-template>
 
     </div>
+ 
 
-    <div>
+
+
+    <div *ngIf="!herramientasObje.idherramienta;else elseBlockherram">
         <button (click)="guardarHerramientas()"> Guardar herramientas </button>
     </div>
+    <ng-template #elseBlockherram>
+        <button (click)="updateHerramienta()"> Actualizar herramientas </button>
+    </ng-template>
+
+
+
 </ng-template>
 <!--
 <ng-template #DataEntrada>

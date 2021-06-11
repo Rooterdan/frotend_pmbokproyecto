@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntradactaService } from 'src/app/service/entradacta.service';
+import { EntradactaService } from 'src/app/service/Actas/entradacta.service';
 import { PdpServicesService } from 'src/app/service/PdpService/pdp-services.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PgaServiceService } from 'src/app/service/PgaService/pga-service.service';
@@ -21,7 +21,7 @@ export class SeguimientoProyectoComponent implements OnInit {
   public checkEstadoActaActivo: Boolean = false;
   public checkEstadoPdpActivo: Boolean = false;
   public checkEstadoPgaActivo: Boolean = false;
-  public checkEstadoPgcActivo: Boolean = false;
+  //public checkEstadoPgcActivo: Boolean = false;
 
 
   public panelOpenState = false;
@@ -38,17 +38,32 @@ export class SeguimientoProyectoComponent implements OnInit {
     public pgaServiceService: PgaServiceService,
     public pdpServicesService: PdpServicesService
 
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit(): void {
 
     // Validan si ya se cumplio el registo de datos por cada uno de los modulos
-    this.checkEstadoActa();
+    this.validarActa();
     this.validarPDP();
     this.ValidarPGA();
   
   }
 
+
+  public checkEstadoActa() {
+
+    //this.validarActa();
+
+    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+
+    if (data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&
+      data.planValidate == true) {
+        this.actaDeConstitucionDelProyecto= true;
+        this.checkEstadoActaActivo=true;
+    }
+  }
   /*******************************************        */
   async validarActa() {
     let x = localStorage.getItem("idproyecto");
@@ -56,9 +71,8 @@ export class SeguimientoProyectoComponent implements OnInit {
     await this.entradaDeActaServices.validarValoresActa(idProyecto).subscribe(
       data => {
         localStorage.setItem('datosActa', JSON.stringify(data));
-        //this.checkEstadoActa();
-       // this.validarPDP();
-      },
+        this.checkEstadoActa();
+       },
       err => {
         console.log('error en referencia ');
         console.log(err);
@@ -69,18 +83,19 @@ export class SeguimientoProyectoComponent implements OnInit {
 
   }
 
-  public checkEstadoActa() {
+  public checkEstadoPDP() {
 
-    this.validarActa();
+    //this.validarPDP();
 
-    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+    var data = JSON.parse(localStorage.getItem('datosPDP') || '{}');
 
-    if (data.acta == true && data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&
-      data.planValidate == true) {
-        
-        this.checkEstadoActaActivo=true;
+    if (data.entradactaPdpValidate == true &&  data.herramientasPdpValidate == true ) {
+        this.planParaLaDireccionDeProyectos=true;
+        this.checkEstadoPdpActivo=true;
     }
   }
+
+  
 
   async validarPDP() {
     console.log('----------  validarPDP() {()');
@@ -90,7 +105,7 @@ export class SeguimientoProyectoComponent implements OnInit {
     await this.pdpServicesService.validarPdp(idProyecto).subscribe(
       data => {
         localStorage.setItem('datosPDP', JSON.stringify(data));
-        this.ValidarPGA();
+        this.checkEstadoPDP();
       }, err => {
         console.log('error en referencia ');
         console.log(err);
@@ -98,9 +113,21 @@ export class SeguimientoProyectoComponent implements OnInit {
 
       }
     );
-
-
   }
+
+  public checkEstadoPGA() {
+
+   // this.validarPDP();
+
+    var data = JSON.parse(localStorage.getItem('datosPGA') || '{}');
+
+    if (data.pga == true && data.entradactaPgaValidate == true &&  data.herramientasPgaValidate == true ) {
+        this.planificacionParaLaGestionDelAlcance=true;
+        this.checkEstadoPgaActivo=true;
+    }
+  }
+
+
   async ValidarPGA() {
     console.log(' ValidarPGA() { ');
     let x = localStorage.getItem("idproyecto");
@@ -108,7 +135,7 @@ export class SeguimientoProyectoComponent implements OnInit {
     await this.pgaServiceService.validarPga(idProyecto).subscribe(
       data => {
         localStorage.setItem('datosPGA', JSON.stringify(data));
-        this.VerificarEstados();
+        this.checkEstadoPGA();
       }, err => {
         console.log('error en referencia ');
         console.log(err);
@@ -118,6 +145,10 @@ export class SeguimientoProyectoComponent implements OnInit {
     );
 
   }
+
+
+
+
   /*******************************************        */
   VerificarEstados() {
     /*

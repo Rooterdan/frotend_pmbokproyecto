@@ -56,5 +56,21 @@ export class PgaServiceService {
   /* FIN Servicios de consulta */
 
 
+  public BuscarEntradasPGAPorIdDelProyecto(idproyecto: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarEntradasPGAPorIdDelProyecto/' + idproyecto);
+  }
 
+  public BuscarHerramientasPGAPorIdDelProyecto(idproyecto: number): Observable<any> {
+    return this.httpClient.get(this.url + 'BuscarHerramientasPGAPorIdDelProyecto/' + idproyecto);
+  }
+  
+
+  public updateEntradasPga(entradas: EntradaPga): Observable<any> {
+    return this.httpClient.put(this.url + 'updateEntradasPGA', entradas);
+  }
+
+
+  public updateHerramientasPga(pgaHerramientas: PgaHerramientas): Observable<any> {
+    return this.httpClient.put(this.url + 'updateHerramientasPGA', pgaHerramientas);
+  }
 }

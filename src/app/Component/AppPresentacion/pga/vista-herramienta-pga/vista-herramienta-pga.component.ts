@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PgaHerramientas } from 'src/app/domain/pga/PgaHerramientas';
+import { PgaServiceService } from 'src/app/service/PgaService/pga-service.service';
 
 @Component({
   selector: 'app-vista-herramienta-pga',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaHerramientaPgaComponent implements OnInit {
 
-  constructor() { }
+  public pga !: PgaHerramientas;
+
+  constructor(
+    public entradaPgaService: PgaServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.BuscarEntradasPGAPorIdDelProyecto();
   }
+
+
+  BuscarEntradasPGAPorIdDelProyecto(){
+    var idproyecto = localStorage.getItem("idproyecto");
+    const b = Number(idproyecto);
+
+    this.entradaPgaService.BuscarHerramientasPGAPorIdDelProyecto(b).subscribe (
+      data => {
+        this.pga = data ;
+      });
+    }
+
 
 }
