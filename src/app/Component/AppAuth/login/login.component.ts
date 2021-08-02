@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
     this.appComponent.isAuth() ? this.router.navigate(["/home"]) : this.router.navigate(["/"]);
+    localStorage.clear();
   }
+  
 
   public abrirModal(nameError:String,titleModule:String){
     this.dialog.open(DialogComponent, { data : { typeError : nameError, title:titleModule}});

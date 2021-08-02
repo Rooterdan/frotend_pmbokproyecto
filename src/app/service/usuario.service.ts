@@ -26,7 +26,7 @@ export class UsuarioService {
 
   public findAll(): Observable<any> {
     //let header=this.createTokenHeader();
-    return this.httpClient.get(this.url + 'findAll');
+    return this.httpClient.get(this.url + 'finByAll');
   }
 
   public findById(email: String): Observable<any> {

@@ -32,6 +32,12 @@ import { EntradaspgaComponent } from './Component/AppPmbokStep/pga/entradaspga/e
 import { HerramientapgaComponent } from './Component/AppPmbokStep/pga/herramientapga/herramientapga.component';
 import { PgaComponent } from './Component/AppPmbokStep/pga/pga.component';
 
+/* App Control */
+import { AdminProjectFasesComponent } from './Component/AppControl/admin-project-fases/admin-project-fases.component';
+import { AdminProjectComponent } from './Component/AppControl/admin-project/admin-project.component';
+import { AppMessageComponent } from './Component/AppControl/app-message/app-message.component';
+import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -82,7 +88,16 @@ const routes: Routes = [
   { path: 'Pga', component: PgaComponent },
   { path: 'Pga/entradasPdp', component: EntradaspgaComponent },
   { path: 'Pga/herramientasPga', component: HerramientapgaComponent },
+    /**
+  *  PGA
+  * 
+  */  
 
+  {path: 'ControlAdminProject', component:AdminProjectComponent}, // Matricular Gente a un proyecto
+  {path: 'ControlMessage', component:AppMessageComponent}, // Buzón de alertas
+  {path: 'ControlFases', component: AdminProjectFasesComponent }, // Agendar as reuniones con el grupo de trabajo
+  {path: 'Control-Reuniones-Por-Fase', component: ControlFasesComponent }, // Agendar as reuniones con el grupo de trabajo
+  
 
 ];
 

@@ -1,0 +1,36 @@
+<h1>CONTROL DE FASES </h1>
+<h4>Vista para revisr los parametrso generales de las reuniones programadas</h4>
+
+<h2>Usuarios agregados</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>nombreProyecto</th>
+            <th>descripcionProyecto</th>
+            <th>nombreReunion</th>
+            <th>descripcionReunion</th>
+            <th>descripcionFase</th>
+            <th>inicio</th>
+            <th>fin</th>
+            <th>estado</th>
+            <th>nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let grupo of Reuniones">
+            <td>{{grupo.nombreProyecto}}</td>
+            <td>{{grupo.descripcionProyecto}}</td>
+            <td>{{grupo.nombreReunion}}</td>
+            <td>{{grupo.descripcionReunion}}</td>
+            <td>{{grupo.descripcionFase}}</td>
+            <td>{{grupo.inicio}}</td>
+            <td>{{grupo.fin}}</td>
+            <td>{{grupo.estado}}</td>
+            <td>{{grupo.nombre}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>

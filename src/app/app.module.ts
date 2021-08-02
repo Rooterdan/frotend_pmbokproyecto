@@ -52,6 +52,9 @@ import { MatExpansionModule} from '@angular/material/expansion';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
+
+
  
 
 import { FlexLayoutModule} from '@angular/flex-layout';
@@ -68,6 +71,11 @@ import { VistaEntradaPdpComponent } from './Component/AppPresentacion/pdp/vista-
 import { VistaHerramientaPdpComponent } from './Component/AppPresentacion/pdp/vista-herramienta-pdp/vista-herramienta-pdp.component';
 import { VistaPdpComponent } from './Component/AppPresentacion/pdp/vista-pdp/vista-pdp.component';
 import { VistaPgaComponent } from './Component/AppPresentacion/pga/vista-pga/vista-pga.component';
+
+import { AdminProjectComponent } from './Component/AppControl/admin-project/admin-project.component';
+import { AppMessageComponent } from './Component/AppControl/app-message/app-message.component';
+import { AdminProjectFasesComponent } from './Component/AppControl/admin-project-fases/admin-project-fases.component';
+import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
 
 
  
@@ -115,6 +123,11 @@ import { VistaPgaComponent } from './Component/AppPresentacion/pga/vista-pga/vis
     VistaPdpComponent,
     VistaPgaComponent,
 
+    AdminProjectComponent,
+    AppMessageComponent,
+    AdminProjectFasesComponent,
+    ControlFasesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -147,9 +160,11 @@ import { VistaPgaComponent } from './Component/AppPresentacion/pga/vista-pga/vis
     FlexLayoutModule,
 
     MatMenuModule,
+    MatRadioModule,
 
    
   ],
+  
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
