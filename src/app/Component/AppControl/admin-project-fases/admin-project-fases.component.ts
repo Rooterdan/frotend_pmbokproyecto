@@ -13,6 +13,7 @@ import { CrearfaseConResponsablesDTO } from 'src/app/domain/CrearfaseConResponsa
 })
 export class AdminProjectFasesComponent implements OnInit {
 
+  Mensaje !: String;
   Fases!: tipofases[];
   roles!: Rol[];
   grupoTrabajo !: GrupoDto[];
@@ -25,7 +26,7 @@ export class AdminProjectFasesComponent implements OnInit {
   ) {
     this.usuarioResponsable = [];
     this.crearfaseConResponsablesDTO = new CrearfaseConResponsablesDTO(0, 0, "", [], "", "", "", "");
-    this.cargarUsuariosEnGrupo();
+
 
   }
 
@@ -34,15 +35,14 @@ export class AdminProjectFasesComponent implements OnInit {
     this.fasesServices.fasesDelProyecto().subscribe(
       data => {
         console.log(data);
-
         this.Fases = data;
-
       },
       error => {
         console.log(error);
 
       }
     );
+    this.cargarUsuariosEnGrupo();
 
   }
   private validarDatos(): void {
@@ -57,6 +57,7 @@ export class AdminProjectFasesComponent implements OnInit {
 
   public matricular(): void {
     console.log("---------");
+    this.Mensaje = "";
     let x = localStorage.getItem("idproyecto");
     var idProyecto = Number(x);
     this.crearfaseConResponsablesDTO.idproyecto = idProyecto;
@@ -67,18 +68,32 @@ export class AdminProjectFasesComponent implements OnInit {
       this.crearfaseConResponsablesDTO.idresponsable = tmp;
     });
 
-    this.crearfaseConResponsablesDTO.tiempoinicio = this.crearfaseConResponsablesDTO.tiempoinicio.replace('-','/');
-    this.crearfaseConResponsablesDTO.tiempoinicio = this.crearfaseConResponsablesDTO.tiempoinicio.replace('-','/');
-    this.crearfaseConResponsablesDTO.tiempofin = this.crearfaseConResponsablesDTO.tiempofin.replace('-','/');
-    this.crearfaseConResponsablesDTO.tiempofin = this.crearfaseConResponsablesDTO.tiempofin.replace('-','/');
+    this.crearfaseConResponsablesDTO.tiempoinicio = this.crearfaseConResponsablesDTO.tiempoinicio.replace('-', '/');
+    this.crearfaseConResponsablesDTO.tiempoinicio = this.crearfaseConResponsablesDTO.tiempoinicio.replace('-', '/');
+    this.crearfaseConResponsablesDTO.tiempofin = this.crearfaseConResponsablesDTO.tiempofin.replace('-', '/');
+    this.crearfaseConResponsablesDTO.tiempofin = this.crearfaseConResponsablesDTO.tiempofin.replace('-', '/');
 
     console.log(this.crearfaseConResponsablesDTO);
     console.log("---------");
     this.fasesServices.faseResponsables(this.crearfaseConResponsablesDTO).subscribe(
       data => {
-        console.log(data);
+
+        console.log(JSON.parse(data));
+        
+        setTimeout(() => {
+          this.Mensaje = "SE GRABO LA NUEVA REUNION  ";
+
+
+        }, 3000);
+        location.reload();
+
       },
       error => {
+        setTimeout(() => {
+          this.Mensaje = error;
+
+
+        }, 3000);
         console.log(error);
       }
     );

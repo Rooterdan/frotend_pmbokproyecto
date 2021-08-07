@@ -40,6 +40,10 @@ export class GrupoService {
     return this.httpClient.get(this.url + 'consultarIdsUser/' + idUsuario);
 
   }
+  public responsablesEnFaseoReunion(idFase:number): Observable<any> {
+    
+    return this.httpClient.get(this.url + 'responsablesEnFaseoReunion/'+idFase);
+  }
 
 
 }

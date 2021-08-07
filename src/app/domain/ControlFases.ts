@@ -9,7 +9,8 @@ export class ControlFases {
         public inicio: String,
         public fin: String,
         public estado: String,
-        public nombre: String
+        public nombre: String,
+        public idFase: number
 
     ) {
 

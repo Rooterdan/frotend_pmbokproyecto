@@ -52,14 +52,14 @@
             <tr>
                 <th>Usuario</th>
                 <th>Rol  </th>
-                <th>Opcion</th>
+                <th>eliminar</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let grupo of usuarioResponsable">
                 <td>{{grupo.nombre}}</td>
                 <td>{{grupo.rol}}</td>
-                <td><button (click)="eliminarUsuario(grupo.email,grupo.idNombrerol)" class="btn">Seleccionar</button></td>
+                <td><button (click)="eliminarUsuario(grupo.email,grupo.idNombrerol)" class="btn">X</button></td>
                 
             </tr>
         </tbody>
@@ -91,11 +91,14 @@
 
 
 <div>
-    <button (click)="matricular()" class="btn">Seleccionar</button>
+    <button (click)="matricular()" class="btn">Guardar </button>
     
 </div>
 <br><br><br>
-
+<h2>
+    {{Mensaje}}
+</h2>
+<br><br><br>
 <!--<div class ="div-row">
 
     <label class="select"  > Tipo de proyecto  

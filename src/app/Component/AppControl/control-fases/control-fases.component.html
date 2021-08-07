@@ -15,6 +15,7 @@
             <th>fin</th>
             <th>estado</th>
             <th>nombre</th>
+            <th>Ver Grupo de Trabajo</th>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +29,34 @@
             <td>{{grupo.fin}}</td>
             <td>{{grupo.estado}}</td>
             <td>{{grupo.nombre}}</td>
+            <th> <button (click)="verGrupo(grupo.idFase)" >(o)</button></th>
         </tr>
     </tbody>
 </table>
 
+<br>
+<br>
+<br>
+<h2>----------------</h2>
+<h1>El grupo de trabajo es:</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>usuario</th>
+            <th>rol</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let responsable of responsables">
+            <td>{{responsable.email}}</td>
+            <td>{{responsable.nombrerol}}</td>
+  
+        
+        </tr>
+    </tbody>
+</table>
+
+<br>
 <br>
 <br>
