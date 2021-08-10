@@ -8,6 +8,7 @@ import { GrupoService } from 'src/app/service/grupo.service';
   templateUrl: './control-fases.component.html',
   styleUrls: ['./control-fases.component.css']
 })
+
 export class ControlFasesComponent implements OnInit {
 
   public Reuniones !: ControlFases[];
@@ -25,7 +26,7 @@ export class ControlFasesComponent implements OnInit {
     if (idUser != "none" || idUser != null || idUser != undefined) {
       await this.servicios.controlProFase(idUser).subscribe(
         data => {
-          console.log(data);
+          console.log(this.Reuniones);
 
           this.Reuniones = data;
         },
@@ -42,18 +43,24 @@ export class ControlFasesComponent implements OnInit {
   }
 
   public async verGrupo(idFase: number) {
+    var salida = JSON.parse('{}');
     await this.servicios.responsablesEnFaseoReunion(idFase).subscribe(
       data => {
         this.responsables = data;
       },
       error => {
-        console.error(error);
+        this.responsables = [];
+        //console.error(error.error.message);
+        salida = error.error.message;
+        //salida = JSON.parse( salida|| '{}');
+        console.log(salida);
+
       }
     );
 
-
-
   }
+
+
 
 }
 

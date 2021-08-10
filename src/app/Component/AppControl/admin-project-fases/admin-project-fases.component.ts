@@ -11,10 +11,16 @@ import { CrearfaseConResponsablesDTO } from 'src/app/domain/CrearfaseConResponsa
   templateUrl: './admin-project-fases.component.html',
   styleUrls: ['./admin-project-fases.component.css']
 })
+/*
+Cambios:
+
+10 de agosto se agrega el metodo limitarFases
+*/
 export class AdminProjectFasesComponent implements OnInit {
 
   Mensaje !: String;
   Fases!: tipofases[];
+  Auxiliar!: tipofases[];
   roles!: Rol[];
   grupoTrabajo !: GrupoDto[];
   usuarioResponsable: Array<any>;
@@ -32,17 +38,9 @@ export class AdminProjectFasesComponent implements OnInit {
 
   ngOnInit(): void {
     this.validarDatos();
-    this.fasesServices.fasesDelProyecto().subscribe(
-      data => {
-        console.log(data);
-        this.Fases = data;
-      },
-      error => {
-        console.log(error);
-
-      }
-    );
+   this.buscarFases();
     this.cargarUsuariosEnGrupo();
+    // this.limitarFases();
 
   }
   private validarDatos(): void {
@@ -53,7 +51,21 @@ export class AdminProjectFasesComponent implements OnInit {
 
   }
 
+  public async  buscarFases(){
+    await this.fasesServices.fasesDelProyecto().subscribe(
+      data => {
+        // console.log(data);
+        this.Fases = data;
+        this.limitarFases(this.Fases);
+      },
+      error => {
+        console.log(error);
 
+      }
+    );
+
+    
+  }
 
   public matricular(): void {
     console.log("---------");
@@ -151,6 +163,51 @@ export class AdminProjectFasesComponent implements OnInit {
   public eliminarUsuario(email: String, rol: String) {
     var indice = this.usuarioResponsable.indexOf({ 'nombre': email, 'rol': rol }); // obtenemos el indice
     this.usuarioResponsable.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
+  }
+  public limitarFases(  fases : any): void {  
+    // En este método se rectifica el avance del proyecto en función del Pmbok, para limitar las fases de trabajo.
+    var acta = JSON.parse(localStorage.getItem('datosActa') || '{}');
+    var pdp = JSON.parse(localStorage.getItem('datosPGA') || '{}');
+    var pga = JSON.parse(localStorage.getItem('datosPDP') || '{}');
+    console.log('-------');
+    console.log(this.Fases[0]);
+    this.Auxiliar =[];  
+    
+    // Acta
+    if (acta.casoNegocioValidate == true && acta.entradactaValidate == true && acta.herramientasValidate == true &&
+      acta.planValidate == true) {
+        console.log('1');
+        this.Auxiliar.push(this.Fases[0]);
+        this.Auxiliar.push(this.Fases[1]);
+        this.Auxiliar.push(this.Fases[2]);
+        this.Auxiliar.push(this.Fases[3]);
+
+
+    }else{
+      console.log('1.1');
+      
+      this.Auxiliar.push(this.Fases[0]);
+      this.Auxiliar.push(this.Fases[1]);
+      this.Auxiliar.push(this.Fases[2]);
+      this.Auxiliar.push(this.Fases[3]);
+
+    }
+    // PDP
+    if (pdp.entradactaPdpValidate == true && pdp.herramientasPdpValidate == true) {
+      console.log('2');
+      this.Auxiliar.push(this.Fases[4]);
+
+
+    }
+    // PGA 
+    if (pga.pga == true && pga.entradactaPgaValidate == true && pga.herramientasPgaValidate == true) {
+      console.log('3');
+
+    }
+    this.Fases =this.Auxiliar;
+    
+    
+    
   }
 
 }
