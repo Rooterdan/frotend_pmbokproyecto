@@ -7,6 +7,7 @@ import { User } from 'src/app/domain/user';
 import { Usuario } from 'src/app/domain/usuario';
 import { GrupoService } from 'src/app/service/grupo.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-project',
@@ -40,7 +41,8 @@ export class AdminProjectComponent implements OnInit {
   constructor(
     
     public UsuarioService: UsuarioService,
-    public grupoService: GrupoService
+    public grupoService: GrupoService,
+    public router:Router
 
   ) {  this.data = [
     { firstName: 'John', lastName: 'Doe', age: '35' },
@@ -121,4 +123,8 @@ export class AdminProjectComponent implements OnInit {
     this.
   }*/
 
+  public VolverAControl():void{
+    this.router.navigate(['/Control']);
+    
+  }
 }

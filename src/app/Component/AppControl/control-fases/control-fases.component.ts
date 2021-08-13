@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ControlFases } from 'src/app/domain/ControlFases';
 import { ResponsablesDTO } from 'src/app/domain/ResponsablesDTO';
 import { GrupoService } from 'src/app/service/grupo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-control-fases',
@@ -15,7 +16,8 @@ export class ControlFasesComponent implements OnInit {
   public responsables !: ResponsablesDTO[];
   public mensajeAlerta !: String;
   constructor(
-    public servicios: GrupoService
+    public servicios: GrupoService,
+    public router:Router
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +61,10 @@ export class ControlFasesComponent implements OnInit {
     );
 
   }
-
+  public VolverAControl():void{
+    this.router.navigate(['/Control']);
+    
+  }
 
 
 }

@@ -37,10 +37,11 @@ import { AdminProjectFasesComponent } from './Component/AppControl/admin-project
 import { AdminProjectComponent } from './Component/AppControl/admin-project/admin-project.component';
 import { AppMessageComponent } from './Component/AppControl/app-message/app-message.component';
 import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
+import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '',  component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -97,7 +98,7 @@ const routes: Routes = [
   {path: 'ControlMessage', component:AppMessageComponent}, // Buzón de alertas
   {path: 'ControlFases', component: AdminProjectFasesComponent }, // Agendar as reuniones con el grupo de trabajo
   {path: 'Control-Reuniones-Por-Fase', component: ControlFasesComponent }, // Agendar as reuniones con el grupo de trabajo
-  
+  {path: 'Control', component: ControlAdminUserComponent }, // Agendar as reuniones con el grupo de trabajo
 
 ];
 

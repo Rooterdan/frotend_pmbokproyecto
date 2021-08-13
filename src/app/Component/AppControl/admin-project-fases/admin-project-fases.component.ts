@@ -5,6 +5,7 @@ import { GrupoService } from 'src/app/service/grupo.service';
 import { GrupoDto } from 'src/app/domain/GrupoDto';
 import { Usuario } from 'src/app/domain/usuario';
 import { CrearfaseConResponsablesDTO } from 'src/app/domain/CrearfaseConResponsablesDTO';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-project-fases',
@@ -28,7 +29,8 @@ export class AdminProjectFasesComponent implements OnInit {
 
 
   constructor(
-    public fasesServices: GrupoService
+    public fasesServices: GrupoService,
+    public router:Router
   ) {
     this.usuarioResponsable = [];
     this.crearfaseConResponsablesDTO = new CrearfaseConResponsablesDTO(0, 0, "", [], "", "", "", "");
@@ -210,4 +212,8 @@ export class AdminProjectFasesComponent implements OnInit {
     
   }
 
+  public VolverAControl():void{
+    this.router.navigate(['/Control']);
+    
+  }
 }
