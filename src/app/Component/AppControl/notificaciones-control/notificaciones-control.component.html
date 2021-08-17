@@ -1,0 +1,30 @@
+<p>notificaciones-control works!</p>
+
+<h2>Mensajes</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>De :</th>
+            <th>mensaje</th>
+            <th>Visto (o)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let mensaje of mensajes">
+            <td>{{mensaje.emisor}}</td>
+            <td>{{mensaje.mensaje}}</td>
+            <div *ngIf="mensaje.estado ;else elseBlock">
+                <th> <button disabled>(o)</button></th>
+            </div>
+            <ng-template #elseBlock>
+                <th> <button (click)="cambiarEstado(mensaje)">(o)</button></th>
+            </ng-template>
+            
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<br>
+<br>

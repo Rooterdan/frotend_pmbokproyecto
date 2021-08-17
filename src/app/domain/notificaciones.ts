@@ -1,4 +1,4 @@
-export class Rol {
+export class notificaciones {
 
     constructor(
         public idnotificaciones: number,

@@ -10,10 +10,14 @@
 
 <div  *ngIf="isAuth()">
    <mat-toolbar >
+  
 
     <div  class="bloqueBotonesLeft">
        <a routerLink="/home" mat-raised-button> GestionAPP </a>
     </div> 
+    <div  class="bloqueBotonesLeft">
+      <a routerLink="/Mensajes" mat-raised-button> {{cantidadMensajes}} Mensajes </a>
+   </div> 
 
     <div class="bloqueBotonesRigth">
     
