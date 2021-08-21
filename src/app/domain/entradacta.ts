@@ -6,6 +6,7 @@ export class EntradaActa{
         public acuerdos:string,
         public factores:string,
         public activosprocesos:string,
+        public estado:boolean
     ){
 
     }

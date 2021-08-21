@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GrupoDto } from '../domain/GrupoDto';
 import { CrearfaseConResponsablesDTO } from '../domain/CrearfaseConResponsablesDTO';
+import { ControlFases } from '../domain/ControlFases';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +39,7 @@ export class GrupoService {
   // MEtodo para obtener los datos de la reuniones teniendo en cuenta el ID/email del usuario ADMIN
   public controlProFase(idUsuario: String): Observable<any> {
     return this.httpClient.get(this.url + 'consultarIdsUser/' + idUsuario);
+    
 
   }
   public responsablesEnFaseoReunion(idFase:number): Observable<any> {

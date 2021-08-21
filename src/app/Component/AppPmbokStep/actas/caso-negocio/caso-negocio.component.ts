@@ -46,7 +46,7 @@ export class CasoNegocioComponent implements OnInit {
 
     }, 2000);
     
-    this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0);
+    this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0,false);
 
   }
   public guardarCasoNegocio() {

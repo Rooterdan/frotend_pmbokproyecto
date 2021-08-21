@@ -8,6 +8,7 @@ export class Herramientas {
         public habilidades: String,
         public herramientareuniones: String,
         public idpdp: number,
+        public estado:boolean
         
         ) {
 

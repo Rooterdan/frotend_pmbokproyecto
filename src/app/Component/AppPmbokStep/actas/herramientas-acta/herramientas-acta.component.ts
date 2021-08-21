@@ -43,7 +43,7 @@ export class HerramientasActaComponent implements OnInit {
       this.buscarherramientasPorActa();
       
     }, 1300 );
-    this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0);
+    this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0,false);
   }
 
 

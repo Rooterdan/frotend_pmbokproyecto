@@ -6,7 +6,8 @@ export class CasoNegocio{
         public objetivos:string,
         public incidentes:string,
         public oportunidades:string,
-        public idEntradaActa:number
+        public idEntradaActa:number,
+        public estado:boolean
         
     ){
 

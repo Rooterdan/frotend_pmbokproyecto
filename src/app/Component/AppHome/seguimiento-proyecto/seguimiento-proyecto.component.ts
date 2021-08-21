@@ -11,7 +11,7 @@ import { PgaServiceService } from 'src/app/service/PgaService/pga-service.servic
 })
 export class SeguimientoProyectoComponent implements OnInit {
 
-  public estado: boolean = false;
+  public estado: boolean = false; 
 
 
   public actaDeConstitucionDelProyecto: Boolean = false;
@@ -45,9 +45,12 @@ export class SeguimientoProyectoComponent implements OnInit {
   ngOnInit(): void {
 
     // Validan si ya se cumplio el registo de datos por cada uno de los modulos
-    this.validarActa();
-    this.validarPDP();
-    this.ValidarPGA();
+    // this.validarActa();
+    this.checkEstadoActa();
+    // this.validarPDP();
+    this.checkEstadoPDP();
+    // this.ValidarPGA();
+    this.checkEstadoPGA();
   
   }
 
@@ -55,7 +58,6 @@ export class SeguimientoProyectoComponent implements OnInit {
   public checkEstadoActa() {
 
     //this.validarActa();
-
     var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
 
     if (data.casoNegocioValidate == true &&  data.entradactaValidate == true && data.herramientasValidate == true &&

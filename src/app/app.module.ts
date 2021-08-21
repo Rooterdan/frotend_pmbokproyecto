@@ -78,6 +78,7 @@ import { AdminProjectFasesComponent } from './Component/AppControl/admin-project
 import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
 import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 import { NotificacionesControlComponent } from './Component/AppControl/notificaciones-control/notificaciones-control.component';
+import { SeguimientoProyectoControlComponent } from './Component/AppControl/seguimiento-proyecto-control/seguimiento-proyecto-control.component';
 
 
  
@@ -131,6 +132,7 @@ import { NotificacionesControlComponent } from './Component/AppControl/notificac
     ControlFasesComponent,
     ControlAdminUserComponent,
     NotificacionesControlComponent,
+    SeguimientoProyectoControlComponent,
 
   ],
   imports: [

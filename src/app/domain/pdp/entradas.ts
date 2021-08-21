@@ -6,6 +6,7 @@ export class Entradas {
         public  factoresambientales:String,
         public   activosprocesos:String,
         public idpdp: number,
+        public estado:boolean
 
         ) {
 

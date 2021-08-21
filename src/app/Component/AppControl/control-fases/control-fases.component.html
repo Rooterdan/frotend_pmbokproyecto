@@ -3,11 +3,15 @@
 
 <h2>Usuarios agregados</h2>
 
+
+TABLA PENDIENTE DE ORDENAR Y GENERAR EL FORMATO DE LAS HORAS!
 <table>
     <thead>
         <tr>
+
             <th>nombreProyecto</th>
             <th>descripcionProyecto</th>
+
             <th>nombreReunion</th>
             <th>descripcionReunion</th>
             <th>descripcionFase</th>
@@ -19,18 +23,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let grupo of Reuniones">
-            <td>{{grupo.nombreProyecto}}</td>
-            <td>{{grupo.descripcionProyecto}}</td>
-            <td>{{grupo.nombreReunion}}</td>
-            <td>{{grupo.descripcionReunion}}</td>
-            <td>{{grupo.descripcionFase}}</td>
-            <td>{{grupo.inicio}}</td>
-            <td>{{grupo.fin}}</td>
-            <td>{{grupo.estado}}</td>
-            <td>{{grupo.nombre}}</td>
-            <th> <button (click)="verGrupo(grupo.idFase)" >(o)</button></th>
-        </tr>
+
+
+        <div *ngFor="let grupo of Reuniones">
+
+            <tr>
+                <div *ngFor="let proyecto of grupo.proyectos">
+                    <td>{{proyecto.descripcion}}</td>
+                    <td>{{proyecto.nombre}}</td>
+                </div>
+            </tr>
+            <tr>
+                <div *ngFor="let reunion of grupo.reuniones">
+                    <td>{{reunion.descripcionreunion}}</td>
+                    <td>{{reunion.nombrereunion}}</td>
+                </div>
+            </tr>
+            <tr>
+
+                <div *ngFor="let fase of grupo.fases">
+                    <td>{{fase.descripcionfase}}</td>
+                    <td>{{fase.tiempoinicio}}</td>
+                    <td>{{fase.tiempofin}}</td>
+                </div>
+            </tr>
+
+            <tr>
+                <td>NADA</td>
+                <td>NADA</td>
+                <th> <button (click)="verGrupo(0)">(o)</button></th>
+            </tr>
+
+
+        </div>
     </tbody>
 </table>
 
@@ -51,8 +76,8 @@
         <tr *ngFor="let responsable of responsables">
             <td>{{responsable.email}}</td>
             <td>{{responsable.nombrerol}}</td>
-  
-        
+
+
         </tr>
     </tbody>
 </table>
@@ -62,7 +87,7 @@
 <br>
 
 <button>
-    <a (click) = "VolverAControl()">Volver Al panel princial</a>
+    <a (click)="VolverAControl()">Volver Al panel princial</a>
 </button>
 
 <br>

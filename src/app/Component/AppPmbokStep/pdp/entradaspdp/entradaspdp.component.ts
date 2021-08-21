@@ -36,7 +36,7 @@ export class EntradaspdpComponent implements OnInit {
       this.buscarEntradaPdp();
      // this.buscarPdp();
     }, 1300);
-    this.entradasPDP = new Entradas(0 , "", "", "", 0);
+    this.entradasPDP = new Entradas(0 , "", "", "", 0,false);
 
   }
 

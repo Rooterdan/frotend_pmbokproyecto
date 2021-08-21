@@ -69,21 +69,27 @@ export class LoginComponent implements OnInit {
       if(this.verificarCampos() == true ){
         this.usuarioService.findById(this.usuarios.email).subscribe(
           ok=>{
-            console.log('****************');
-            console.log(ok);
+            // console.log('****************');
+            // console.log(ok);
             this.messages[0]="Usuario encontrado";
           
-            if (ok.password == this.usuarios.password){
+         if(ok.activo === 'N'){
+          this.messages[0]="Cuenta bloqueada ";
+          this.abrirModal("Su cuenta esta bloqueada \n No tiene acceso" ,this.title);
+
+         }else{
+          if (ok.password == this.usuarios.password){
           
-              localStorage.setItem("usuario",this.usuarios.email);
-              localStorage.setItem("pass",this.usuarios.password);
-              this.router.navigate(['/home']);
-              
-            }else{
-             this.messages[0]="Error en constraseña";
-           
-             this.abrirModal("Porfavor verifica Password",this.title);
-            }
+            localStorage.setItem("usuario",this.usuarios.email);
+            localStorage.setItem("pass",this.usuarios.password);
+            this.router.navigate(['/home']);
+            
+          }else{
+           this.messages[0]="Error en constraseña";
+         
+           this.abrirModal("Porfavor verifica la contraseña",this.title);
+          }
+         }
             
           },
           err=>{

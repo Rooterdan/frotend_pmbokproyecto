@@ -39,6 +39,7 @@ import { AppMessageComponent } from './Component/AppControl/app-message/app-mess
 import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
 import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 import { NotificacionesControlComponent } from './Component/AppControl/notificaciones-control/notificaciones-control.component';
+import { SeguimientoProyectoControlComponent } from './Component/AppControl/seguimiento-proyecto-control/seguimiento-proyecto-control.component';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent, canActivate: [AuthGuard] },
@@ -100,7 +101,7 @@ const routes: Routes = [
   {path: 'Control-Reuniones-Por-Fase', component: ControlFasesComponent }, // Agendar as reuniones con el grupo de trabajo
   {path: 'Mensajes', component: NotificacionesControlComponent }, // Muestra Los mensajes x usuario
   {path: 'Control', component: ControlAdminUserComponent }, // Agendar as reuniones con el grupo de trabajo
-  
+  { path: 'Control-seguimiento-proyecto', component: SeguimientoProyectoControlComponent},
 
 ];
 

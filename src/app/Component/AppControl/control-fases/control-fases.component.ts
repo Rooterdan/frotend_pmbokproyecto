@@ -17,20 +17,33 @@ export class ControlFasesComponent implements OnInit {
   public mensajeAlerta !: String;
   constructor(
     public servicios: GrupoService,
-    public router:Router
+    public router: Router
   ) { }
 
   ngOnInit(): void {
     this.controlProFase();
+  }
+  private mostrardata(): void {
+    //console.table(this.Reuniones);
+    this.Reuniones.forEach(element => {
+      console.table(element.proyectos);
+      console.table(element.reuniones);
+      console.table(element.fases);
+      console.log('\n\n\n\ns');
+
+
+    });
   }
   public async controlProFase() {
     const idUser = localStorage.getItem('usuario') || "none";
     if (idUser != "none" || idUser != null || idUser != undefined) {
       await this.servicios.controlProFase(idUser).subscribe(
         data => {
-          console.log(this.Reuniones);
+
 
           this.Reuniones = data;
+
+          this.mostrardata();
         },
         error => {
           this.mensajeAlerta = error;
@@ -61,9 +74,9 @@ export class ControlFasesComponent implements OnInit {
     );
 
   }
-  public VolverAControl():void{
+  public VolverAControl(): void {
     this.router.navigate(['/Control']);
-    
+
   }
 
 

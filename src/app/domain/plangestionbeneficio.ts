@@ -7,7 +7,8 @@ export class PlanGestioBeneficio{
         public componentes:string,
         public prodcutos:string,
         public servicios:string,
-        public resultado:string
+        public resultado:string,
+        public estado:boolean
       
     ){
 

@@ -27,10 +27,14 @@ export class AdminProjectFasesComponent implements OnInit {
   usuarioResponsable: Array<any>;
   crearfaseConResponsablesDTO: CrearfaseConResponsablesDTO;
 
+  // Control para seleccionar las fase de trabajo 
+  public actaDeConstitucionDelProyecto: Boolean = false;
+  public planParaLaDireccionDeProyectos: Boolean = false;
+  public planificacionParaLaGestionDelAlcance: Boolean = false;
 
   constructor(
     public fasesServices: GrupoService,
-    public router:Router
+    public router: Router
   ) {
     this.usuarioResponsable = [];
     this.crearfaseConResponsablesDTO = new CrearfaseConResponsablesDTO(0, 0, "", [], "", "", "", "");
@@ -39,12 +43,18 @@ export class AdminProjectFasesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.validarDatos();
-   this.buscarFases();
-    this.cargarUsuariosEnGrupo();
+    this.validarDatos(); // Verifica que se apunte a un id de proyecto
+    this.buscarFases(); // trae las fases de PMBOK que estan en base de datos
+    this.cargarUsuariosEnGrupo(); // Trae a los usuarios agregados al grupo de trabajo
     // this.limitarFases();
 
   }
+  
+  public VolverAControl(): void {
+    this.router.navigate(['/Control']);
+  }
+
+
   private validarDatos(): void {
     if (localStorage.getItem("idproyecto") == undefined || localStorage.getItem("idproyecto") == null || localStorage.getItem("idproyecto") === "") {
       window.location.href = 'http://localhost:4200/home';
@@ -53,11 +63,12 @@ export class AdminProjectFasesComponent implements OnInit {
 
   }
 
-  public async  buscarFases(){
+  public async buscarFases() {
     await this.fasesServices.fasesDelProyecto().subscribe(
       data => {
         // console.log(data);
         this.Fases = data;
+        console.table(this.Fases);
         this.limitarFases(this.Fases);
       },
       error => {
@@ -66,7 +77,7 @@ export class AdminProjectFasesComponent implements OnInit {
       }
     );
 
-    
+
   }
 
   public matricular(): void {
@@ -93,7 +104,7 @@ export class AdminProjectFasesComponent implements OnInit {
       data => {
 
         console.log(JSON.parse(data));
-        
+
         setTimeout(() => {
           this.Mensaje = "SE GRABO LA NUEVA REUNION  ";
 
@@ -166,28 +177,28 @@ export class AdminProjectFasesComponent implements OnInit {
     var indice = this.usuarioResponsable.indexOf({ 'nombre': email, 'rol': rol }); // obtenemos el indice
     this.usuarioResponsable.splice(indice, 1); // 1 es la cantidad de elemento a eliminar
   }
-  public limitarFases(  fases : any): void {  
+  public limitarFases(fases: any): void {
     // En este método se rectifica el avance del proyecto en función del Pmbok, para limitar las fases de trabajo.
     var acta = JSON.parse(localStorage.getItem('datosActa') || '{}');
     var pdp = JSON.parse(localStorage.getItem('datosPGA') || '{}');
     var pga = JSON.parse(localStorage.getItem('datosPDP') || '{}');
     console.log('-------');
     console.log(this.Fases[0]);
-    this.Auxiliar =[];  
-    
+    this.Auxiliar = [];
+
     // Acta
     if (acta.casoNegocioValidate == true && acta.entradactaValidate == true && acta.herramientasValidate == true &&
       acta.planValidate == true) {
-        console.log('1');
-        this.Auxiliar.push(this.Fases[0]);
-        this.Auxiliar.push(this.Fases[1]);
-        this.Auxiliar.push(this.Fases[2]);
-        this.Auxiliar.push(this.Fases[3]);
+      console.log('1');
+      this.Auxiliar.push(this.Fases[0]);
+      this.Auxiliar.push(this.Fases[1]);
+      this.Auxiliar.push(this.Fases[2]);
+      this.Auxiliar.push(this.Fases[3]);
 
 
-    }else{
+    } else {
       console.log('1.1');
-      
+
       this.Auxiliar.push(this.Fases[0]);
       this.Auxiliar.push(this.Fases[1]);
       this.Auxiliar.push(this.Fases[2]);
@@ -206,14 +217,45 @@ export class AdminProjectFasesComponent implements OnInit {
       console.log('3');
 
     }
-    this.Fases =this.Auxiliar;
-    
-    
-    
+    this.Fases = this.Auxiliar;
+
+
+
   }
 
-  public VolverAControl():void{
-    this.router.navigate(['/Control']);
-    
+  // control para seleccionar las fases de trabajo 
+
+  public checkEstadoActa() {
+
+    //this.validarActa();
+    var data = JSON.parse(localStorage.getItem('datosActa') || '{}');
+
+    if (data.casoNegocioValidate == true && data.entradactaValidate == true && data.herramientasValidate == true &&
+      data.planValidate == true) {
+      this.actaDeConstitucionDelProyecto = true;
+    }
   }
+  public checkEstadoPDP() {
+
+    //this.validarPDP();
+
+    var data = JSON.parse(localStorage.getItem('datosPDP') || '{}');
+
+    if (data.entradactaPdpValidate == true && data.herramientasPdpValidate == true) {
+      this.planParaLaDireccionDeProyectos = true;
+
+    }
+  }
+  public checkEstadoPGA() {
+
+    // this.validarPDP();
+
+    var data = JSON.parse(localStorage.getItem('datosPGA') || '{}');
+
+    if (data.pga == true && data.entradactaPgaValidate == true && data.herramientasPgaValidate == true) {
+      this.planificacionParaLaGestionDelAlcance = true;
+
+    }
+  }
+
 }

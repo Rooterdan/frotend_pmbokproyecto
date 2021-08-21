@@ -37,7 +37,7 @@ export class HerramientapgaComponent implements OnInit {
      
       this.buscarHerramientasPda();
     }, 2000);
-    this.herramientasPGA = new PgaHerramientas(0, "", "", 0);
+    this.herramientasPGA = new PgaHerramientas(0, "", "", 0,false);
   }
 
 

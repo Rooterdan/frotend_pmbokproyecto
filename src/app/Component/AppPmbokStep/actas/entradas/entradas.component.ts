@@ -56,10 +56,27 @@ export class EntradasComponent implements OnInit {
 
     }, 1200);
 
-    this.entradaActa = new EntradaActa(0, 0, "", "", "");
+    this.entradaActa = new EntradaActa(0, 0, "", "", "",false);
 
 
   }
+
+  /*
+  Toda esta logica se debe de remover
+  las reuniones ya se gestionan de manera independiente 
+
+
+  se debe consultar 1 la reunion para vincularla 
+  1 acta, pdp o pga etc tienen pueden tener de 1 a muchas reuniones
+
+  1. hubicar la primera reunion la cual sera analoga al ID del acta pdp y pga
+
+  
+
+
+
+
+  */
 
   public guardarActa(): void {
 

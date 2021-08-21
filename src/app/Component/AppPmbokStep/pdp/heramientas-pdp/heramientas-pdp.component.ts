@@ -39,7 +39,7 @@ export class HeramientasPdpComponent implements OnInit {
       this.cargaEnable = false;
       this.buscarHerramientasPdp();
     }, 2000);
-    this.herramientasPdp = new Herramientas(0, "", "", "", "", 0);
+    this.herramientasPdp = new Herramientas(0, "", "", "", "", 0,false);
 
   }
   public async revisarIdpdp() {

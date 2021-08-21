@@ -4,7 +4,8 @@ export class PgaHerramientas {
         public idherramientapga: number,
         public juicioexpertos: String,
         public analisis: String,
-        public idpdp:number
+        public idpdp:number,
+        public estado:boolean
     ) {
 
     }

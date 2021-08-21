@@ -7,7 +7,8 @@ export class EntradaPga {
         public ciclo: String,
         public enfoque: String,
         public activosprocesos: String,
-        public idpga: number
+        public idpga: number,
+        public estado:boolean
     ) {
 
     }
