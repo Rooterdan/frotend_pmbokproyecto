@@ -53,6 +53,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDialogModule} from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table'
 
 
  
@@ -167,6 +168,7 @@ import { SeguimientoProyectoControlComponent } from './Component/AppControl/segu
 
     MatMenuModule,
     MatRadioModule,
+    MatTableModule
 
    
   ],

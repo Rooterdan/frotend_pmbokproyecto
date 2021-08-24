@@ -5,59 +5,55 @@
 
 
 TABLA PENDIENTE DE ORDENAR Y GENERAR EL FORMATO DE LAS HORAS!
-<table>
+<table border="1">
     <thead>
-        <tr>
+        <th>nombreProyecto</th>
+        <th>descripcionProyecto</th>
 
-            <th>nombreProyecto</th>
-            <th>descripcionProyecto</th>
+        <td>nombreReunion</td>
+        <td>descripcionReunion</td>
+        <td>descripcionFase</td>
+        <td>inicio</td>
+        <td>fin</td>
+        <td>estado</td>
+        <td>Ver Grupo de Trabajo</td>
 
-            <th>nombreReunion</th>
-            <th>descripcionReunion</th>
-            <th>descripcionFase</th>
-            <th>inicio</th>
-            <th>fin</th>
-            <th>estado</th>
-            <th>nombre</th>
-            <th>Ver Grupo de Trabajo</th>
-        </tr>
     </thead>
     <tbody>
+        <tr *ngFor="let cosa of Reuniones">
+            <ng-container *ngFor="let proyecto of cosa.proyectos">
+                <td>{{proyecto.nombre}}</td>
+                <td>{{proyecto.descripcion}}</td>
+            </ng-container>
 
+            <ng-container *ngFor="let reu of cosa.reuniones">
+                <td>{{reu.nombrereunion}}</td>
+                <td>{{reu.descripcionreunion}}</td>
+            </ng-container>
+            <ng-container *ngFor="let fase of cosa.fases">
+                <td>{{fase.descripcionfase}}</td>
+                <td>{{fase.tiempoinicio | date: 'dd/MM/yyyy'}}</td>
+                <td>{{fase.tiempofin | date: 'dd/MM/yyyy'}}</td>
+                <!--<td>{{today | date:'dd/MM/yyyy'}}</td>-->
+                <td *ngIf="fase.tiempofin  >= today;else elseBlock"> Cerrado </td>
 
-        <div *ngFor="let grupo of Reuniones">
+                <ng-template #elseBlock>
+                    <td>Activo</td>
+                </ng-template>
+                <td><button  (click) = "verGrupo(fase.idfase)">Ver [(*)]</button></td>
+            </ng-container>
 
-            <tr>
-                <div *ngFor="let proyecto of grupo.proyectos">
-                    <td>{{proyecto.descripcion}}</td>
-                    <td>{{proyecto.nombre}}</td>
-                </div>
-            </tr>
-            <tr>
-                <div *ngFor="let reunion of grupo.reuniones">
-                    <td>{{reunion.descripcionreunion}}</td>
-                    <td>{{reunion.nombrereunion}}</td>
-                </div>
-            </tr>
-            <tr>
+        </tr>
 
-                <div *ngFor="let fase of grupo.fases">
-                    <td>{{fase.descripcionfase}}</td>
-                    <td>{{fase.tiempoinicio}}</td>
-                    <td>{{fase.tiempofin}}</td>
-                </div>
-            </tr>
-
-            <tr>
-                <td>NADA</td>
-                <td>NADA</td>
-                <th> <button (click)="verGrupo(0)">(o)</button></th>
-            </tr>
-
-
-        </div>
     </tbody>
 </table>
+
+<br>
+<br>
+<br>
+
+
+
 
 <br>
 <br>

@@ -3,6 +3,9 @@ import { ControlFases } from 'src/app/domain/ControlFases';
 import { ResponsablesDTO } from 'src/app/domain/ResponsablesDTO';
 import { GrupoService } from 'src/app/service/grupo.service';
 import { Router } from '@angular/router';
+import { Proyecto } from 'src/app/domain/proyectos';
+import { Reunion } from 'src/app/domain/reunion';
+import { FaseProyecto } from 'src/app/domain/faseproyecto';
 
 @Component({
   selector: 'app-control-fases',
@@ -13,8 +16,13 @@ import { Router } from '@angular/router';
 export class ControlFasesComponent implements OnInit {
 
   public Reuniones !: ControlFases[];
+  public proyectosList !: Proyecto[];
+  public reunionesList !: Reunion[];
+  public fasesList !: FaseProyecto[];
   public responsables !: ResponsablesDTO[];
   public mensajeAlerta !: String;
+  today = Date.now();
+  fixedTimezone = this.today;
   constructor(
     public servicios: GrupoService,
     public router: Router
@@ -24,15 +32,22 @@ export class ControlFasesComponent implements OnInit {
     this.controlProFase();
   }
   private mostrardata(): void {
-    //console.table(this.Reuniones);
-    this.Reuniones.forEach(element => {
+    console.table(this.Reuniones);
+    var d = new Date('2021-08-21T05:00:00.000+00:00');
+    console.log(d.getFullYear()); // Hours
+    console.log(d.getMonth());
+    console.log(d.getDay());
+
+    
+    /*this.Reuniones.forEach(element => {
+      this.fasesList.push(element.fases) ;
       console.table(element.proyectos);
-      console.table(element.reuniones);
+       console.table(element.reuniones);
       console.table(element.fases);
       console.log('\n\n\n\ns');
 
 
-    });
+    });*/
   }
   public async controlProFase() {
     const idUser = localStorage.getItem('usuario') || "none";
@@ -58,6 +73,10 @@ export class ControlFasesComponent implements OnInit {
   }
 
   public async verGrupo(idFase: number) {
+    console.clear();
+    
+    console.log("public async verGrupo(idFase: ",idFase,") {");
+    
     var salida = JSON.parse('{}');
     await this.servicios.responsablesEnFaseoReunion(idFase).subscribe(
       data => {
