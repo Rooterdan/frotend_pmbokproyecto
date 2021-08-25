@@ -59,5 +59,22 @@ export class AppComponent {
     }
   }
 
+/*
+  public async  contarMensajes(){
+    let correo = localStorage.getItem('usuario') || '';
+    if(correo === ''){
 
+
+    }else{
+      try {
+        this.mensjaes =await this.serviciosGrupo.contarMensajes(correo).toPromise();
+      } catch (error) {
+        console.error('\n',error,'\n' );
+        
+      }
+
+    }
+    
+
+  }*/
 }

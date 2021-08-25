@@ -27,6 +27,10 @@
                         <app-mis-proyectos></app-mis-proyectos>
                         <!--<app-traspaso></app-traspaso>-->
                     </div>
+                    <div *ngIf="tab.label=== 'Participaciones' ">
+                        <app-participaciones></app-participaciones>
+                        <!--<app-reintegro></app-reintegro>-->
+                    </div>
                     <div *ngIf="tab.label=== 'Crear proyecto' ">
                         <app-proyecto-save></app-proyecto-save>
                         <!--<app-traspaso-ppi500></app-traspaso-ppi500>-->

@@ -50,9 +50,7 @@ export class ProyectosComponent implements OnInit {
 
  
   public findAllProyects(){
-    this.proyectoServices.findAll(
-   
-    ).subscribe(
+    this.proyectoServices.findAll().subscribe(
       data => {
         this.proyectos = data;
       },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+
 export interface ExampleTab {
   label: string;
   content: string;
@@ -16,15 +17,16 @@ export class HomeComponent implements OnInit {
 
   asyncTabs: Observable<ExampleTab[]>;
   
+  
   constructor() {
-    console.log('NUEVO despliegue!')
     
     this.asyncTabs = new Observable((observer: Observer<ExampleTab[]>) => {
       //console.log('aca ->',typeof(groComponent));
       
       setTimeout(() => {
         observer.next([
-          { label: 'Mis proyectos', content: 'Participacion en proyecto' },
+          { label: 'Mis proyectos', content: 'Proyectos Creados' },
+          { label: 'Participaciones', content: 'Participaciones' },
           { label: 'Todos los proyectos', content: 'Proyectos de otros usuarios' },
           { label: 'Crear proyecto', content: 'Crear proyecto' },
         ]);
@@ -38,9 +40,8 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('datosPGA');
     localStorage.removeItem('idproyecto');
     localStorage.removeItem('idPga');
-    
-
   }
+
 
 
 

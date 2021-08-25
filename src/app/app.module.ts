@@ -10,6 +10,7 @@ import { RegisterComponent } from './Component/AppAuth/register/register.compone
 import { HomeComponent } from './Component/AppHome/Home/home.component';
 import { ProyectoSaveComponent } from './Component/AppHome/proyecto-save/proyecto-save.component';
 import { SeguimientoProyectoComponent } from './Component/AppHome/seguimiento-proyecto/seguimiento-proyecto.component';
+
 import { ProyectosComponent } from './Component/AppHome/proyectos/proyectos.component';
 import { MisProyectosComponent } from './Component/AppHome/mis-proyectos/mis-proyectos.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -80,6 +81,8 @@ import { ControlFasesComponent } from './Component/AppControl/control-fases/cont
 import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 import { NotificacionesControlComponent } from './Component/AppControl/notificaciones-control/notificaciones-control.component';
 import { SeguimientoProyectoControlComponent } from './Component/AppControl/seguimiento-proyecto-control/seguimiento-proyecto-control.component';
+import { ParticipacionesComponent } from './Component/AppHome/participaciones/participaciones.component';
+import { ControlParticipacionesComponent } from './Component/AppControl/control-participaciones/control-participaciones.component';
 
 
  
@@ -134,6 +137,8 @@ import { SeguimientoProyectoControlComponent } from './Component/AppControl/segu
     ControlAdminUserComponent,
     NotificacionesControlComponent,
     SeguimientoProyectoControlComponent,
+    ParticipacionesComponent,
+    ControlParticipacionesComponent,
 
   ],
   imports: [

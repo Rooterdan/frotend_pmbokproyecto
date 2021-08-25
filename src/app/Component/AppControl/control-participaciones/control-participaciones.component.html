@@ -1,10 +1,6 @@
-<h1>CONTROL DE FASES </h1>
-<h4>Vista para revisr los parametrso generales de las reuniones programadas</h4>
-
-<h2>Usuarios agregados</h2>
-
-
-TABLA PENDIENTE DE ORDENAR Y GENERAR EL FORMATO DE LAS HORAS!
+<br>
+<br>
+<br>
 <table border="1">
     <thead>
         <th>nombreProyecto</th>
@@ -42,43 +38,10 @@ TABLA PENDIENTE DE ORDENAR Y GENERAR EL FORMATO DE LAS HORAS!
                 <ng-template #elseBlock>
                     <td>Activo</td>
                 </ng-template>
-                <td><button  (click) = "verGrupo(fase.idfase)">Ver [(*)]</button></td>
+                <td><button >Ver [(*)]</button></td>
             </ng-container>
 
         </tr>
 
     </tbody>
 </table>
-
-<br>
-<br>
-<h2>----------------</h2>
-<h1>El grupo de trabajo es:</h1>
-
-<table border="1">
-    <thead>
-        <tr>
-            <th>usuario</th>
-            <th>rol</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let responsable of responsables">
-            <td>{{responsable.email}}</td>
-            <td>{{responsable.nombrerol}}</td>
-
-
-        </tr>
-    </tbody>
-</table>
-
-<br>
-<br>
-<br>
-
-<button>
-    <a (click)="VolverAControl()">Volver Al panel princial</a>
-</button>
-
-<br>
-<br>

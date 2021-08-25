@@ -29,6 +29,12 @@ export class ProyectosService {
     return this.httpClient.get(this.url+'findByAll');
   }
 
+  
+  public BuscarParticipaciones(email:String):Observable<any>{
+    //let header=this.createTokenHeader();
+    return this.httpClient.get(this.url+'BuscarParticipaciones/'+email);
+  } 
+
   public findById(idproyecto:number):Observable<any>{
     //let header=this.createTokenHeader();
     return this.httpClient.get(this.url+'finById/'+idproyecto);

@@ -6,6 +6,7 @@ import { MisProyectosComponent } from './Component/AppHome/mis-proyectos/mis-pro
 import { ProyectosComponent } from './Component/AppHome/proyectos/proyectos.component';
 import { LoginComponent } from './Component/AppAuth/login/login.component';
 import { ProyectoSaveComponent } from './Component/AppHome/proyecto-save/proyecto-save.component';
+import { ParticipacionesComponent } from './Component/AppHome/participaciones/participaciones.component';
 import { RegisterComponent } from './Component/AppAuth/register/register.component';
 import { SeguimientoProyectoComponent } from './Component/AppHome/seguimiento-proyecto/seguimiento-proyecto.component';
 //import { PlanGestioBeneficio } from './domain/plangestionbeneficio';
@@ -37,6 +38,7 @@ import { AdminProjectFasesComponent } from './Component/AppControl/admin-project
 import { AdminProjectComponent } from './Component/AppControl/admin-project/admin-project.component';
 import { AppMessageComponent } from './Component/AppControl/app-message/app-message.component';
 import { ControlFasesComponent } from './Component/AppControl/control-fases/control-fases.component';
+import { ControlParticipacionesComponent } from './Component/AppControl/control-participaciones/control-participaciones.component';
 import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 import { NotificacionesControlComponent } from './Component/AppControl/notificaciones-control/notificaciones-control.component';
 import { SeguimientoProyectoControlComponent } from './Component/AppControl/seguimiento-proyecto-control/seguimiento-proyecto-control.component';
@@ -50,6 +52,7 @@ const routes: Routes = [
   { path: 'misproyectos', component: MisProyectosComponent, canActivate: [AuthGuard] },
   { path: 'proyectos', component: ProyectosComponent, canActivate: [AuthGuard] },
   { path: 'proyecto-save', component: ProyectoSaveComponent, canActivate: [AuthGuard] },
+  { path: 'participaciones', component: ParticipacionesComponent, canActivate: [AuthGuard] },
 
   /**
    * actas de inicion
@@ -102,7 +105,8 @@ const routes: Routes = [
   {path: 'Mensajes', component: NotificacionesControlComponent }, // Muestra Los mensajes x usuario
   {path: 'Control', component: ControlAdminUserComponent }, // Agendar as reuniones con el grupo de trabajo
   { path: 'Control-seguimiento-proyecto', component: SeguimientoProyectoControlComponent},
-
+  { path: 'Control-Participacion-proyecto', component: ControlParticipacionesComponent},
+  
 ];
 
 @NgModule({
