@@ -13,7 +13,7 @@
         <td>inicio</td>
         <td>fin</td>
         <td>estado</td>
-        <td>Ver Grupo de Trabajo</td>
+        <td>INgresar</td>
 
     </thead>
     <tbody>
@@ -38,7 +38,7 @@
                 <ng-template #elseBlock>
                     <td>Activo</td>
                 </ng-template>
-                <td><button >Ver [(*)]</button></td>
+                <td><button  (click) = "ingresofase(fase.nombrefase,fase)" >Ingresar [(*)]</button></td>
             </ng-container>
 
         </tr>

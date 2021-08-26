@@ -7,7 +7,8 @@ export class HerramientasActa{
         public habilidades:string,
         public herramientareuniones:string,
         public idactas:number,
-        public estado:boolean
+        public estado:boolean,
+        public participa:String,
     ){
 
     }

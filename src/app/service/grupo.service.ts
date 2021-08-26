@@ -38,7 +38,7 @@ export class GrupoService {
 
   // MEtodo para obtener los datos de la reuniones teniendo en cuenta el ID/email del usuario ADMIN
   public controlProFase(idUsuario: String): Observable<any> {
-    return this.httpClient.get(this.url + 'consultarIdsUser/' + idUsuario);
+    return this.httpClient.get(this.url + 'consultarIdsUser/' + idUsuario); 
     
 
   }
@@ -47,6 +47,10 @@ export class GrupoService {
     return this.httpClient.get(this.url + 'responsablesEnFaseoReunion/'+idFase);
   }
 
+  public consultarParticipaciones(email:String,idFase:number): Observable<any> {
+    
+    return this.httpClient.get(this.url + 'consultarParticipaciones/'+email+'/'+idFase);
+  }
 
 }
 

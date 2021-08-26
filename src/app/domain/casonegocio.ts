@@ -7,7 +7,8 @@ export class CasoNegocio{
         public incidentes:string,
         public oportunidades:string,
         public idEntradaActa:number,
-        public estado:boolean
+        public estado:boolean,
+        public participa:String,
         
     ){
 

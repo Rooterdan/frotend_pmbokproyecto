@@ -46,8 +46,9 @@ export class ParticipacionesComponent implements OnInit {
         });
     }
   }
-  public entrarProyecto(nombre:String,idproyecto:number){
-    console.log(nombre, 'numero',idproyecto);
+  public entrarProyecto(poryecto:Proyecto){
+    console.log(poryecto);
+    localStorage.setItem('proyectoParticipacion', JSON.stringify(poryecto));
     this.router.navigate(['/Control-Participacion-proyecto']);
     
     
