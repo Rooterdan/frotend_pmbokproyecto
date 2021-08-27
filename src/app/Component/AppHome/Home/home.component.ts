@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
     localStorage.removeItem('idproyecto');
     localStorage.removeItem('proyectoParticipacion');
     localStorage.removeItem('idPga');
+    localStorage.removeItem('nombreProyecto');
   }
 
 

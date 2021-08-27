@@ -45,7 +45,7 @@ export class PlanGestionBeneficiosComponent implements OnInit {
       
     }, 2000);
     
-    this.planObje = new PlanGestioBeneficio(0, 0, "", "", "", "","",false);
+    this.planObje = new PlanGestioBeneficio(0, 0, "", "", "", "","",false,"");
 
   }
   public guardarPlan() {

@@ -56,7 +56,7 @@ export class EntradasComponent implements OnInit {
 
     }, 1200);
 
-    this.entradaActa = new EntradaActa(0, 0, "", "", "",false);
+    this.entradaActa = new EntradaActa(0, 0, "", "", "",false,"");
 
 
   }

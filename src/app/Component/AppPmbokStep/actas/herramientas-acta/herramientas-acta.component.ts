@@ -43,7 +43,7 @@ export class HerramientasActaComponent implements OnInit {
       this.buscarherramientasPorActa();
       
     }, 1300 );
-    this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0,false);
+    this.herramientasObje = new HerramientasActa(0, "", "", "", "", 0,false,"");
   }
 
 
@@ -95,8 +95,8 @@ export class HerramientasActaComponent implements OnInit {
       },
 
       err => {
-        console.log(err.error.error);
-        window.alert('Herramientas ' + err.error.error);
+        console.log('ErrorbuscarherramientasPorActa:\n'+err.error.error);
+        //window.alert('Herramientas ' + err.error.error);
 
       }
     );

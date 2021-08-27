@@ -44,48 +44,48 @@ export class ControlParticipacionesComponent implements OnInit {
     }
   }
 
-  public ingresofase(fase: String, data:any): void {
-    console.log(data);
+  public ingresofase(fase: String, data: any): void {
+    console.log(data.nombrefase);
     console.log(' \n');
-    
+
     if (fase === "Acta-Entrada") {
       console.log('Acta-Entrad');
-      
+      this.router.navigate(['/actas/entradas']);
 
     }
     if (fase === "Acta-Herramientas") {
       console.log('Acta-Herram');
-      
+      this.router.navigate(['/actas/herramientas']);
 
     }
     if (fase === "Acta-CasoNegocio") {
       console.log('Acta-CasoNe');
-      
 
+      this.router.navigate(['/actas/entradas/caso-negocio']);
     }
     if (fase === "Acta-PlanGestionBeneficio") {
       console.log('Acta-PlanGe');
-      
+      this.router.navigate(['/actas/entradas/plan-gestion-beneficio']);
 
     }
     if (fase === "PDP-Entrada") {
       console.log('PDP-Entrada');
-      
 
+      this.router.navigate(['/pdp/entradasPdp']);
     }
     if (fase === "PDP-Herramientas") {
       console.log('PDP-Herrami');
-      
 
+      this.router.navigate(['/pdp/herramientasPdp']);
     }
     if (fase === "PGA-Entrada") {
       console.log('PGA-Entrada');
-      
+      this.router.navigate(['/Pga/entradasPdp']);
 
     }
     if (fase === "PGA-Herramientas") {
       console.log('PGA-Herrami');
-      
+      this.router.navigate(['/Pga/herramientasPga']);
 
     }
 

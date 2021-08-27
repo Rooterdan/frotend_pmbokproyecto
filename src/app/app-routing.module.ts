@@ -42,6 +42,7 @@ import { ControlParticipacionesComponent } from './Component/AppControl/control-
 import { ControlAdminUserComponent } from './Component/AppControl/control-admin-user/control-admin-user.component';
 import { NotificacionesControlComponent } from './Component/AppControl/notificaciones-control/notificaciones-control.component';
 import { SeguimientoProyectoControlComponent } from './Component/AppControl/seguimiento-proyecto-control/seguimiento-proyecto-control.component';
+import { PlanGestioBeneficio } from './domain/plangestionbeneficio';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent, canActivate: [AuthGuard] },
@@ -61,7 +62,7 @@ const routes: Routes = [
   { path: 'actas/entradas', component: EntradasComponent },
   { path: 'actas/entradas/caso-negocio', component: CasoNegocioComponent },
   { path: 'actas/herramientas', component: HerramientasActaComponent },
-  //{ path: 'actas/entradas/plan-gestion-beneficio', component: PlanGestioBeneficio },
+  { path: 'actas/entradas/plan-gestion-beneficio', component: PlanGestioBeneficio },
 
   /**
    * Vistas de presentacion de Informacion de las Actas

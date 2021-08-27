@@ -39,7 +39,7 @@ export class EntradaspgaComponent implements OnInit {
       this.cargaEnable = false;
       this.buscarEntradaPda();
     }, 2000);
-    this.entradasPga = new EntradaPga(0, "", "", "", "", "", 0,false);
+    this.entradasPga = new EntradaPga(0, "", "", "", "", "", 0,false,"");
   }
 
 

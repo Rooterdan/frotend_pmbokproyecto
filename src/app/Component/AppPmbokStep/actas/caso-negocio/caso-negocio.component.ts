@@ -46,7 +46,7 @@ export class CasoNegocioComponent implements OnInit {
 
     }, 2000);
     
-    this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0,false);
+    this.casoMegocio = new CasoNegocio(0, "", "", "", "", 0,false,"");
 
   }
   public guardarCasoNegocio() {
@@ -103,7 +103,7 @@ export class CasoNegocioComponent implements OnInit {
 
       err => {
         console.log(err.error.error);
-        window.alert(err.error.error);
+        //window.alert(err.error.error);
 
       }
     );
